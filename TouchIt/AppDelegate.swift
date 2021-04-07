@@ -15,14 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+        FirebaseApp.configure()
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let module = MainWireFrame.create()
  //       let navigation = UINavigationController(rootViewController: module)
         self.window?.rootViewController = module //navigation
         self.window?.makeKeyAndVisible()
         
-        FirebaseApp.configure()
+        
         
  //       let storageRef = Storage.storage().reference().child("lock.png")
         

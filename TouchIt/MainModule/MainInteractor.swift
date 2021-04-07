@@ -18,9 +18,4 @@ class MainInteractor {
 
 extension MainInteractor: MainModuleInteractorProtocol {
     
-    func getVideo(completion: @escaping(Bool) -> ()) {
-        self.apiService.fechMovi { (data) in
-            completion(data)
-        }
-    }
 }

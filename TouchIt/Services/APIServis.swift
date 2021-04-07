@@ -9,7 +9,7 @@ import Foundation
 import FirebaseStorage
 
 protocol APIServiceProtocol {
-    func fechMovi(completion: @escaping(Bool) -> ())
+    func fechMovi(name: String, completion: @escaping(Bool) -> ())
 }
 
 class APIServiceImplementation {
@@ -27,21 +27,22 @@ enum APIError: Error {
 
 extension APIServiceImplementation: APIServiceProtocol {
     
-    func fechMovi(completion: @escaping(Bool) -> ()) {
+    func fechMovi(name: String, completion: @escaping(Bool) -> ()) {
         
-        let fileName = "video.mp4"
-        let storageRef = Storage.storage().reference().child(fileName)
-        let megaByte = Int64(1 * 1024 * 1024)
-        storageRef.getData(maxSize: megaByte) { (data, error) in
+        let fileName = URL(string: name)?.lastPathComponent ?? name
+        let storageRef = Storage.storage().reference(withPath: "video.mp4")
+//        let megaByte = Int64(1 * 1024 * 1024)
+        
+        storageRef.getData(maxSize: Int64.max) { (data, error) in
             if error != nil {
                 completion(false)
             } else {
                 guard let data = data else { return }
-                
+
                 let fileManager = FileManager.default
                 let documentDir = try! fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
                 let localFile = documentDir.appendingPathComponent(fileName)
-                
+
                 //Checks if file exists, removes it if so.
                 if FileManager.default.fileExists(atPath: localFile.path) {
                     do {
@@ -62,7 +63,25 @@ extension APIServiceImplementation: APIServiceProtocol {
 
         }
     }
- 
+    
+    private func loadImageFromDiskWith(fileName: String) -> String? {
+
+      let documentDirectory = FileManager.SearchPathDirectory.documentDirectory
+
+        let userDomainMask = FileManager.SearchPathDomainMask.userDomainMask
+        let paths = NSSearchPathForDirectoriesInDomains(documentDirectory, userDomainMask, true)
+
+        if let dirPath = paths.first {
+ //           let filename = URL(string: fileName)?.lastPathComponent ?? fileName
+            let videoUrl = URL(fileURLWithPath: dirPath).appendingPathComponent(fileName)
+//            let image = UIImage(contentsOfFile: videoUrl.path)
+
+            return videoUrl.path
+
+        }
+
+        return nil
+    }
 }
 
 

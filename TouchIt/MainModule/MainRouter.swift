@@ -17,8 +17,5 @@ class MainRouter {
 }
 
 extension MainRouter: MainModuleRouterProtocol{
-    
-    func goToSecondScreen() {
-        
-    }
+   
 }

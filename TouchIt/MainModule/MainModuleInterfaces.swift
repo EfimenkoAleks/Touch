@@ -16,9 +16,9 @@ protocol MainModulePresenterProtocol {
 }
 
 protocol MainModuleInteractorProtocol {
-    func getVideo(completion: @escaping(Bool) -> ())
+   
 }
 
 protocol MainModuleRouterProtocol {
-    func goToSecondScreen()
+   
 }
