@@ -28,6 +28,24 @@
 		3B8DABB0261DD341001EB336 /* AboutModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8DABAF261DD341001EB336 /* AboutModuleInterface.swift */; };
 		3B8DABB3261DD36D001EB336 /* AboutWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8DABB2261DD36D001EB336 /* AboutWireframe.swift */; };
 		749E0F14DDE753D043A4E468 /* Pods_TouchIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E88B7A14A013238A49EA77EC /* Pods_TouchIt.framework */; };
+		CE347AA2261E2CF500D87EA9 /* ServicesModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE347AA1261E2CF500D87EA9 /* ServicesModuleInterface.swift */; };
+		CE347AA5261E2D0E00D87EA9 /* ServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE347AA4261E2D0E00D87EA9 /* ServicesViewController.swift */; };
+		CE347AA8261E2D3A00D87EA9 /* ServicesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE347AA7261E2D3A00D87EA9 /* ServicesPresenter.swift */; };
+		CE347AAB261E2D5800D87EA9 /* ServicesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE347AAA261E2D5800D87EA9 /* ServicesInteractor.swift */; };
+		CE347AAE261E2D6C00D87EA9 /* ServicesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE347AAD261E2D6C00D87EA9 /* ServicesRouter.swift */; };
+		CE347AB1261E2D9E00D87EA9 /* ServicesWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE347AB0261E2D9E00D87EA9 /* ServicesWireframe.swift */; };
+		CE347AB5261E2FF400D87EA9 /* ProjectsModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE347AB4261E2FF400D87EA9 /* ProjectsModuleInterface.swift */; };
+		CE347AB8261E300A00D87EA9 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE347AB7261E300A00D87EA9 /* ProjectsViewController.swift */; };
+		CE347ABB261E302200D87EA9 /* ProjectsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE347ABA261E302200D87EA9 /* ProjectsPresenter.swift */; };
+		CE347ABE261E303B00D87EA9 /* ProjectsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE347ABD261E303B00D87EA9 /* ProjectsInteractor.swift */; };
+		CE347AC1261E304F00D87EA9 /* ProjectsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE347AC0261E304F00D87EA9 /* ProjectsRouter.swift */; };
+		CE347AC4261E306400D87EA9 /* ProjectsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE347AC3261E306400D87EA9 /* ProjectsWireframe.swift */; };
+		CE347AC8261E31AE00D87EA9 /* ContactsModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE347AC7261E31AE00D87EA9 /* ContactsModuleInterface.swift */; };
+		CE347ACB261E31C300D87EA9 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE347ACA261E31C300D87EA9 /* ContactsViewController.swift */; };
+		CE347ACE261E31DF00D87EA9 /* ContactsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE347ACD261E31DF00D87EA9 /* ContactsPresenter.swift */; };
+		CE347AD1261E31FD00D87EA9 /* ContactsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE347AD0261E31FD00D87EA9 /* ContactsInteractor.swift */; };
+		CE347AD4261E320F00D87EA9 /* ContactsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE347AD3261E320F00D87EA9 /* ContactsRouter.swift */; };
+		CE347AD7261E322A00D87EA9 /* ContactsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE347AD6261E322A00D87EA9 /* ContactsWireframe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +73,24 @@
 		3B8DABAF261DD341001EB336 /* AboutModuleInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutModuleInterface.swift; sourceTree = "<group>"; };
 		3B8DABB2261DD36D001EB336 /* AboutWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWireframe.swift; sourceTree = "<group>"; };
 		4ABC969DAF47DCF9F2FF4A53 /* Pods-TouchIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchIt.debug.xcconfig"; path = "Target Support Files/Pods-TouchIt/Pods-TouchIt.debug.xcconfig"; sourceTree = "<group>"; };
+		CE347AA1261E2CF500D87EA9 /* ServicesModuleInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesModuleInterface.swift; sourceTree = "<group>"; };
+		CE347AA4261E2D0E00D87EA9 /* ServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesViewController.swift; sourceTree = "<group>"; };
+		CE347AA7261E2D3A00D87EA9 /* ServicesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesPresenter.swift; sourceTree = "<group>"; };
+		CE347AAA261E2D5800D87EA9 /* ServicesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesInteractor.swift; sourceTree = "<group>"; };
+		CE347AAD261E2D6C00D87EA9 /* ServicesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesRouter.swift; sourceTree = "<group>"; };
+		CE347AB0261E2D9E00D87EA9 /* ServicesWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesWireframe.swift; sourceTree = "<group>"; };
+		CE347AB4261E2FF400D87EA9 /* ProjectsModuleInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsModuleInterface.swift; sourceTree = "<group>"; };
+		CE347AB7261E300A00D87EA9 /* ProjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
+		CE347ABA261E302200D87EA9 /* ProjectsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsPresenter.swift; sourceTree = "<group>"; };
+		CE347ABD261E303B00D87EA9 /* ProjectsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsInteractor.swift; sourceTree = "<group>"; };
+		CE347AC0261E304F00D87EA9 /* ProjectsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsRouter.swift; sourceTree = "<group>"; };
+		CE347AC3261E306400D87EA9 /* ProjectsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsWireframe.swift; sourceTree = "<group>"; };
+		CE347AC7261E31AE00D87EA9 /* ContactsModuleInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsModuleInterface.swift; sourceTree = "<group>"; };
+		CE347ACA261E31C300D87EA9 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		CE347ACD261E31DF00D87EA9 /* ContactsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsPresenter.swift; sourceTree = "<group>"; };
+		CE347AD0261E31FD00D87EA9 /* ContactsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsInteractor.swift; sourceTree = "<group>"; };
+		CE347AD3261E320F00D87EA9 /* ContactsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsRouter.swift; sourceTree = "<group>"; };
+		CE347AD6261E322A00D87EA9 /* ContactsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsWireframe.swift; sourceTree = "<group>"; };
 		E88B7A14A013238A49EA77EC /* Pods_TouchIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TouchIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -108,6 +144,9 @@
 		3B6456D3261AFE450004B721 /* TouchIt */ = {
 			isa = PBXGroup;
 			children = (
+				CE347AC6261E317600D87EA9 /* ContactsModule */,
+				CE347AB3261E2FAE00D87EA9 /* ProjectsModule */,
+				CE347AA0261E2CC000D87EA9 /* ServicesModule */,
 				3B8DABA2261DD251001EB336 /* AboutModule */,
 				3B6456EB261AFEDC0004B721 /* MainModule */,
 				3B4DD3AA261C88EE0022812F /* Services */,
@@ -155,6 +194,45 @@
 				239694A8277FA60FC7A220F8 /* Pods-TouchIt.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		CE347AA0261E2CC000D87EA9 /* ServicesModule */ = {
+			isa = PBXGroup;
+			children = (
+				CE347AA1261E2CF500D87EA9 /* ServicesModuleInterface.swift */,
+				CE347AA4261E2D0E00D87EA9 /* ServicesViewController.swift */,
+				CE347AA7261E2D3A00D87EA9 /* ServicesPresenter.swift */,
+				CE347AAA261E2D5800D87EA9 /* ServicesInteractor.swift */,
+				CE347AAD261E2D6C00D87EA9 /* ServicesRouter.swift */,
+				CE347AB0261E2D9E00D87EA9 /* ServicesWireframe.swift */,
+			);
+			path = ServicesModule;
+			sourceTree = "<group>";
+		};
+		CE347AB3261E2FAE00D87EA9 /* ProjectsModule */ = {
+			isa = PBXGroup;
+			children = (
+				CE347AB4261E2FF400D87EA9 /* ProjectsModuleInterface.swift */,
+				CE347AB7261E300A00D87EA9 /* ProjectsViewController.swift */,
+				CE347ABA261E302200D87EA9 /* ProjectsPresenter.swift */,
+				CE347ABD261E303B00D87EA9 /* ProjectsInteractor.swift */,
+				CE347AC0261E304F00D87EA9 /* ProjectsRouter.swift */,
+				CE347AC3261E306400D87EA9 /* ProjectsWireframe.swift */,
+			);
+			path = ProjectsModule;
+			sourceTree = "<group>";
+		};
+		CE347AC6261E317600D87EA9 /* ContactsModule */ = {
+			isa = PBXGroup;
+			children = (
+				CE347AC7261E31AE00D87EA9 /* ContactsModuleInterface.swift */,
+				CE347ACA261E31C300D87EA9 /* ContactsViewController.swift */,
+				CE347ACD261E31DF00D87EA9 /* ContactsPresenter.swift */,
+				CE347AD0261E31FD00D87EA9 /* ContactsInteractor.swift */,
+				CE347AD3261E320F00D87EA9 /* ContactsRouter.swift */,
+				CE347AD6261E322A00D87EA9 /* ContactsWireframe.swift */,
+			);
+			path = ContactsModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,21 +351,39 @@
 			files = (
 				3B4DD3A8261C72CC0022812F /* APIServis.swift in Sources */,
 				3B8DABAD261DD31D001EB336 /* AboutRouter.swift in Sources */,
+				CE347AAB261E2D5800D87EA9 /* ServicesInteractor.swift in Sources */,
+				CE347AA5261E2D0E00D87EA9 /* ServicesViewController.swift in Sources */,
 				3B4DD3AD261C89450022812F /* DIContainer.swift in Sources */,
 				3B6456F6261B008B0004B721 /* MainWireframe.swift in Sources */,
+				CE347AB8261E300A00D87EA9 /* ProjectsViewController.swift in Sources */,
+				CE347AAE261E2D6C00D87EA9 /* ServicesRouter.swift in Sources */,
 				3B6456FD261B06F70004B721 /* MainRouter.swift in Sources */,
+				CE347ACE261E31DF00D87EA9 /* ContactsPresenter.swift in Sources */,
+				CE347AC4261E306400D87EA9 /* ProjectsWireframe.swift in Sources */,
 				3B6456D5261AFE450004B721 /* AppDelegate.swift in Sources */,
 				3B645701261B412F0004B721 /* ContentMainView.swift in Sources */,
+				CE347AD7261E322A00D87EA9 /* ContactsWireframe.swift in Sources */,
+				CE347AA2261E2CF500D87EA9 /* ServicesModuleInterface.swift in Sources */,
+				CE347AD1261E31FD00D87EA9 /* ContactsInteractor.swift in Sources */,
 				3B8DABB0261DD341001EB336 /* AboutModuleInterface.swift in Sources */,
 				3B8DABA4261DD295001EB336 /* AboutViewController.swift in Sources */,
+				CE347AC1261E304F00D87EA9 /* ProjectsRouter.swift in Sources */,
+				CE347AB1261E2D9E00D87EA9 /* ServicesWireframe.swift in Sources */,
 				3B645704261B48020004B721 /* AboutCollectionCell.swift in Sources */,
+				CE347AC8261E31AE00D87EA9 /* ContactsModuleInterface.swift in Sources */,
 				3B8DABAA261DD2F6001EB336 /* AboutInteractor.swift in Sources */,
 				3B6456F9261B00CA0004B721 /* MainModuleInterfaces.swift in Sources */,
+				CE347ABE261E303B00D87EA9 /* ProjectsInteractor.swift in Sources */,
+				CE347AB5261E2FF400D87EA9 /* ProjectsModuleInterface.swift in Sources */,
 				3B6456F0261B00240004B721 /* MainPresenter.swift in Sources */,
 				3B6456ED261AFF4B0004B721 /* MainViewController.swift in Sources */,
 				3B6456F3261B005B0004B721 /* MainInteractor.swift in Sources */,
+				CE347ABB261E302200D87EA9 /* ProjectsPresenter.swift in Sources */,
+				CE347AD4261E320F00D87EA9 /* ContactsRouter.swift in Sources */,
 				3B8DABA7261DD2C2001EB336 /* AboutPresenter.swift in Sources */,
+				CE347AA8261E2D3A00D87EA9 /* ServicesPresenter.swift in Sources */,
 				3B8DABB3261DD36D001EB336 /* AboutWireframe.swift in Sources */,
+				CE347ACB261E31C300D87EA9 /* ContactsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
