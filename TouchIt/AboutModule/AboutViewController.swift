@@ -33,6 +33,12 @@ class AboutViewController: UIViewController {
         return lb
     }()
     
+    var scrollView: UIScrollView = {
+        let sc = UIScrollView()
+        
+        return sc
+    }()
+    
     var titleLabel: UILabel = {
         let lb = UILabel()
         lb.textAlignment = .left
@@ -60,6 +66,7 @@ class AboutViewController: UIViewController {
         super.viewDidLoad()
 
         self.setupConstraints()
+//        self.textLabel.delegate = self
         self.presenter.fechVideo()
     }
     
@@ -118,8 +125,18 @@ extension AboutViewController {
         
         titleLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+//            scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
+        
         textLabel.leadingAnchor.constraint(equalTo: stacView.leadingAnchor).isActive = true
         textLabel.trailingAnchor.constraint(equalTo: stacView.trailingAnchor).isActive = true
+        
+      
     }
 
     private func configure(neme: String) {
@@ -130,6 +147,7 @@ extension AboutViewController {
         textLabel.text = "We create solutions for your business. Team of specialists with passion to get success. Our strong area is IOS and Android development. Mobile phone is that thing which people pick up each morning when they get up and put out when you are going to sleep. We are striving for that time which people are spending with their digital friend would be comfortable for them and most effective. Do you wanna to raise your business and do it the fastest way? Do you wanna to share your great idea with the world? Mobile application is the best way. Choose the succeed one."
     }
 }
+
 
 extension AboutViewController: AboutModuleViewProtocol {
     func updateView() {
