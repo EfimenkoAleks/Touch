@@ -13,9 +13,18 @@ class ProjectsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .systemTeal
 
         // Do any additional setup after loading the view.
     }
    
 
+}
+
+extension ProjectsViewController: ProjectsModuleViewProtocol {
+    func updateView() {
+        
+    }
+    
+    
 }

@@ -12,7 +12,8 @@ protocol ServicesModuleViewProtocol: class {
 }
 
 protocol ServicesModulePresenterProtocol {
-   
+    var countIcons: Int { get }
+    func curentLogo(index: Int) -> Logo
 }
 
 protocol ServicesModuleInteractorProtocol {

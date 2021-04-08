@@ -21,6 +21,8 @@
 		3B6456FD261B06F70004B721 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6456FC261B06F70004B721 /* MainRouter.swift */; };
 		3B645701261B412F0004B721 /* ContentMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B645700261B412F0004B721 /* ContentMainView.swift */; };
 		3B645704261B48020004B721 /* AboutCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B645703261B48020004B721 /* AboutCollectionCell.swift */; };
+		3B7108CC261F27FC0054BBF3 /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7108CB261F27FC0054BBF3 /* ServiceCollectionViewCell.swift */; };
+		3B7108CF261F4DC60054BBF3 /* ServicesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7108CE261F4DC60054BBF3 /* ServicesEntity.swift */; };
 		3B8DABA4261DD295001EB336 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8DABA3261DD295001EB336 /* AboutViewController.swift */; };
 		3B8DABA7261DD2C2001EB336 /* AboutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8DABA6261DD2C2001EB336 /* AboutPresenter.swift */; };
 		3B8DABAA261DD2F6001EB336 /* AboutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8DABA9261DD2F6001EB336 /* AboutInteractor.swift */; };
@@ -66,6 +68,8 @@
 		3B6456FC261B06F70004B721 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		3B645700261B412F0004B721 /* ContentMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentMainView.swift; sourceTree = "<group>"; };
 		3B645703261B48020004B721 /* AboutCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCollectionCell.swift; sourceTree = "<group>"; };
+		3B7108CB261F27FC0054BBF3 /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
+		3B7108CE261F4DC60054BBF3 /* ServicesEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesEntity.swift; sourceTree = "<group>"; };
 		3B8DABA3261DD295001EB336 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		3B8DABA6261DD2C2001EB336 /* AboutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPresenter.swift; sourceTree = "<group>"; };
 		3B8DABA9261DD2F6001EB336 /* AboutInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutInteractor.swift; sourceTree = "<group>"; };
@@ -201,10 +205,12 @@
 			children = (
 				CE347AA1261E2CF500D87EA9 /* ServicesModuleInterface.swift */,
 				CE347AA4261E2D0E00D87EA9 /* ServicesViewController.swift */,
+				3B7108CB261F27FC0054BBF3 /* ServiceCollectionViewCell.swift */,
 				CE347AA7261E2D3A00D87EA9 /* ServicesPresenter.swift */,
 				CE347AAA261E2D5800D87EA9 /* ServicesInteractor.swift */,
 				CE347AAD261E2D6C00D87EA9 /* ServicesRouter.swift */,
 				CE347AB0261E2D9E00D87EA9 /* ServicesWireframe.swift */,
+				3B7108CE261F4DC60054BBF3 /* ServicesEntity.swift */,
 			);
 			path = ServicesModule;
 			sourceTree = "<group>";
@@ -362,6 +368,7 @@
 				CE347AC4261E306400D87EA9 /* ProjectsWireframe.swift in Sources */,
 				3B6456D5261AFE450004B721 /* AppDelegate.swift in Sources */,
 				3B645701261B412F0004B721 /* ContentMainView.swift in Sources */,
+				3B7108CF261F4DC60054BBF3 /* ServicesEntity.swift in Sources */,
 				CE347AD7261E322A00D87EA9 /* ContactsWireframe.swift in Sources */,
 				CE347AA2261E2CF500D87EA9 /* ServicesModuleInterface.swift in Sources */,
 				CE347AD1261E31FD00D87EA9 /* ContactsInteractor.swift in Sources */,
@@ -371,6 +378,7 @@
 				CE347AB1261E2D9E00D87EA9 /* ServicesWireframe.swift in Sources */,
 				3B645704261B48020004B721 /* AboutCollectionCell.swift in Sources */,
 				CE347AC8261E31AE00D87EA9 /* ContactsModuleInterface.swift in Sources */,
+				3B7108CC261F27FC0054BBF3 /* ServiceCollectionViewCell.swift in Sources */,
 				3B8DABAA261DD2F6001EB336 /* AboutInteractor.swift in Sources */,
 				3B6456F9261B00CA0004B721 /* MainModuleInterfaces.swift in Sources */,
 				CE347ABE261E303B00D87EA9 /* ProjectsInteractor.swift in Sources */,

@@ -30,6 +30,10 @@ extension APIServiceImplementation: APIServiceProtocol {
     func fechMovi(name: String, completion: @escaping(Bool) -> ()) {
         
         let fileName = URL(string: name)?.lastPathComponent ?? name
+        if self.loadImageFromDiskWith(fileName: name) != nil {
+            completion(true)
+        }
+        
         let storageRef = Storage.storage().reference(withPath: "video.mp4")
 //        let megaByte = Int64(1 * 1024 * 1024)
         

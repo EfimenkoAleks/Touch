@@ -11,6 +11,7 @@ class MainViewController: UIViewController {
     
     var segmentsVC: [UIViewController] = []
     var presenter: MainModulePresenterProtocol!
+    var stackView = UIStackView()
     var scrollView: UIScrollView!
 
     
@@ -24,9 +25,9 @@ class MainViewController: UIViewController {
                                 width: frame.width - 32, height: frame.height*0.04)
         // Style the Segmented Control
         customSC.layer.cornerRadius = 5.0
-        customSC.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5)
-        customSC.tintColor = .brown
-        customSC.selectedSegmentTintColor = #colorLiteral(red: 0.9608978426, green: 0.912968934, blue: 0.8459051666, alpha: 1)
+        customSC.backgroundColor = #colorLiteral(red: 0.1298420429, green: 0.1298461258, blue: 0.1298439503, alpha: 1)
+        customSC.tintColor = .white
+        customSC.selectedSegmentTintColor = #colorLiteral(red: 0.4756349325, green: 0.4756467342, blue: 0.4756404161, alpha: 1)
         customSC.layer.borderWidth = 1
         
         // Add target action method
@@ -37,11 +38,12 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .black
-       
-        self.createAllModule()
-        self.createMainView()
         
+        self.createMainView()
+        self.segmentsVC = self.createAllModule()
+        self.setupSlideScrollView(slides: self.segmentsVC)
 
+        
         // Do any additional setup after loading the view.
     }
    
@@ -49,30 +51,49 @@ class MainViewController: UIViewController {
 
 extension MainViewController {
     
-    private func createAllModule() {
-        let vc = AboutWireframe.create()
-        self.segmentsVC.append(vc)
+    private func createAllModule() -> [UIViewController] {
+        
+        var arrayVC: [UIViewController] = []
+        
+        let vcAbo = AboutWireframe.create()
+        arrayVC.append(vcAbo)
+        
+        let vcSer = ServicesWireframe.create()
+        arrayVC.append(vcSer)
+        
+        let vcPro = ProjectsWireframe.create()
+        arrayVC.append(vcPro)
+        
+        let vcCon = ContactsWireframe.create()
+        arrayVC.append(vcCon)
+        
+        return arrayVC
     }
     
     @objc private func forSegment(sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
-            break
-        case 1:
-            break
-        case 2:
-            break
-        default:
-            break
-        }
+        let contentOffset = scrollView.bounds.width * CGFloat(sender.selectedSegmentIndex)
+        scrollView.setContentOffset(CGPoint(x: contentOffset, y: 0), animated: true)
+        
+        
+//        let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
+//        segment.selectedSegmentIndex = Int(pageIndex)
     }
+    
+    func setupSlideScrollView(slides : [UIViewController]) {
+        slides.forEach({ slide in
+            slide.view.translatesAutoresizingMaskIntoConstraints = false
+            self.stackView.addArrangedSubview(slide.view)
+            slide.view.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor).isActive = true
+        })
+        }
     
     private func createMainView() {
         
         self.scrollView = UIScrollView()
+        scrollView.isPagingEnabled = true
         self.view.addSubview(segment)
         self.view.addSubview(scrollView)
-     
+       
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: self.segment.bottomAnchor, constant: 10),
@@ -81,34 +102,33 @@ extension MainViewController {
             scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
         
+        scrollView.delegate = self
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(stackView)
+        
+        stackView.axis = .horizontal
+        stackView.spacing = 0
+        stackView.distribution = .fill
+        stackView.alignment = .fill
+        
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            stackView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
+        ])
+        
         self.view.layoutIfNeeded()
- //       let view2 = self.segmentsVC[0].view
-//        view2?.leadingAnchor
-        self.scrollView.addSubview(self.segmentsVC[0].view)
+ 
+    }
+}
+
+extension MainViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        
-        // scrollView
-//        let scrollView : UIScrollView = UIScrollView(frame: CGRect(x: 80, y: 80,
-//            width: 250, height: 300))
-//            scrollView.isPagingEnabled = true
-//            scrollView.backgroundColor = .orange
-//            view.addSubview(scrollView)
-//            let numberOfPages :Int = 5
-//            let padding : CGFloat = 15
-//            let viewWidth = scrollView.frame.size.width - 2 * padding
-//            let viewHeight = scrollView.frame.size.height - 2 * padding
-//
-//            var x : CGFloat = 0
-//
-//            for i in 0...numberOfPages{
-//                let view: UIView = UIView(frame: CGRect(x: x + padding, y: padding, width: viewWidth, height: viewHeight))
-//                view.backgroundColor = UIColor.white
-//                scrollView .addSubview(view)
-//
-//                x = view.frame.origin.x + viewWidth + padding
-//            }
-//
-//            scrollView.contentSize = CGSize(width:x+padding, height:scrollView.frame.size.height)
+        let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
+        segment.selectedSegmentIndex = Int(pageIndex)
     }
 }
 
@@ -118,30 +138,3 @@ extension MainViewController: MainModuleViewProtocol {
        
 }
 }
-//
-//extension MainViewController: UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return 1
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//
-//        let segment = segments[indexPath.row]
-//        cell.fill(with: segment.view)
-//        switch indexPath.item {
-//        case 0:
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AboutCell.reuseId, for: indexPath) as! AboutCell
-//            cell.configure(neme: self.presenter.nameVideo)
-//            return cell
-//
-//        default:
-//           return UICollectionViewCell()
-//        }
-//    }
-//
-//
-//}
-//
-//extension MainViewController: UICollectionViewDelegate {
-//
-//}
