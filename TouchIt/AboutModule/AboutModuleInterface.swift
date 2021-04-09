@@ -12,12 +12,12 @@ protocol AboutModuleViewProtocol: class {
 }
 
 protocol AboutModulePresenterProtocol {
-    var nameVideo: String { get }
+    var aboutMod: AboutModel { get }
     func fechVideo()
 }
 
 protocol AboutModuleInteractorProtocol {
-    func getVideo(name: String, completion: @escaping(Bool) -> ())
+    func getVideo(name: String, completion: @escaping(URL?) -> ())
 }
 
 protocol AboutModuleRouterProtocol {

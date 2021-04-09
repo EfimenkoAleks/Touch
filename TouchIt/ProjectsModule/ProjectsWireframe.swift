@@ -16,7 +16,9 @@ struct ProjectsWireframe {
         let presenter = ProjectsPresenter(view: view, interactor: interactor, router: router)
         view.presenter = presenter
         
-        return view
+        let navigation = UINavigationController(rootViewController: view)
+        
+        return navigation
     }
 }
 

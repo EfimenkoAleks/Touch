@@ -14,7 +14,6 @@ class MainViewController: UIViewController {
     var stackView = UIStackView()
     var scrollView: UIScrollView!
 
-    
     var segment: UISegmentedControl = {
         let items = ["About", "Services", "Projects", "Contacts"]
         let customSC = UISegmentedControl(items: items)

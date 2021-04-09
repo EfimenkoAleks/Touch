@@ -29,6 +29,9 @@
 		3B8DABAD261DD31D001EB336 /* AboutRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8DABAC261DD31D001EB336 /* AboutRouter.swift */; };
 		3B8DABB0261DD341001EB336 /* AboutModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8DABAF261DD341001EB336 /* AboutModuleInterface.swift */; };
 		3B8DABB3261DD36D001EB336 /* AboutWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8DABB2261DD36D001EB336 /* AboutWireframe.swift */; };
+		3BDF814E2620414C00FDB202 /* AboutEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDF814D2620414C00FDB202 /* AboutEntity.swift */; };
+		3BDF81512620632A00FDB202 /* ProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDF81502620632A00FDB202 /* ProjectCollectionViewCell.swift */; };
+		3BDF8155262065AB00FDB202 /* ProjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDF8154262065AB00FDB202 /* ProjectEntity.swift */; };
 		749E0F14DDE753D043A4E468 /* Pods_TouchIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E88B7A14A013238A49EA77EC /* Pods_TouchIt.framework */; };
 		CE347AA2261E2CF500D87EA9 /* ServicesModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE347AA1261E2CF500D87EA9 /* ServicesModuleInterface.swift */; };
 		CE347AA5261E2D0E00D87EA9 /* ServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE347AA4261E2D0E00D87EA9 /* ServicesViewController.swift */; };
@@ -76,6 +79,9 @@
 		3B8DABAC261DD31D001EB336 /* AboutRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutRouter.swift; sourceTree = "<group>"; };
 		3B8DABAF261DD341001EB336 /* AboutModuleInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutModuleInterface.swift; sourceTree = "<group>"; };
 		3B8DABB2261DD36D001EB336 /* AboutWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWireframe.swift; sourceTree = "<group>"; };
+		3BDF814D2620414C00FDB202 /* AboutEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutEntity.swift; sourceTree = "<group>"; };
+		3BDF81502620632A00FDB202 /* ProjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCollectionViewCell.swift; sourceTree = "<group>"; };
+		3BDF8154262065AB00FDB202 /* ProjectEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectEntity.swift; sourceTree = "<group>"; };
 		4ABC969DAF47DCF9F2FF4A53 /* Pods-TouchIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchIt.debug.xcconfig"; path = "Target Support Files/Pods-TouchIt/Pods-TouchIt.debug.xcconfig"; sourceTree = "<group>"; };
 		CE347AA1261E2CF500D87EA9 /* ServicesModuleInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesModuleInterface.swift; sourceTree = "<group>"; };
 		CE347AA4261E2D0E00D87EA9 /* ServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +193,7 @@
 				3B8DABA9261DD2F6001EB336 /* AboutInteractor.swift */,
 				3B8DABAC261DD31D001EB336 /* AboutRouter.swift */,
 				3B8DABB2261DD36D001EB336 /* AboutWireframe.swift */,
+				3BDF814D2620414C00FDB202 /* AboutEntity.swift */,
 			);
 			path = AboutModule;
 			sourceTree = "<group>";
@@ -220,10 +227,12 @@
 			children = (
 				CE347AB4261E2FF400D87EA9 /* ProjectsModuleInterface.swift */,
 				CE347AB7261E300A00D87EA9 /* ProjectsViewController.swift */,
+				3BDF81502620632A00FDB202 /* ProjectCollectionViewCell.swift */,
 				CE347ABA261E302200D87EA9 /* ProjectsPresenter.swift */,
 				CE347ABD261E303B00D87EA9 /* ProjectsInteractor.swift */,
 				CE347AC0261E304F00D87EA9 /* ProjectsRouter.swift */,
 				CE347AC3261E306400D87EA9 /* ProjectsWireframe.swift */,
+				3BDF8154262065AB00FDB202 /* ProjectEntity.swift */,
 			);
 			path = ProjectsModule;
 			sourceTree = "<group>";
@@ -365,6 +374,7 @@
 				CE347AAE261E2D6C00D87EA9 /* ServicesRouter.swift in Sources */,
 				3B6456FD261B06F70004B721 /* MainRouter.swift in Sources */,
 				CE347ACE261E31DF00D87EA9 /* ContactsPresenter.swift in Sources */,
+				3BDF8155262065AB00FDB202 /* ProjectEntity.swift in Sources */,
 				CE347AC4261E306400D87EA9 /* ProjectsWireframe.swift in Sources */,
 				3B6456D5261AFE450004B721 /* AppDelegate.swift in Sources */,
 				3B645701261B412F0004B721 /* ContentMainView.swift in Sources */,
@@ -381,11 +391,13 @@
 				3B7108CC261F27FC0054BBF3 /* ServiceCollectionViewCell.swift in Sources */,
 				3B8DABAA261DD2F6001EB336 /* AboutInteractor.swift in Sources */,
 				3B6456F9261B00CA0004B721 /* MainModuleInterfaces.swift in Sources */,
+				3BDF814E2620414C00FDB202 /* AboutEntity.swift in Sources */,
 				CE347ABE261E303B00D87EA9 /* ProjectsInteractor.swift in Sources */,
 				CE347AB5261E2FF400D87EA9 /* ProjectsModuleInterface.swift in Sources */,
 				3B6456F0261B00240004B721 /* MainPresenter.swift in Sources */,
 				3B6456ED261AFF4B0004B721 /* MainViewController.swift in Sources */,
 				3B6456F3261B005B0004B721 /* MainInteractor.swift in Sources */,
+				3BDF81512620632A00FDB202 /* ProjectCollectionViewCell.swift in Sources */,
 				CE347ABB261E302200D87EA9 /* ProjectsPresenter.swift in Sources */,
 				CE347AD4261E320F00D87EA9 /* ContactsRouter.swift in Sources */,
 				3B8DABA7261DD2C2001EB336 /* AboutPresenter.swift in Sources */,

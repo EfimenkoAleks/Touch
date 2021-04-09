@@ -18,9 +18,9 @@ class AboutInteractor {
 
 extension AboutInteractor: AboutModuleInteractorProtocol {
     
-    func getVideo(name: String, completion: @escaping(Bool) -> ()) {
-        self.apiService.fechMovi(name: name) { (bool) in
-            completion(bool)
+    func getVideo(name: String, completion: @escaping(URL?) -> ()) {
+        self.apiService.fechMovi(name: name) { (rezult) in
+            completion(rezult)
         }
     }
 }

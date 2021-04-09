@@ -9,7 +9,7 @@ import Foundation
 import FirebaseStorage
 
 protocol APIServiceProtocol {
-    func fechMovi(name: String, completion: @escaping(Bool) -> ())
+    func fechMovi(name: String, completion: @escaping(URL?) -> ())
 }
 
 class APIServiceImplementation {
@@ -27,11 +27,11 @@ enum APIError: Error {
 
 extension APIServiceImplementation: APIServiceProtocol {
     
-    func fechMovi(name: String, completion: @escaping(Bool) -> ()) {
+    func fechMovi(name: String, completion: @escaping(URL?) -> ()) {
         
         let fileName = URL(string: name)?.lastPathComponent ?? name
         if self.loadImageFromDiskWith(fileName: name) != nil {
-            completion(true)
+            completion(self.loadImageFromDiskWith(fileName: name))
         }
         
         let storageRef = Storage.storage().reference(withPath: "video.mp4")
@@ -39,7 +39,7 @@ extension APIServiceImplementation: APIServiceProtocol {
         
         storageRef.getData(maxSize: Int64.max) { (data, error) in
             if error != nil {
-                completion(false)
+                completion(nil)
             } else {
                 guard let data = data else { return }
 
@@ -59,7 +59,7 @@ extension APIServiceImplementation: APIServiceProtocol {
                 do {
                     try data.write(to: localFile)
                     print("\(localFile)")
-                    completion(true)
+                    completion(self.loadImageFromDiskWith(fileName: name))
                 } catch let error {
                     print("error saving file with error", error)
                 }
@@ -68,7 +68,7 @@ extension APIServiceImplementation: APIServiceProtocol {
         }
     }
     
-    private func loadImageFromDiskWith(fileName: String) -> String? {
+    private func loadImageFromDiskWith(fileName: String) -> URL? {
 
       let documentDirectory = FileManager.SearchPathDirectory.documentDirectory
 
@@ -76,11 +76,11 @@ extension APIServiceImplementation: APIServiceProtocol {
         let paths = NSSearchPathForDirectoriesInDomains(documentDirectory, userDomainMask, true)
 
         if let dirPath = paths.first {
- //           let filename = URL(string: fileName)?.lastPathComponent ?? fileName
             let videoUrl = URL(fileURLWithPath: dirPath).appendingPathComponent(fileName)
-//            let image = UIImage(contentsOfFile: videoUrl.path)
 
-            return videoUrl.path
+//            videoUrl.path
+
+            return videoUrl
 
         }
 
