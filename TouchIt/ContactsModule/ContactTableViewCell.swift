@@ -14,7 +14,7 @@ class ContactTableViewCell: UITableViewCell {
     var texttLabel: UILabel = {
         let lb = UILabel()
         lb.textAlignment = .left
-        lb.font = UIFont.systemFont(ofSize: 17)
+        lb.font = UIFont.systemFont(ofSize: 15)
         lb.text = ""
         lb.backgroundColor = .clear
         lb.textColor = .white
@@ -54,9 +54,10 @@ class ContactTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(_ icon: CurentContact) {
-        iconImageView.image = UIImage(named: "mail")
-        texttLabel.text = icon.place
+    func configure(text: String, icon: UIImage) {
+        iconImageView.image = icon
+        texttLabel.text = text
+        texttLabel.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -75,8 +76,9 @@ extension ContactTableViewCell {
         
         NSLayoutConstraint.activate([
         stacView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-        iconImageView.heightAnchor.constraint(equalToConstant: 30),
-        iconImageView.widthAnchor.constraint(equalToConstant: 30),
+        iconImageView.heightAnchor.constraint(equalToConstant: 28),
+        iconImageView.widthAnchor.constraint(equalToConstant: 28),
+            iconImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor,constant: 20),
         iconImageView.centerYAnchor.constraint(equalTo: stacView.centerYAnchor)
         ])
         

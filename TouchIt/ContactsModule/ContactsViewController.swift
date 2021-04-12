@@ -28,7 +28,8 @@ extension ContactsViewController {
         self.view.addSubview(self.table)
         table.translatesAutoresizingMaskIntoConstraints = false
         
-        table.separatorStyle = .none
+        table.sectionHeaderHeight = 60
+        table.sectionFooterHeight = 0.5
         table.backgroundColor = .clear
         table.translatesAutoresizingMaskIntoConstraints = false
         table.register(ContactTableViewCell.self, forCellReuseIdentifier: ContactTableViewCell.reuseId)
@@ -36,7 +37,7 @@ extension ContactsViewController {
         table.showsVerticalScrollIndicator = false
         
         NSLayoutConstraint.activate([
-        table.topAnchor.constraint(equalTo: self.view.topAnchor),
+        table.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 25),
         table.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
         table.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
         table.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
@@ -49,17 +50,32 @@ extension ContactsViewController {
 
 extension ContactsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 56
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        
+
         let header = view as! UITableViewHeaderFooterView
-        header.backgroundView?.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        header.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        view.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         header.textLabel?.textColor = .white
-        header.textLabel?.font = UIFont.systemFont(ofSize: 30)
-        
+        header.textLabel?.font = UIFont.systemFont(ofSize: 35)
+
+    }
+    
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let view1 = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50))
+//        view1.tintColor = .white
+//        let labName = UILabel()
+//        labName.text = "Shane Murpy"
+//        view1.addSubview(labName)
+//
+//        return view1
+//    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view1 = UIView(frame: CGRect(x: 10, y: 0, width: self.view.frame.width - 20, height: 1))
+        view1.backgroundColor = #colorLiteral(red: 0.2605174184, green: 0.2605243921, blue: 0.260520637, alpha: 1)
+        return view1
     }
 }
 
@@ -82,8 +98,17 @@ extension ContactsViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: ContactTableViewCell.reuseId, for: indexPath) as! ContactTableViewCell
         
-        cell.configure(self.presenter.contacts()[indexPath.section].contact)
-//        cell.backgroundColor = .blue
+        let item = self.presenter.contacts()[indexPath.section]
+        
+        switch item.contact[indexPath.row] {
+        case .place( let place):
+            cell.configure(text: place, icon: UIImage(named: "place")!)
+        case .phone( let phone):
+            cell.configure(text: phone, icon: UIImage(named: "phone")!)
+        case .mail( let mail):
+            cell.configure(text: mail, icon: UIImage(named: "mail")!)
+        }
+        
         return cell
     }
     

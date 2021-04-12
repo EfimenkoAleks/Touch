@@ -9,11 +9,12 @@ import Foundation
 
 struct Contact {
     var titl: String
-    var contact: CurentContact
+    var contact: [IdRow]
 }
 
-struct CurentContact {
-    var place: String
-    var phone: String
-    var mail: String
+enum IdRow {
+    case place(String)
+    case phone(String)
+    case mail(String)
 }
+

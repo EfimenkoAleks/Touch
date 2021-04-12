@@ -20,14 +20,15 @@ class MainViewController: UIViewController {
         customSC.selectedSegmentIndex = 0
         // Set up Frame and SegmentedControl
         let frame = UIScreen.main.bounds
-        customSC.frame = CGRect(x: frame.minX + 16, y: frame.minY + 88,
-                                width: frame.width - 32, height: frame.height*0.04)
+ //       customSC.frame = CGRect(x: frame.minX + 16, y: frame.minY + 88,
+ //                               width: frame.width - 32, height: frame.height*0.04)
         // Style the Segmented Control
         customSC.layer.cornerRadius = 5.0
         customSC.backgroundColor = #colorLiteral(red: 0.1298420429, green: 0.1298461258, blue: 0.1298439503, alpha: 1)
         customSC.tintColor = .white
         customSC.selectedSegmentTintColor = #colorLiteral(red: 0.4756349325, green: 0.4756467342, blue: 0.4756404161, alpha: 1)
         customSC.layer.borderWidth = 1
+        customSC.translatesAutoresizingMaskIntoConstraints = false
         
         // Add target action method
         customSC.addTarget(self, action: #selector(MainViewController.forSegment), for: .valueChanged)
@@ -41,14 +42,29 @@ class MainViewController: UIViewController {
         self.createMainView()
         self.segmentsVC = self.createAllModule()
         self.setupSlideScrollView(slides: self.segmentsVC)
-
         
-        // Do any additional setup after loading the view.
+        self.createNavigation()
+       
     }
-   
 }
 
 extension MainViewController {
+    
+    private func createNavigation() {
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+        self.navigationController!.navigationBar.isTranslucent = true
+        self.navigationController!.view.backgroundColor = UIColor.clear
+
+        let titlV = UIView()
+        let contentV = UIImageView(frame: CGRect(x: self.view.center.x - 50, y: 0, width: 100, height: 30))
+        contentV.image = UIImage(named: "titleView")
+        self.view.addSubview(titlV)
+        titlV.addSubview(contentV)
+        titlV.backgroundColor = .red
+
+        navigationController?.navigationBar.addSubview(titlV)
+    }
     
     private func createAllModule() -> [UIViewController] {
         
@@ -92,6 +108,11 @@ extension MainViewController {
         scrollView.isPagingEnabled = true
         self.view.addSubview(segment)
         self.view.addSubview(scrollView)
+        
+        segment.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        segment.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        segment.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        segment.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
        
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

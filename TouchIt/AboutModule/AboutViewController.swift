@@ -16,7 +16,10 @@ class AboutViewController: UIViewController {
    
     var videoView: UIView = {
         let imView = UIView()
-        imView.backgroundColor = .systemPink
+        imView.backgroundColor = .orange
+        imView.contentMode = .center
+        imView.layer.masksToBounds = true
+        imView.layer.cornerRadius = 20
         imView.translatesAutoresizingMaskIntoConstraints = false
         return imView
     }()
@@ -24,7 +27,7 @@ class AboutViewController: UIViewController {
     var textLabel: UILabel = {
         let lb = UILabel()
         lb.textAlignment = .left
-        lb.font = UIFont.systemFont(ofSize: 21)
+        lb.font = UIFont.systemFont(ofSize: 20, weight: .thin)
         lb.text = ""
         lb.textColor = .white
         lb.backgroundColor = .clear
@@ -45,7 +48,7 @@ class AboutViewController: UIViewController {
     var titleLabel: UILabel = {
         let lb = UILabel()
         lb.textAlignment = .left
-        lb.font = UIFont.systemFont(ofSize: 50)
+        lb.font = UIFont.systemFont(ofSize: 50, weight: .thin)
         lb.text = ""
         lb.textColor = .white
         lb.backgroundColor = .clear
@@ -61,7 +64,7 @@ class AboutViewController: UIViewController {
         stackV.alignment = UIStackView.Alignment.center
         stackV.backgroundColor = .clear
         stackV.translatesAutoresizingMaskIntoConstraints = false
-        stackV.spacing = 15.0
+        stackV.spacing = 20.0
         return stackV
     }()
 
@@ -97,7 +100,7 @@ extension AboutViewController {
         
             let player = AVPlayer(url: fileName)
             let playerLayer = AVPlayerLayer(player: player)
-            playerLayer.frame = self.videoView.bounds
+        playerLayer.frame = CGRect(x: 0, y: 0, width: 400, height: self.view.frame.height / 3.5) //self.videoView.bounds
             videoView.layer.addSublayer(playerLayer)
  //           self.view.layer.addSublayer(playerLayer)
             player.play()
@@ -107,18 +110,18 @@ extension AboutViewController {
 
         self.view.addSubview(stacView)
 
-        stacView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        stacView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        stacView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 55).isActive = true
+        stacView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10).isActive = true
+        stacView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10).isActive = true
+        stacView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 70).isActive = true
 
         stacView.addArrangedSubview(videoView)
         stacView.addArrangedSubview(titleLabel)
         stacView.addArrangedSubview(textView)
 
-        videoView.heightAnchor.constraint(equalToConstant: self.view.frame.height / 3.1).isActive = true
+        videoView.heightAnchor.constraint(equalToConstant: self.view.frame.height / 3.5).isActive = true
         videoView.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
         
-        titleLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: stacView.leadingAnchor).isActive = true
         
         NSLayoutConstraint.activate([
             textView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),

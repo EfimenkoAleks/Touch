@@ -20,7 +20,13 @@
 		3B6456F9261B00CA0004B721 /* MainModuleInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6456F8261B00CA0004B721 /* MainModuleInterfaces.swift */; };
 		3B6456FD261B06F70004B721 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6456FC261B06F70004B721 /* MainRouter.swift */; };
 		3B645701261B412F0004B721 /* ContentMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B645700261B412F0004B721 /* ContentMainView.swift */; };
-		3B645704261B48020004B721 /* AboutCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B645703261B48020004B721 /* AboutCollectionCell.swift */; };
+		3B6E47CB262474530061EA81 /* ServiceCategoryInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E47C4262474530061EA81 /* ServiceCategoryInterfaces.swift */; };
+		3B6E47CC262474530061EA81 /* ServiceCategoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E47C5262474530061EA81 /* ServiceCategoryPresenter.swift */; };
+		3B6E47CD262474530061EA81 /* ServiceCategoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E47C6262474530061EA81 /* ServiceCategoryRouter.swift */; };
+		3B6E47CE262474530061EA81 /* ServiceCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E47C7262474530061EA81 /* ServiceCategoryViewController.swift */; };
+		3B6E47CF262474530061EA81 /* ServiceCategoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E47C8262474530061EA81 /* ServiceCategoryInteractor.swift */; };
+		3B6E47D0262474530061EA81 /* ServiceCategoryWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E47C9262474530061EA81 /* ServiceCategoryWireframe.swift */; };
+		3B6E47D4262486E20061EA81 /* ServiceCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E47D3262486E20061EA81 /* ServiceCategoryCollectionViewCell.swift */; };
 		3B7108CC261F27FC0054BBF3 /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7108CB261F27FC0054BBF3 /* ServiceCollectionViewCell.swift */; };
 		3B7108CF261F4DC60054BBF3 /* ServicesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7108CE261F4DC60054BBF3 /* ServicesEntity.swift */; };
 		3B8DABA4261DD295001EB336 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8DABA3261DD295001EB336 /* AboutViewController.swift */; };
@@ -72,7 +78,13 @@
 		3B6456F8261B00CA0004B721 /* MainModuleInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleInterfaces.swift; sourceTree = "<group>"; };
 		3B6456FC261B06F70004B721 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		3B645700261B412F0004B721 /* ContentMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentMainView.swift; sourceTree = "<group>"; };
-		3B645703261B48020004B721 /* AboutCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCollectionCell.swift; sourceTree = "<group>"; };
+		3B6E47C4262474530061EA81 /* ServiceCategoryInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryInterfaces.swift; sourceTree = "<group>"; };
+		3B6E47C5262474530061EA81 /* ServiceCategoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryPresenter.swift; sourceTree = "<group>"; };
+		3B6E47C6262474530061EA81 /* ServiceCategoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryRouter.swift; sourceTree = "<group>"; };
+		3B6E47C7262474530061EA81 /* ServiceCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryViewController.swift; sourceTree = "<group>"; };
+		3B6E47C8262474530061EA81 /* ServiceCategoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryInteractor.swift; sourceTree = "<group>"; };
+		3B6E47C9262474530061EA81 /* ServiceCategoryWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryWireframe.swift; sourceTree = "<group>"; };
+		3B6E47D3262486E20061EA81 /* ServiceCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		3B7108CB261F27FC0054BBF3 /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		3B7108CE261F4DC60054BBF3 /* ServicesEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesEntity.swift; sourceTree = "<group>"; };
 		3B8DABA3261DD295001EB336 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +170,7 @@
 		3B6456D3261AFE450004B721 /* TouchIt */ = {
 			isa = PBXGroup;
 			children = (
+				3B6E47C2262472B50061EA81 /* CategoryDetail */,
 				CE347AC6261E317600D87EA9 /* ContactsModule */,
 				CE347AB3261E2FAE00D87EA9 /* ProjectsModule */,
 				CE347AA0261E2CC000D87EA9 /* ServicesModule */,
@@ -183,9 +196,22 @@
 				3B6456F5261B008A0004B721 /* MainWireframe.swift */,
 				3B6456FC261B06F70004B721 /* MainRouter.swift */,
 				3B645700261B412F0004B721 /* ContentMainView.swift */,
-				3B645703261B48020004B721 /* AboutCollectionCell.swift */,
 			);
 			path = MainModule;
+			sourceTree = "<group>";
+		};
+		3B6E47C2262472B50061EA81 /* CategoryDetail */ = {
+			isa = PBXGroup;
+			children = (
+				3B6E47C4262474530061EA81 /* ServiceCategoryInterfaces.swift */,
+				3B6E47C5262474530061EA81 /* ServiceCategoryPresenter.swift */,
+				3B6E47C6262474530061EA81 /* ServiceCategoryRouter.swift */,
+				3B6E47C7262474530061EA81 /* ServiceCategoryViewController.swift */,
+				3B6E47C8262474530061EA81 /* ServiceCategoryInteractor.swift */,
+				3B6E47C9262474530061EA81 /* ServiceCategoryWireframe.swift */,
+				3B6E47D3262486E20061EA81 /* ServiceCategoryCollectionViewCell.swift */,
+			);
+			path = CategoryDetail;
 			sourceTree = "<group>";
 		};
 		3B8DABA2261DD251001EB336 /* AboutModule */ = {
@@ -372,6 +398,7 @@
 			files = (
 				3B4DD3A8261C72CC0022812F /* APIServis.swift in Sources */,
 				3B8DABAD261DD31D001EB336 /* AboutRouter.swift in Sources */,
+				3B6E47CF262474530061EA81 /* ServiceCategoryInteractor.swift in Sources */,
 				CE347AAB261E2D5800D87EA9 /* ServicesInteractor.swift in Sources */,
 				CE347AA5261E2D0E00D87EA9 /* ServicesViewController.swift in Sources */,
 				3B4DD3AD261C89450022812F /* DIContainer.swift in Sources */,
@@ -391,21 +418,26 @@
 				3B8DABB0261DD341001EB336 /* AboutModuleInterface.swift in Sources */,
 				CE230A7C2623739C005507C0 /* ContactsEntity.swift in Sources */,
 				3B8DABA4261DD295001EB336 /* AboutViewController.swift in Sources */,
+				3B6E47D0262474530061EA81 /* ServiceCategoryWireframe.swift in Sources */,
 				CE347AC1261E304F00D87EA9 /* ProjectsRouter.swift in Sources */,
 				CE347AB1261E2D9E00D87EA9 /* ServicesWireframe.swift in Sources */,
-				3B645704261B48020004B721 /* AboutCollectionCell.swift in Sources */,
 				CE347AC8261E31AE00D87EA9 /* ContactsModuleInterface.swift in Sources */,
 				3B7108CC261F27FC0054BBF3 /* ServiceCollectionViewCell.swift in Sources */,
 				3B8DABAA261DD2F6001EB336 /* AboutInteractor.swift in Sources */,
 				3B6456F9261B00CA0004B721 /* MainModuleInterfaces.swift in Sources */,
+				3B6E47CB262474530061EA81 /* ServiceCategoryInterfaces.swift in Sources */,
 				3BDF814E2620414C00FDB202 /* AboutEntity.swift in Sources */,
 				CE347ABE261E303B00D87EA9 /* ProjectsInteractor.swift in Sources */,
 				CE347AB5261E2FF400D87EA9 /* ProjectsModuleInterface.swift in Sources */,
 				3B6456F0261B00240004B721 /* MainPresenter.swift in Sources */,
+				3B6E47CC262474530061EA81 /* ServiceCategoryPresenter.swift in Sources */,
 				3B6456ED261AFF4B0004B721 /* MainViewController.swift in Sources */,
+				3B6E47CD262474530061EA81 /* ServiceCategoryRouter.swift in Sources */,
 				3B6456F3261B005B0004B721 /* MainInteractor.swift in Sources */,
 				3BDF81512620632A00FDB202 /* ProjectCollectionViewCell.swift in Sources */,
 				CE347ABB261E302200D87EA9 /* ProjectsPresenter.swift in Sources */,
+				3B6E47D4262486E20061EA81 /* ServiceCategoryCollectionViewCell.swift in Sources */,
+				3B6E47CE262474530061EA81 /* ServiceCategoryViewController.swift in Sources */,
 				CE347AD4261E320F00D87EA9 /* ContactsRouter.swift in Sources */,
 				CE230A79262361DB005507C0 /* ContactTableViewCell.swift in Sources */,
 				3B8DABA7261DD2C2001EB336 /* AboutPresenter.swift in Sources */,
