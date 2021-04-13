@@ -18,7 +18,7 @@ class ServicesRouter {
 
 extension ServicesRouter: ServicesModuleRouterProtocol{
     
-    func goToSecondScreen() {
+    func goToSecondScreen(item: Logo) {
         
     }
 }

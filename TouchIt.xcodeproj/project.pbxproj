@@ -20,6 +20,13 @@
 		3B6456F9261B00CA0004B721 /* MainModuleInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6456F8261B00CA0004B721 /* MainModuleInterfaces.swift */; };
 		3B6456FD261B06F70004B721 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6456FC261B06F70004B721 /* MainRouter.swift */; };
 		3B645701261B412F0004B721 /* ContentMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B645700261B412F0004B721 /* ContentMainView.swift */; };
+		3B652E292625761900861BE3 /* ServiceCategoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B652E282625761900861BE3 /* ServiceCategoryEntity.swift */; };
+		3B652E332625E43C00861BE3 /* ServicePhotoInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B652E2C2625E43C00861BE3 /* ServicePhotoInterfaces.swift */; };
+		3B652E342625E43C00861BE3 /* ServicePhotoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B652E2D2625E43C00861BE3 /* ServicePhotoPresenter.swift */; };
+		3B652E352625E43C00861BE3 /* ServicePhotoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B652E2E2625E43C00861BE3 /* ServicePhotoRouter.swift */; };
+		3B652E362625E43C00861BE3 /* ServicePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B652E2F2625E43C00861BE3 /* ServicePhotoViewController.swift */; };
+		3B652E372625E43C00861BE3 /* ServicePhotoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B652E302625E43C00861BE3 /* ServicePhotoInteractor.swift */; };
+		3B652E382625E43C00861BE3 /* ServicePhotoWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B652E312625E43C00861BE3 /* ServicePhotoWireframe.swift */; };
 		3B6E47CB262474530061EA81 /* ServiceCategoryInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E47C4262474530061EA81 /* ServiceCategoryInterfaces.swift */; };
 		3B6E47CC262474530061EA81 /* ServiceCategoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E47C5262474530061EA81 /* ServiceCategoryPresenter.swift */; };
 		3B6E47CD262474530061EA81 /* ServiceCategoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E47C6262474530061EA81 /* ServiceCategoryRouter.swift */; };
@@ -78,6 +85,13 @@
 		3B6456F8261B00CA0004B721 /* MainModuleInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleInterfaces.swift; sourceTree = "<group>"; };
 		3B6456FC261B06F70004B721 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		3B645700261B412F0004B721 /* ContentMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentMainView.swift; sourceTree = "<group>"; };
+		3B652E282625761900861BE3 /* ServiceCategoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryEntity.swift; sourceTree = "<group>"; };
+		3B652E2C2625E43C00861BE3 /* ServicePhotoInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePhotoInterfaces.swift; sourceTree = "<group>"; };
+		3B652E2D2625E43C00861BE3 /* ServicePhotoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePhotoPresenter.swift; sourceTree = "<group>"; };
+		3B652E2E2625E43C00861BE3 /* ServicePhotoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePhotoRouter.swift; sourceTree = "<group>"; };
+		3B652E2F2625E43C00861BE3 /* ServicePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePhotoViewController.swift; sourceTree = "<group>"; };
+		3B652E302625E43C00861BE3 /* ServicePhotoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePhotoInteractor.swift; sourceTree = "<group>"; };
+		3B652E312625E43C00861BE3 /* ServicePhotoWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicePhotoWireframe.swift; sourceTree = "<group>"; };
 		3B6E47C4262474530061EA81 /* ServiceCategoryInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryInterfaces.swift; sourceTree = "<group>"; };
 		3B6E47C5262474530061EA81 /* ServiceCategoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryPresenter.swift; sourceTree = "<group>"; };
 		3B6E47C6262474530061EA81 /* ServiceCategoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryRouter.swift; sourceTree = "<group>"; };
@@ -182,6 +196,7 @@
 				3B6456DF261AFE460004B721 /* LaunchScreen.storyboard */,
 				3B61812D261C3FB000E79DE2 /* GoogleService-Info.plist */,
 				3B6456E2261AFE460004B721 /* Info.plist */,
+				3B652E3B2625E48000861BE3 /* ServicePhoto */,
 			);
 			path = TouchIt;
 			sourceTree = "<group>";
@@ -200,6 +215,19 @@
 			path = MainModule;
 			sourceTree = "<group>";
 		};
+		3B652E3B2625E48000861BE3 /* ServicePhoto */ = {
+			isa = PBXGroup;
+			children = (
+				3B652E2C2625E43C00861BE3 /* ServicePhotoInterfaces.swift */,
+				3B652E2F2625E43C00861BE3 /* ServicePhotoViewController.swift */,
+				3B652E2D2625E43C00861BE3 /* ServicePhotoPresenter.swift */,
+				3B652E2E2625E43C00861BE3 /* ServicePhotoRouter.swift */,
+				3B652E302625E43C00861BE3 /* ServicePhotoInteractor.swift */,
+				3B652E312625E43C00861BE3 /* ServicePhotoWireframe.swift */,
+			);
+			path = ServicePhoto;
+			sourceTree = "<group>";
+		};
 		3B6E47C2262472B50061EA81 /* CategoryDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +238,7 @@
 				3B6E47C8262474530061EA81 /* ServiceCategoryInteractor.swift */,
 				3B6E47C9262474530061EA81 /* ServiceCategoryWireframe.swift */,
 				3B6E47D3262486E20061EA81 /* ServiceCategoryCollectionViewCell.swift */,
+				3B652E282625761900861BE3 /* ServiceCategoryEntity.swift */,
 			);
 			path = CategoryDetail;
 			sourceTree = "<group>";
@@ -398,6 +427,8 @@
 			files = (
 				3B4DD3A8261C72CC0022812F /* APIServis.swift in Sources */,
 				3B8DABAD261DD31D001EB336 /* AboutRouter.swift in Sources */,
+				3B652E332625E43C00861BE3 /* ServicePhotoInterfaces.swift in Sources */,
+				3B652E352625E43C00861BE3 /* ServicePhotoRouter.swift in Sources */,
 				3B6E47CF262474530061EA81 /* ServiceCategoryInteractor.swift in Sources */,
 				CE347AAB261E2D5800D87EA9 /* ServicesInteractor.swift in Sources */,
 				CE347AA5261E2D0E00D87EA9 /* ServicesViewController.swift in Sources */,
@@ -418,6 +449,8 @@
 				3B8DABB0261DD341001EB336 /* AboutModuleInterface.swift in Sources */,
 				CE230A7C2623739C005507C0 /* ContactsEntity.swift in Sources */,
 				3B8DABA4261DD295001EB336 /* AboutViewController.swift in Sources */,
+				3B652E292625761900861BE3 /* ServiceCategoryEntity.swift in Sources */,
+				3B652E382625E43C00861BE3 /* ServicePhotoWireframe.swift in Sources */,
 				3B6E47D0262474530061EA81 /* ServiceCategoryWireframe.swift in Sources */,
 				CE347AC1261E304F00D87EA9 /* ProjectsRouter.swift in Sources */,
 				CE347AB1261E2D9E00D87EA9 /* ServicesWireframe.swift in Sources */,
@@ -430,6 +463,7 @@
 				CE347ABE261E303B00D87EA9 /* ProjectsInteractor.swift in Sources */,
 				CE347AB5261E2FF400D87EA9 /* ProjectsModuleInterface.swift in Sources */,
 				3B6456F0261B00240004B721 /* MainPresenter.swift in Sources */,
+				3B652E372625E43C00861BE3 /* ServicePhotoInteractor.swift in Sources */,
 				3B6E47CC262474530061EA81 /* ServiceCategoryPresenter.swift in Sources */,
 				3B6456ED261AFF4B0004B721 /* MainViewController.swift in Sources */,
 				3B6E47CD262474530061EA81 /* ServiceCategoryRouter.swift in Sources */,
@@ -438,8 +472,10 @@
 				CE347ABB261E302200D87EA9 /* ProjectsPresenter.swift in Sources */,
 				3B6E47D4262486E20061EA81 /* ServiceCategoryCollectionViewCell.swift in Sources */,
 				3B6E47CE262474530061EA81 /* ServiceCategoryViewController.swift in Sources */,
+				3B652E342625E43C00861BE3 /* ServicePhotoPresenter.swift in Sources */,
 				CE347AD4261E320F00D87EA9 /* ContactsRouter.swift in Sources */,
 				CE230A79262361DB005507C0 /* ContactTableViewCell.swift in Sources */,
+				3B652E362625E43C00861BE3 /* ServicePhotoViewController.swift in Sources */,
 				3B8DABA7261DD2C2001EB336 /* AboutPresenter.swift in Sources */,
 				CE347AA8261E2D3A00D87EA9 /* ServicesPresenter.swift in Sources */,
 				3B8DABB3261DD36D001EB336 /* AboutWireframe.swift in Sources */,

@@ -18,6 +18,9 @@ protocol ServiceCategoryModuleView: class {
 }
 
 protocol ServiceCategoryModulePresenter: class {
+    var curentModel: TextOverview { get }
+    var countItem: Int { get }
+    func iconForIndex(index: Int) -> ServiceCategotiEntity
 }
 
 protocol ServiceCategoryModuleInteractor: class {

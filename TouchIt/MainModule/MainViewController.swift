@@ -44,7 +44,6 @@ class MainViewController: UIViewController {
         self.setupSlideScrollView(slides: self.segmentsVC)
         
         self.createNavigation()
-       
     }
 }
 
@@ -73,7 +72,7 @@ extension MainViewController {
         let vcAbo = AboutWireframe.create()
         arrayVC.append(vcAbo)
         
-        let vcSer = ServicesWireframe.create()
+        let vcSer = ServicesWireframe.create(mainDelegate: self)
         arrayVC.append(vcSer)
         
         let vcPro = ProjectsWireframe.create()
@@ -144,12 +143,22 @@ extension MainViewController {
     }
 }
 
+extension MainViewController: TransitionToNextDelegate {
+   
+    func goToNext(logo: Logo) {
+
+        self.navigationController?.pushViewController( ServiceCategoryWireframe.create(logo: logo), animated: true)
+    }
+}
+
 extension MainViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
         segment.selectedSegmentIndex = Int(pageIndex)
     }
+    
+    
 }
 
 extension MainViewController: MainModuleViewProtocol {

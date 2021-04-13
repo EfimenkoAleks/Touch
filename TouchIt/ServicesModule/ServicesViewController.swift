@@ -11,16 +11,16 @@ class ServicesViewController: UIViewController {
     
     var presenter: ServicesModulePresenterProtocol!
     var collection: UICollectionView!
+    weak var delegateMain: TransitionToNextDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .black
         
         self.createCollection()
-
+    
         // Do any additional setup after loading the view.
     }
-   
 }
 
 extension ServicesViewController {
@@ -49,6 +49,7 @@ extension ServicesViewController {
         ])
         
         self.collection.dataSource = self
+        self.collection.delegate = self
     }
 }
 
@@ -73,6 +74,13 @@ extension ServicesViewController: UICollectionViewDataSource {
         
         return cell
     }
+
+}
+
+extension ServicesViewController: UICollectionViewDelegate {
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        self.delegateMain?.goToNext(logo: self.presenter.curentLogo(index: indexPath.item))
+    }
 }

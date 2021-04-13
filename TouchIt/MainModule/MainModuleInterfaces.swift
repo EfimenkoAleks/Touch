@@ -22,3 +22,7 @@ protocol MainModuleInteractorProtocol {
 protocol MainModuleRouterProtocol {
    
 }
+
+protocol TransitionToNextDelegate: class {
+    func goToNext(logo: Logo)
+}

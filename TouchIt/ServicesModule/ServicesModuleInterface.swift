@@ -21,6 +21,6 @@ protocol ServicesModuleInteractorProtocol {
 }
 
 protocol ServicesModuleRouterProtocol {
-    func goToSecondScreen()
+    func goToSecondScreen(item: Logo)
 }
 

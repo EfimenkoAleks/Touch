@@ -15,14 +15,14 @@ class ServiceCategoryCollectionViewCell: UICollectionViewCell {
             let imageView = UIImageView()
             imageView.backgroundColor = .clear
             imageView.translatesAutoresizingMaskIntoConstraints = false
-            imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFit
             return imageView
         }()
     
     var titleLabel: UILabel = {
             let lb = UILabel()
-            lb.textAlignment = .center
-            lb.font = UIFont.systemFont(ofSize: 17)
+            lb.textAlignment = .left
+        lb.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
             lb.text = ""
         lb.textColor = .white
             lb.backgroundColor = .clear
@@ -38,7 +38,7 @@ class ServiceCategoryCollectionViewCell: UICollectionViewCell {
         stackV.alignment = UIStackView.Alignment.center
         stackV.backgroundColor = .clear
         stackV.translatesAutoresizingMaskIntoConstraints = false
-        stackV.spacing = 20.0
+        stackV.spacing = 5.0
         return stackV
     }()
     
@@ -46,11 +46,12 @@ class ServiceCategoryCollectionViewCell: UICollectionViewCell {
             super.init(frame: frame)
             self.setupConstraints()
         
-        self.backgroundColor = #colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)
+        self.backgroundColor = .clear
         }
         
-        func configure(_ logo: String) {
-          
+        func configure(_ logo: ServiceCategotiEntity) {
+            categoryImageView.image = UIImage(named: logo.icon)
+            titleLabel.text = logo.title
         }
         
         required init?(coder: NSCoder) {
@@ -70,14 +71,16 @@ extension ServiceCategoryCollectionViewCell {
             stacView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
         
-        stacView.addArrangedSubview(categoryImageView)
         stacView.addArrangedSubview(titleLabel)
+        stacView.addArrangedSubview(categoryImageView)
         
         NSLayoutConstraint.activate([
-            titleLabel.widthAnchor.constraint(equalTo: self.widthAnchor),
-            titleLabel.heightAnchor.constraint(equalToConstant: 40),
-            categoryImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            categoryImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+            titleLabel.leadingAnchor.constraint(equalTo: stacView.leadingAnchor, constant: 20),
+            titleLabel.trailingAnchor.constraint(equalTo: stacView.trailingAnchor),
+            titleLabel.heightAnchor.constraint(equalToConstant: 30),
+            categoryImageView.leadingAnchor.constraint(equalTo:stacView.leadingAnchor),
+            categoryImageView.trailingAnchor.constraint(equalTo: stacView.trailingAnchor),
+            categoryImageView.heightAnchor.constraint(equalToConstant: 150)
         ])
     }
 }
