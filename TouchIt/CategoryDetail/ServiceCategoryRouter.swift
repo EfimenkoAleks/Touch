@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ServiceCategoryRouter: ServiceCategoryModuleRouter {
+class ServiceCategoryRouter {
 
 /// Controller which is used to perform presentations.
     weak var transitionContext: UIViewController?
@@ -20,5 +20,15 @@ class ServiceCategoryRouter: ServiceCategoryModuleRouter {
 //    func dismissPresented(animated: Bool, completion: (() -> Void)?) {
 //        transitionContext?.dismiss(animated: animated, completion: completion)
 //    }
+}
+
+extension ServiceCategoryRouter: ServiceCategoryModuleRouter {
+    
+    func goToNextController(model: ServiceCategotiEntity) {
+        
+        let view = ServiceCategory2Wireframe.create(model: model)
+        
+        transitionContext?.navigationController?.pushViewController(view, animated: true)
+    }
 }
 

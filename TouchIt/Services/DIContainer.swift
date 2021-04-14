@@ -11,4 +11,5 @@ class DIConteiner {
     static var shared = DIConteiner()
     
     lazy var apiService: APIServiceProtocol = APIServiceImplementation()
+    lazy var apiServicePhoto: APIServicePhotoProtocol = APIServicePhotoImplementation()
 }

@@ -82,9 +82,8 @@ final class ServiceCategoryViewController: UIViewController {
         self.setupConstraints()
         self.createCollection()
         self.castomBarBeckButton()
-        self.imView.image = UIImage(named: self.presenter.curentModel.image)
-        self.titleLabel.text = self.presenter.curentModel.title
-        self.textLabel.text = self.presenter.curentModel.text
+        
+        self.presenter.fetch()
     }
 
 }
@@ -172,11 +171,19 @@ extension ServiceCategoryViewController {
         ])
         
         self.collection.dataSource = self
+        self.collection.delegate = self
     }
     
     func castomBarBeckButton() {
         self.navigationController?.navigationBar.tintColor = .white
         }
+}
+
+extension ServiceCategoryViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.presenter.goToNextController(index: indexPath.item)
+    }
 }
 
 extension ServiceCategoryViewController: UICollectionViewDataSource {
@@ -204,4 +211,12 @@ extension ServiceCategoryViewController: UITextViewDelegate {
 // MARK: - Extensions -
 
 extension ServiceCategoryViewController: ServiceCategoryModuleView {
+    func updateView() {
+        self.imView.image = UIImage(named: self.presenter.curentModel.image)
+        self.titleLabel.text = self.presenter.curentModel.title
+        self.textLabel.text = self.presenter.curentModel.text
+        
+        self.collection.reloadData()
+        self.view.layoutIfNeeded()
+    }
 }
