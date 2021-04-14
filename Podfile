@@ -8,6 +8,7 @@ target 'TouchIt' do
   # Pods for TouchIt
 pod 'Firebase/Analytics'
 pod 'Firebase/Storage'
+pod 'Firebase/Firestore'
 pod 'Firebase/Core'
 
 end
