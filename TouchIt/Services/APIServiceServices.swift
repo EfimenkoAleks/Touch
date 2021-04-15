@@ -1,39 +1,69 @@
 //
-//  APIServicePhoto.swift
+//  APIServiceServices.swift
 //  TouchIt
 //
-//  Created by Trainee Alex on 14.04.2021.
+//  Created by Trainee Alex on 15.04.2021.
 //
+
 
 import Foundation
 import FirebaseStorage
 import FirebaseFirestore
 
-protocol APIServicePhotoProtocol {
-    func fechPhoto(completion: @escaping(URL?) -> ())
+protocol APIServiceServicesProtocol {
+    func fechService(completion: @escaping ([ServiceCategory]?) -> ())
 }
 
-class APIServicePhotoImplementation {
+enum Collection {
+    case about, contacts, projects, services
+}
+
+class APIServiceServicesImplementation {
     let db = Firestore.firestore()
 }
 
-extension APIServicePhotoImplementation: APIServicePhotoProtocol {
+extension APIServiceServicesImplementation: APIServiceServicesProtocol {
     
-    func fechPhoto(completion: @escaping (URL?) -> ()) {
+    func fechService(completion: @escaping ([ServiceCategory]?) -> ()) {
         
-        var tasks = [String]()
-           db.collection("tasks").getDocuments() { (querySnapshot, err) in
+        var tasks = [ServiceCategory]()
+        db.collection("Services").getDocuments() { (querySnapshot, err) in
                if let err = err {
                    print("Error getting documents: \(err)")
                    completion(nil)
                } else {
-                   for document in querySnapshot!.documents {
-                       print("\(document.documentID) => \(document.data())")
+             
+                    for document in querySnapshot!.documents{
+
+                  let item = ServiceCategory(snapshot: document)
+                        tasks.append(item)
                    }
-//                   completion(true, tasks)
+                   completion(tasks)
                }
            }
     }
+    
+//    func fechProject(completion: @escaping ([ProjectMod]?) -> ()) {
+//
+//        var tasks = [ProjectMod]()
+//        db.collection("Projects").getDocuments() { (querySnapshot, err) in
+//               if let err = err {
+//                   print("Error getting documents: \(err)")
+//                   completion(nil)
+//               } else {
+//
+//                    for document in querySnapshot!.documents{
+//
+//                  let item = ProjectMod(snapshot: document)
+//                        tasks.append(item)
+//
+//
+//                   }
+//                   completion(tasks)
+//
+//               }
+//           }
+//    }
     
     
 //    func fechPhoto(completion: @escaping (URL?) -> ()) {

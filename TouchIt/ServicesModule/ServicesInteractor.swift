@@ -9,9 +9,9 @@ import Foundation
 
 class ServicesInteractor {
     
-    private let apiService: APIServiceProtocol
+    private let apiService: APIServiceServicesProtocol
     
-    init(apiService: APIServiceProtocol) {
+    init(apiService: APIServiceServicesProtocol) {
         self.apiService = apiService
     }
 }

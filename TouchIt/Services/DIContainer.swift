@@ -10,6 +10,16 @@ import Foundation
 class DIConteiner {
     static var shared = DIConteiner()
     
-    lazy var apiService: APIServiceProtocol = APIServiceImplementation()
-    lazy var apiServicePhoto: APIServicePhotoProtocol = APIServicePhotoImplementation()
+    lazy var apiServiceAbout: APIServiceProtocol = APIServiceImplementation()
+    lazy var apiService: APIServiceServicesProtocol = APIServiceServicesImplementation()
+    lazy var apiProject: APIProjectProtocol = APIProjectImplementation()
+}
+
+enum Result<T> {
+    case success(T)
+    case failure(Error)
+}
+
+enum APIError: Error {
+    case noData
 }

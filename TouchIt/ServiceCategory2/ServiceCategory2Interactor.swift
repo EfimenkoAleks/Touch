@@ -22,7 +22,7 @@ final class ServiceCategory2Interactor {
 extension ServiceCategory2Interactor: ServiceCategory2ModuleInteractor {
     
     func gethoto(completion: @escaping (URL?) -> ()) {
-        self.apiService.fechPhoto { (url) in
+        self.apiService.fechPhoto(name: "") { (url) in
             completion(url)
         }
     }

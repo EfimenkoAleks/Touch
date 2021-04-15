@@ -1,31 +1,35 @@
 //
-//  ProjectEntity.swift
+//  ServiceCategoryEntity.swift
 //  TouchIt
 //
-//  Created by Trainee Alex on 09.04.2021.
+//  Created by Trainee Alex on 13.04.2021.
 //
 
 import Foundation
 import FirebaseFirestore
 import Firebase
 
-struct ProjectModel {
+struct ServiceCategotiEntity {
+    var title: String
     var icon: String
 }
 
-struct ProjectMod {
+struct ModelForServiceCat {
+    var service: [ServiceCategory]
+    var project: [ProjectModWithImage]
+}
+
+struct ServiceCategory {
     var description: String
-    var mainImageUrl: String
     var name: String
-    var photoLibaryUrl: [String]
+    var priority: String
     var type: String
     
     var dictionary : [String:Any] {
         return [
             "description": description  ,
-            "name": mainImageUrl  ,
-            "priority": name  ,
-            "photoLibaryUrl": photoLibaryUrl  ,
+            "name": name  ,
+            "priority": priority  ,
             "type": type
         ]
     }
@@ -34,17 +38,9 @@ struct ProjectMod {
         
         let snapshotValue = snapshot.data()
         description = snapshotValue["description"] as! String
-        mainImageUrl = snapshotValue["mainImageUrl"] as! String
         name = snapshotValue["name"] as! String
-        photoLibaryUrl = snapshotValue["photoLibaryUrl"] as! [String]
+        priority = snapshotValue["priority"] as! String
         type = snapshotValue["type"] as! String
      }
-}
-
-struct ProjectModWithImage {
-    var description: String
-    var mainImageUrl: UIImage?
-    var name: String
-    var type: String
 }
 

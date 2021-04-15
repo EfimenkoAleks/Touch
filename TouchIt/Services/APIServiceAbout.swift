@@ -1,8 +1,8 @@
 //
-//  APIServis.swift
+//  APIServiceAbout.swift
 //  TouchIt
 //
-//  Created by Trainee Alex on 06.04.2021.
+//  Created by Trainee Alex on 15.04.2021.
 //
 
 import Foundation
@@ -14,15 +14,6 @@ protocol APIServiceProtocol {
 
 class APIServiceImplementation {
    
-}
-
-enum Result<T> {
-    case success(T)
-    case failure(Error)
-}
-
-enum APIError: Error {
-    case noData
 }
 
 extension APIServiceImplementation: APIServiceProtocol {
@@ -87,5 +78,6 @@ extension APIServiceImplementation: APIServiceProtocol {
         return nil
     }
 }
+
 
 

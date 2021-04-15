@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B4DD3A8261C72CC0022812F /* APIServis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4DD3A7261C72CC0022812F /* APIServis.swift */; };
 		3B4DD3AD261C89450022812F /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4DD3AC261C89450022812F /* DIContainer.swift */; };
 		3B61812E261C3FB000E79DE2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B61812D261C3FB000E79DE2 /* GoogleService-Info.plist */; };
 		3B6456D5261AFE450004B721 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6456D4261AFE450004B721 /* AppDelegate.swift */; };
@@ -34,7 +33,6 @@
 		3B6632D52626CC1000313894 /* ServiceCategory2Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6632CE2626CC1000313894 /* ServiceCategory2Interactor.swift */; };
 		3B6632D62626CC1000313894 /* ServiceCategory2Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6632CF2626CC1000313894 /* ServiceCategory2Wireframe.swift */; };
 		3B6632DB2626E1C800313894 /* ServiceCategory2CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6632DA2626E1C800313894 /* ServiceCategory2CollectionViewCell.swift */; };
-		3B6632DE2626EA0700313894 /* APIServicePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6632DD2626EA0700313894 /* APIServicePhoto.swift */; };
 		3B6E47CB262474530061EA81 /* ServiceCategoryInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E47C4262474530061EA81 /* ServiceCategoryInterfaces.swift */; };
 		3B6E47CC262474530061EA81 /* ServiceCategoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E47C5262474530061EA81 /* ServiceCategoryPresenter.swift */; };
 		3B6E47CD262474530061EA81 /* ServiceCategoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E47C6262474530061EA81 /* ServiceCategoryRouter.swift */; };
@@ -44,6 +42,9 @@
 		3B6E47D4262486E20061EA81 /* ServiceCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E47D3262486E20061EA81 /* ServiceCategoryCollectionViewCell.swift */; };
 		3B7108CC261F27FC0054BBF3 /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7108CB261F27FC0054BBF3 /* ServiceCollectionViewCell.swift */; };
 		3B7108CF261F4DC60054BBF3 /* ServicesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7108CE261F4DC60054BBF3 /* ServicesEntity.swift */; };
+		3B763CFA2628275F00E7F249 /* APIServiceServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B763CF92628275F00E7F249 /* APIServiceServices.swift */; };
+		3B763CFD262827B300E7F249 /* APIServiceAbout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B763CFC262827B300E7F249 /* APIServiceAbout.swift */; };
+		3B763D0126286CB200E7F249 /* APIServiceProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B763D0026286CB100E7F249 /* APIServiceProject.swift */; };
 		3B8DABA4261DD295001EB336 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8DABA3261DD295001EB336 /* AboutViewController.swift */; };
 		3B8DABA7261DD2C2001EB336 /* AboutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8DABA6261DD2C2001EB336 /* AboutPresenter.swift */; };
 		3B8DABAA261DD2F6001EB336 /* AboutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8DABA9261DD2F6001EB336 /* AboutInteractor.swift */; };
@@ -78,7 +79,6 @@
 
 /* Begin PBXFileReference section */
 		239694A8277FA60FC7A220F8 /* Pods-TouchIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchIt.release.xcconfig"; path = "Target Support Files/Pods-TouchIt/Pods-TouchIt.release.xcconfig"; sourceTree = "<group>"; };
-		3B4DD3A7261C72CC0022812F /* APIServis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServis.swift; sourceTree = "<group>"; };
 		3B4DD3AC261C89450022812F /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		3B61812D261C3FB000E79DE2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3B6456D1261AFE450004B721 /* TouchIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,7 +107,6 @@
 		3B6632CE2626CC1000313894 /* ServiceCategory2Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategory2Interactor.swift; sourceTree = "<group>"; };
 		3B6632CF2626CC1000313894 /* ServiceCategory2Wireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategory2Wireframe.swift; sourceTree = "<group>"; };
 		3B6632DA2626E1C800313894 /* ServiceCategory2CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategory2CollectionViewCell.swift; sourceTree = "<group>"; };
-		3B6632DD2626EA0700313894 /* APIServicePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServicePhoto.swift; sourceTree = "<group>"; };
 		3B6E47C4262474530061EA81 /* ServiceCategoryInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryInterfaces.swift; sourceTree = "<group>"; };
 		3B6E47C5262474530061EA81 /* ServiceCategoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryPresenter.swift; sourceTree = "<group>"; };
 		3B6E47C6262474530061EA81 /* ServiceCategoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryRouter.swift; sourceTree = "<group>"; };
@@ -117,6 +116,9 @@
 		3B6E47D3262486E20061EA81 /* ServiceCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		3B7108CB261F27FC0054BBF3 /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		3B7108CE261F4DC60054BBF3 /* ServicesEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesEntity.swift; sourceTree = "<group>"; };
+		3B763CF92628275F00E7F249 /* APIServiceServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceServices.swift; sourceTree = "<group>"; };
+		3B763CFC262827B300E7F249 /* APIServiceAbout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceAbout.swift; sourceTree = "<group>"; };
+		3B763D0026286CB100E7F249 /* APIServiceProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceProject.swift; sourceTree = "<group>"; };
 		3B8DABA3261DD295001EB336 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		3B8DABA6261DD2C2001EB336 /* AboutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPresenter.swift; sourceTree = "<group>"; };
 		3B8DABA9261DD2F6001EB336 /* AboutInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutInteractor.swift; sourceTree = "<group>"; };
@@ -173,8 +175,9 @@
 		3B4DD3AA261C88EE0022812F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				3B4DD3A7261C72CC0022812F /* APIServis.swift */,
-				3B6632DD2626EA0700313894 /* APIServicePhoto.swift */,
+				3B763CFC262827B300E7F249 /* APIServiceAbout.swift */,
+				3B763CF92628275F00E7F249 /* APIServiceServices.swift */,
+				3B763D0026286CB100E7F249 /* APIServiceProject.swift */,
 				3B4DD3AC261C89450022812F /* DIContainer.swift */,
 			);
 			path = Services;
@@ -202,7 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				3B6632C82626CB7A00313894 /* ServiceCategory2 */,
-				3B6E47C2262472B50061EA81 /* CategoryDetail */,
+				3B6E47C2262472B50061EA81 /* ServiceCategoryDetail */,
 				CE347AC6261E317600D87EA9 /* ContactsModule */,
 				CE347AB3261E2FAE00D87EA9 /* ProjectsModule */,
 				CE347AA0261E2CC000D87EA9 /* ServicesModule */,
@@ -260,7 +263,7 @@
 			path = ServiceCategory2;
 			sourceTree = "<group>";
 		};
-		3B6E47C2262472B50061EA81 /* CategoryDetail */ = {
+		3B6E47C2262472B50061EA81 /* ServiceCategoryDetail */ = {
 			isa = PBXGroup;
 			children = (
 				3B6E47C4262474530061EA81 /* ServiceCategoryInterfaces.swift */,
@@ -272,7 +275,7 @@
 				3B6E47D3262486E20061EA81 /* ServiceCategoryCollectionViewCell.swift */,
 				3B652E282625761900861BE3 /* ServiceCategoryEntity.swift */,
 			);
-			path = CategoryDetail;
+			path = ServiceCategoryDetail;
 			sourceTree = "<group>";
 		};
 		3B8DABA2261DD251001EB336 /* AboutModule */ = {
@@ -457,7 +460,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B4DD3A8261C72CC0022812F /* APIServis.swift in Sources */,
 				3B8DABAD261DD31D001EB336 /* AboutRouter.swift in Sources */,
 				3B652E332625E43C00861BE3 /* ServicePhotoInterfaces.swift in Sources */,
 				3B652E352625E43C00861BE3 /* ServicePhotoRouter.swift in Sources */,
@@ -477,11 +479,12 @@
 				3B645701261B412F0004B721 /* ContentMainView.swift in Sources */,
 				3B7108CF261F4DC60054BBF3 /* ServicesEntity.swift in Sources */,
 				CE347AD7261E322A00D87EA9 /* ContactsWireframe.swift in Sources */,
+				3B763CFA2628275F00E7F249 /* APIServiceServices.swift in Sources */,
 				CE347AA2261E2CF500D87EA9 /* ServicesModuleInterface.swift in Sources */,
+				3B763CFD262827B300E7F249 /* APIServiceAbout.swift in Sources */,
 				CE347AD1261E31FD00D87EA9 /* ContactsInteractor.swift in Sources */,
 				3B8DABB0261DD341001EB336 /* AboutModuleInterface.swift in Sources */,
 				CE230A7C2623739C005507C0 /* ContactsEntity.swift in Sources */,
-				3B6632DE2626EA0700313894 /* APIServicePhoto.swift in Sources */,
 				3B8DABA4261DD295001EB336 /* AboutViewController.swift in Sources */,
 				3B6632DB2626E1C800313894 /* ServiceCategory2CollectionViewCell.swift in Sources */,
 				3B652E292625761900861BE3 /* ServiceCategoryEntity.swift in Sources */,
@@ -509,6 +512,7 @@
 				CE347ABB261E302200D87EA9 /* ProjectsPresenter.swift in Sources */,
 				3B6E47D4262486E20061EA81 /* ServiceCategoryCollectionViewCell.swift in Sources */,
 				3B6E47CE262474530061EA81 /* ServiceCategoryViewController.swift in Sources */,
+				3B763D0126286CB200E7F249 /* APIServiceProject.swift in Sources */,
 				3B652E342625E43C00861BE3 /* ServicePhotoPresenter.swift in Sources */,
 				3B6632D52626CC1000313894 /* ServiceCategory2Interactor.swift in Sources */,
 				3B6632D12626CC1000313894 /* ServiceCategory2Interfaces.swift in Sources */,

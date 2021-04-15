@@ -14,7 +14,8 @@ struct ServiceCategoryWireframe {
     static func create(logo: Logo) -> UIViewController {
         let view = ServiceCategoryViewController()
         let apiServis = DIConteiner.shared.apiService
-        let interactor = ServiceCategoryInteractor(apiService: apiServis)
+        let apiProject = DIConteiner.shared.apiProject
+        let interactor = ServiceCategoryInteractor(apiProject: apiProject, apiService: apiServis)
         let router = ServiceCategoryRouter(transitionContext: view)
         let presenter = ServiceCategoryPresenter(logo : logo, view: view, interactor: interactor, router: router)
         view.presenter = presenter

@@ -52,13 +52,13 @@ extension ServiceCategoryPresenter: ServiceCategoryModulePresenter {
     
     func fetch() {
     // имитация загрузки
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             
             self.modCollection = [ServiceCategotiEntity(title: "Portfolio", icon: "leftIcon"), ServiceCategotiEntity(title: "More", icon: "rightIcon")]
             
             self.model = TextOverview(image: self.logo.logoImage, title: self.logo.logeTitle, text: "Ipsum labore veniam dolor ea eiusmod aliquip aute minim magna amet nisi nulla commodo mollit dolor aute elit in Lorem tempor eiusmod tempor excepteur sit")
             self.view?.updateView()
-        }
+ //       }
         
     }
 }
