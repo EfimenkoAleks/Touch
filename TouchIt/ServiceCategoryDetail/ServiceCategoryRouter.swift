@@ -24,7 +24,7 @@ class ServiceCategoryRouter {
 
 extension ServiceCategoryRouter: ServiceCategoryModuleRouter {
     
-    func goToNextController(model: ServiceCategotiEntity) {
+    func goToNextController(model: ProjectModWithImage) {
         
         let view = ServiceCategory2Wireframe.create(model: model)
         

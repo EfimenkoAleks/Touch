@@ -17,7 +17,7 @@ struct ServiceCategoryWireframe {
         let apiProject = DIConteiner.shared.apiProject
         let interactor = ServiceCategoryInteractor(apiProject: apiProject, apiService: apiServis)
         let router = ServiceCategoryRouter(transitionContext: view)
-        let presenter = ServiceCategoryPresenter(logo : logo, view: view, interactor: interactor, router: router)
+        let presenter = ServiceCategoryPresenter(logo: logo, view: view, interactor: interactor, router: router)
         view.presenter = presenter
         
         return view

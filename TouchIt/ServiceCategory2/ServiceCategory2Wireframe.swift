@@ -14,9 +14,9 @@ final class ServiceCategory2Wireframe {
 
     // MARK: - Module setup -
 
-    static func create(model: ServiceCategotiEntity) -> UIViewController {
+    static func create(model: ProjectModWithImage) -> UIViewController {
         let view = ServiceCategory2ViewController()
-        let apiServis = DIConteiner.shared.apiServicePhoto
+        let apiServis = DIConteiner.shared.apiProject
         let interactor = ServiceCategory2Interactor(apiService: apiServis)
         let router = ServiceCategory2Router(transitionContext: view)
         let presenter = ServiceCategory2Presenter(model : model, view: view, interactor: interactor, router: router)

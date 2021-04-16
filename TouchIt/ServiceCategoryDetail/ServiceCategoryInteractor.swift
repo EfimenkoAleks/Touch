@@ -24,21 +24,29 @@ final class ServiceCategoryInteractor {
 extension ServiceCategoryInteractor: ServiceCategoryModuleInteractor {
     func getServiceModel(completed: @escaping(ModelForServiceCat) -> ()) {
         
+        let dispathGroup = DispatchGroup()
         var serv: [ServiceCategory] = []
         var proj: [ProjectModWithImage] = []
+        
+        dispathGroup.enter()
         self.apiService.fechService { (rezult) in
             if let rezult = rezult {
                 serv = rezult
             }
+            dispathGroup.leave()
         }
         
+        dispathGroup.enter()
         self.apiProject.fechProject { (rezult) in
             if let rezult = rezult {
                 proj = rezult
             }
+            dispathGroup.leave()
         }
         
-        let model = ModelForServiceCat(service: serv, project: proj)
-        completed(model)
+        dispathGroup.notify(queue: DispatchQueue.global()) {
+            let model = ModelForServiceCat(service: serv, project: proj)
+            completed(model)
+        }
     }
 }

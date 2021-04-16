@@ -14,32 +14,35 @@ class AboutViewController: UIViewController {
     
     static var reuseId: String = "AboutViewController"
    
+    lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.backgroundColor = .clear
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
     var videoView: UIView = {
         let imView = UIView()
         imView.backgroundColor = .orange
         imView.contentMode = .center
         imView.layer.masksToBounds = true
-        imView.layer.cornerRadius = 20
+        
+//        imView.layer.cornerRadius = 20
         imView.translatesAutoresizingMaskIntoConstraints = false
         return imView
-    }()
-    
-    var textLabel: UILabel = {
-        let lb = UILabel()
-        lb.textAlignment = .left
-        lb.font = UIFont.systemFont(ofSize: 20, weight: .thin)
-        lb.text = ""
-        lb.textColor = .white
-        lb.backgroundColor = .clear
-        lb.numberOfLines = 0
-        lb.translatesAutoresizingMaskIntoConstraints = false
-        return lb
     }()
     
     var textView: UITextView = {
         let sc = UITextView()
         sc.backgroundColor = .clear
         sc.alwaysBounceVertical = true
+        sc.isScrollEnabled = false
+        sc.textColor = .white
+        sc.isEditable = false
+        sc.isSelectable = false
+        sc.font = UIFont.systemFont(ofSize: 25, weight: .thin)
         
         sc.translatesAutoresizingMaskIntoConstraints = false
         return sc
@@ -57,15 +60,11 @@ class AboutViewController: UIViewController {
         return lb
     }()
     
-    var stacView: UIStackView = {
-        let stackV   = UIStackView()
-        stackV.axis  = NSLayoutConstraint.Axis.vertical
-        stackV.distribution  = UIStackView.Distribution.equalSpacing
-        stackV.alignment = UIStackView.Alignment.center
-        stackV.backgroundColor = .clear
-        stackV.translatesAutoresizingMaskIntoConstraints = false
-        stackV.spacing = 20.0
-        return stackV
+    var contentView: UIView = {
+        let view1 = UIView()
+        view1.backgroundColor = .clear
+        view1.translatesAutoresizingMaskIntoConstraints = false
+        return view1
     }()
 
     override func viewDidLoad() {
@@ -98,46 +97,69 @@ extension AboutViewController {
     // AVPlayer
     func loadVideo(_ fileName: URL) {
         
-            let player = AVPlayer(url: fileName)
-            let playerLayer = AVPlayerLayer(player: player)
-        playerLayer.frame = CGRect(x: 0, y: 0, width: 400, height: self.view.frame.height / 3.5) //self.videoView.bounds
-            videoView.layer.addSublayer(playerLayer)
- //           self.view.layer.addSublayer(playerLayer)
-            player.play()
+        let player = AVPlayer(url: fileName)
+        let playerLayer = AVPlayerLayer(player: player)
+        
+        videoView.layer.addSublayer(playerLayer)
+        playerLayer.videoGravity = AVLayerVideoGravity.resize
+        playerLayer.frame = self.videoView.bounds
+        let path = UIBezierPath(roundedRect:  self.videoView.bounds, byRoundingCorners: [.topLeft, .bottomLeft], cornerRadii: CGSize(width: 20, height: 20))
+        let shape = CAShapeLayer()
+        shape.path = path.cgPath
+        self.videoView.layer.mask = shape
+        self.videoView.layer.insertSublayer(playerLayer, at: 0)
+        playerLayer.layoutIfNeeded()
+        player.play()
     }
     
     private func setupConstraints() {
 
-        self.view.addSubview(stacView)
-
-        stacView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10).isActive = true
-        stacView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10).isActive = true
-        stacView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 70).isActive = true
-
-        stacView.addArrangedSubview(videoView)
-        stacView.addArrangedSubview(titleLabel)
-        stacView.addArrangedSubview(textView)
-
-        videoView.heightAnchor.constraint(equalToConstant: self.view.frame.height / 3.5).isActive = true
-        videoView.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-        
-        titleLabel.leadingAnchor.constraint(equalTo: stacView.leadingAnchor).isActive = true
+        self.view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
         
         NSLayoutConstraint.activate([
-            textView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            textView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            textView.heightAnchor.constraint(equalToConstant: self.view.frame.height / 2.8)
+            scrollView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+        ])
+
+        NSLayoutConstraint.activate([
+        contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10),
+        contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -10),
+        contentView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 70),
+        contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+        ])
+
+        contentView.addSubview(videoView)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(textView)
+
+        NSLayoutConstraint.activate([
+            videoView.heightAnchor.constraint(equalToConstant: self.view.frame.height / 3.5),
+            videoView.widthAnchor.constraint(equalToConstant: self.view.frame.width - 2),
+            videoView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            videoView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 2),
+ //           videoView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: videoView.bottomAnchor, constant: 20),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            textView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+ //           textView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            textView.widthAnchor.constraint(equalToConstant: self.view.frame.width),
+            textView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 8),
+//            textView.heightAnchor.constraint(equalToConstant: self.view.frame.height / 2)
         ])
         textView.delegate = self
 
-        textLabel.text = "Enter some text..."
-        textView.addSubview(textLabel)
-
-//        textLabel.textColor = .red
-        textLabel.leadingAnchor.constraint(equalTo: stacView.leadingAnchor).isActive = true
-        textLabel.trailingAnchor.constraint(equalTo: stacView.trailingAnchor).isActive = true
-
-        
+//        let rectangle = CGRect(x: 0, y: 0, width: 100, height: 100)
+//        let path = UIBezierPath(roundedRect: videoView.layer.visibleRect, byRoundingCorners: [.topLeft, .bottomRight], cornerRadii: CGSize(width: 35, height: 35))
     }
 
     private func configure(_ model: AboutModel) {
@@ -146,8 +168,7 @@ extension AboutViewController {
         }
         
         titleLabel.text = model.title
-        
-        textLabel.text = model.text 
+        textView.text = model.text
     }
 }
 
@@ -163,7 +184,7 @@ extension AboutViewController: AboutModuleViewProtocol {
     func updateView() {
         DispatchQueue.main.async {
             self.configure(self.presenter.aboutMod)
-            self.view.layoutIfNeeded()
+//            self.view.layoutIfNeeded()
         }
     }
 }

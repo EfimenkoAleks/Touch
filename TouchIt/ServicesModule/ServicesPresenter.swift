@@ -33,10 +33,10 @@ extension ServicesPresenter {
     
     private func createLogo() -> [Logo] {
         var logs = [Logo]()
-        let logo1 = Logo(logoImage: "image1", logeTitle: "IOS")
+        let logo1 = Logo(logoImage: "image1", logeTitle: "iOS")
         logs.append(logo1)
         
-        let logo2 = Logo(logoImage: "image2", logeTitle: "ANDROID")
+        let logo2 = Logo(logoImage: "image2", logeTitle: "Android")
         logs.append(logo2)
         
         let logo3 = Logo(logoImage: "image3", logeTitle: "DESIGN")

@@ -9,9 +9,9 @@ import Foundation
 
 class ProjectsInteractor {
     
-    private let apiService: APIServiceProtocol
+    private let apiService: APIProjectProtocol
     
-    init(apiService: APIServiceProtocol) {
+    init(apiService: APIProjectProtocol) {
         self.apiService = apiService
     }
 }

@@ -20,10 +20,10 @@ protocol ServiceCategory2ModuleView: class {
 
 protocol ServiceCategory2ModulePresenter: class {
     var countItems: Int { get }
-    func curentItem(index: Int) -> URL
+    func curentItem(index: Int) -> UIImage?
     func getPhoto()
 }
 
 protocol ServiceCategory2ModuleInteractor: class {
-    func gethoto(completion: @escaping (URL?) -> ())
+ //   func gethoto(completion: @escaping (URL?) -> ())
 }

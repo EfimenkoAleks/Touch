@@ -9,9 +9,9 @@ import Foundation
 
 class ContactsInteractor {
     
-    private let apiService: APIServiceProtocol
+    private let apiService: APIServiceContactsProtocol
     
-    init(apiService: APIServiceProtocol) {
+    init(apiService: APIServiceContactsProtocol) {
         self.apiService = apiService
     }
 }

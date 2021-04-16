@@ -10,7 +10,7 @@ import UIKit
 struct ProjectsWireframe {
     static func create() -> UIViewController {
         let view = ProjectsViewController()
-        let apiServis = DIConteiner.shared.apiService
+        let apiServis = DIConteiner.shared.apiProject
         let interactor = ProjectsInteractor(apiService: apiServis)
         let router = ProjectsRouter(transitionContext: view)
         let presenter = ProjectsPresenter(view: view, interactor: interactor, router: router)

@@ -22,7 +22,7 @@ struct ModelForServiceCat {
 struct ServiceCategory {
     var description: String
     var name: String
-    var priority: String
+    var priority: Int
     var type: String
     
     var dictionary : [String:Any] {
@@ -39,7 +39,7 @@ struct ServiceCategory {
         let snapshotValue = snapshot.data()
         description = snapshotValue["description"] as! String
         name = snapshotValue["name"] as! String
-        priority = snapshotValue["priority"] as! String
+        priority = snapshotValue["priority"] as! Int
         type = snapshotValue["type"] as! String
      }
 }

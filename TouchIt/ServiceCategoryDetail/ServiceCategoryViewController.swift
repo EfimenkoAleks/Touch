@@ -15,6 +15,15 @@ final class ServiceCategoryViewController: UIViewController {
     var presenter: ServiceCategoryModulePresenter!
     var collection: UICollectionView!
     
+    lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.backgroundColor = .clear
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
     var imView: UIImageView = {
         let imView = UIImageView()
         imView.backgroundColor = .clear
@@ -52,22 +61,14 @@ final class ServiceCategoryViewController: UIViewController {
         return lb
     }()
     
-    var textLabel: UILabel = {
-        let lb = UILabel()
-        lb.textAlignment = .left
-        lb.font = UIFont.systemFont(ofSize: 19, weight: .thin)
-        lb.text = ""
-        lb.textColor = .white
-        lb.backgroundColor = .clear
-        lb.numberOfLines = 0
-        lb.translatesAutoresizingMaskIntoConstraints = false
-        return lb
-    }()
-    
     var textView: UITextView = {
         let sc = UITextView()
         sc.backgroundColor = .clear
         sc.alwaysBounceVertical = true
+        sc.isScrollEnabled = false
+        sc.textColor = .white
+        sc.isEditable = false
+        sc.isSelectable = false
         
         sc.translatesAutoresizingMaskIntoConstraints = false
         return sc
@@ -92,13 +93,22 @@ extension ServiceCategoryViewController {
     
     private func setupConstraints() {
 
-        self.view.addSubview(contentView)
+        self.view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
 
         NSLayoutConstraint.activate([
-        contentView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-        contentView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-        contentView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor,constant: 25),
-            contentView.heightAnchor.constraint(equalToConstant: self.view.frame.height / 3 * 1.5)
+            scrollView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+        contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+        contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+        contentView.topAnchor.constraint(equalTo: scrollView.topAnchor,constant: 25),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
 
         contentView.addSubview(imageContentView)
@@ -133,17 +143,8 @@ extension ServiceCategoryViewController {
             textView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30),
             textView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             textView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            textView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
         textView.delegate = self
-
-        textLabel.text = "Enter some text..."
-        textView.addSubview(textLabel)
-        
-        NSLayoutConstraint.activate([
-            textLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            textLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-        ])
     }
     
     private func createCollection() {
@@ -161,13 +162,14 @@ extension ServiceCategoryViewController {
         self.collection.backgroundColor = .clear
         self.collection.translatesAutoresizingMaskIntoConstraints = false
         
-        self.view.addSubview(self.collection)
+        contentView.addSubview(self.collection)
         
         NSLayoutConstraint.activate([
-            self.collection.topAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 30),
-            self.collection.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            self.collection.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            self.collection.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+            self.collection.topAnchor.constraint(equalTo: textView.bottomAnchor, constant: 30),
+            self.collection.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            self.collection.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            self.collection.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            self.collection.heightAnchor.constraint(equalToConstant: layout.itemSize.height)
         ])
         
         self.collection.dataSource = self
@@ -212,11 +214,10 @@ extension ServiceCategoryViewController: UITextViewDelegate {
 
 extension ServiceCategoryViewController: ServiceCategoryModuleView {
     func updateView() {
-        self.imView.image = UIImage(named: self.presenter.curentModel.image)
-        self.titleLabel.text = self.presenter.curentModel.title
-        self.textLabel.text = self.presenter.curentModel.text
+        self.imView.image = UIImage(named: self.presenter.logoForMainImage)
+        self.titleLabel.text = self.presenter.curentModel.name
+        self.textView.text = self.presenter.curentModel.description
         
         self.collection.reloadData()
-        self.view.layoutIfNeeded()
     }
 }

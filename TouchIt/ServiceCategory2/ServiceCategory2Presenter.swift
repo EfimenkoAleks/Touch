@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class ServiceCategory2Presenter {
 
@@ -15,12 +16,12 @@ final class ServiceCategory2Presenter {
     private weak var view: ServiceCategory2ModuleView?
     private let interactor: ServiceCategory2ModuleInteractor
     private let router: ServiceCategory2ModuleRouter
-    private var model: ServiceCategotiEntity
+    private var model: ProjectModWithImage
     private var image: URL?
 
     // MARK: - Lifecycle -
 
-    init(model: ServiceCategotiEntity, view: ServiceCategory2ModuleView, interactor: ServiceCategory2ModuleInteractor, router: ServiceCategory2ModuleRouter) {
+    init(model: ProjectModWithImage, view: ServiceCategory2ModuleView, interactor: ServiceCategory2ModuleInteractor, router: ServiceCategory2ModuleRouter) {
         self.view = view
         self.interactor = interactor
         self.router = router
@@ -37,16 +38,16 @@ extension ServiceCategory2Presenter: ServiceCategory2ModulePresenter {
         return 10
     }
     
-    func curentItem(index: Int) -> URL {
-        self.image!
+    func curentItem(index: Int) -> UIImage? {
+        self.model.mainImageUrl ?? nil
     }
     
     func getPhoto() {
-        self.interactor.gethoto { (url) in
-            if url != nil {
-                self.image = url!
-                self.view?.updateView()
-            }
-        }
+//        self.interactor.gethoto { (url) in
+//            if url != nil {
+//                self.image = url!
+//                self.view?.updateView()
+//            }
+//        }
     }
 }

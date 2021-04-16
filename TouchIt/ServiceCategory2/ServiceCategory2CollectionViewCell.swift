@@ -27,8 +27,9 @@ class ServiceCategory2CollectionViewCell: UICollectionViewCell {
         self.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
         }
         
-        func configure(_ imageUrl: URL) {
-            contentImageView.image = UIImage(contentsOfFile: imageUrl.path)
+        func configure(_ imageUrl: UIImage?) {
+            guard let image = imageUrl else { return }
+            contentImageView.image = image
         }
         
         required init?(coder: NSCoder) {

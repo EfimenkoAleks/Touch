@@ -22,7 +22,7 @@ extension APIProjectImplementation: APIProjectProtocol {
     
     func fechProject(completion: @escaping ([ProjectModWithImage]?) -> ()) {
         
-        let group = DispatchGroup()
+//        let group = DispatchGroup()
         
         var tasks = [ProjectModWithImage]()
         db.collection("Projects").getDocuments() { (querySnapshot, err) in
@@ -34,19 +34,19 @@ extension APIProjectImplementation: APIProjectProtocol {
                     for document in querySnapshot!.documents {
 
                   let item = ProjectMod(snapshot: document)
-                        
-                        self.load(item.mainImageUrl) { (image) in
+                        self.load(item.photoLibaryUrl.first ?? "") { (image) in
                             
                             let itemWithImage = ProjectModWithImage(description: item.description, mainImageUrl: image, name: item.name, type: item.type)
                             tasks.append(itemWithImage)
-                            
-                            group.leave()
+                            if tasks.count == querySnapshot!.documents.count {
+                                completion(tasks)
+                            }
                         }
                    }
                 
-                group.notify(queue: DispatchQueue.global()) {
-                    completion(tasks)
-                  }
+//                group.notify(queue: DispatchQueue.global()) {
+//                    completion(tasks)
+//                  }
                }
            }
     }

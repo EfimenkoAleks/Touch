@@ -10,9 +10,9 @@ import UIKit
 
 final class ServiceCategory2Interactor {
     
-    private let apiService: APIServicePhotoProtocol
+    private let apiService: APIProjectProtocol
     
-    init(apiService: APIServicePhotoProtocol) {
+    init(apiService: APIProjectProtocol) {
         self.apiService = apiService
     }
 }
@@ -20,11 +20,5 @@ final class ServiceCategory2Interactor {
 // MARK: - Extensions -
 
 extension ServiceCategory2Interactor: ServiceCategory2ModuleInteractor {
-    
-    func gethoto(completion: @escaping (URL?) -> ()) {
-        self.apiService.fechPhoto(name: "") { (url) in
-            completion(url)
-        }
-    }
-    
+   
 }

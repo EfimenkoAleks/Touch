@@ -49,9 +49,9 @@ class ServiceCategoryCollectionViewCell: UICollectionViewCell {
         self.backgroundColor = .clear
         }
         
-        func configure(_ logo: ServiceCategotiEntity) {
-            categoryImageView.image = UIImage(named: logo.icon)
-            titleLabel.text = logo.title
+        func configure(_ logo: ProjectModWithImage) {
+            categoryImageView.image = logo.mainImageUrl
+            titleLabel.text = "Portfolio"
         }
         
         required init?(coder: NSCoder) {

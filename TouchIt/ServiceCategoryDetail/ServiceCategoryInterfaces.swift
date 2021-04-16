@@ -10,7 +10,7 @@ import UIKit
 
 protocol ServiceCategoryModuleRouter: class {
     
-    func goToNextController(model: ServiceCategotiEntity)
+    func goToNextController(model: ProjectModWithImage)
     /// Dismiss presented screen.
 //    func dismissPresented(animated: Bool, completion: (() -> Void)?)
 }
@@ -20,12 +20,14 @@ protocol ServiceCategoryModuleView: class {
 }
 
 protocol ServiceCategoryModulePresenter: class {
-    var curentModel: TextOverview { get }
+    var curentModel: ServiceCategory { get }
     var countItem: Int { get }
+    var logoForMainImage: String { get }
     func fetch()
     func goToNextController (index: Int)
-    func iconForIndex(index: Int) -> ServiceCategotiEntity
+    func iconForIndex(index: Int) -> ProjectModWithImage
 }
 
 protocol ServiceCategoryModuleInteractor: class {
+    func getServiceModel(completed: @escaping(ModelForServiceCat) -> ())
 }
