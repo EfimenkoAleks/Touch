@@ -10,7 +10,7 @@ import UIKit
 
 protocol ServiceCategoryModuleRouter: class {
     
-    func goToNextController(model: ProjectModWithImage)
+    func goToNextController(model: [ProjectModWithImage])
     /// Dismiss presented screen.
 //    func dismissPresented(animated: Bool, completion: (() -> Void)?)
 }

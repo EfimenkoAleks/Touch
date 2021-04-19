@@ -27,7 +27,6 @@ final class ServiceCategoryPresenter {
         self.router = router
         self.logo = logo
         self.modCollection = ModelForServiceCat(service: [], project: [])
-  //      self.model = TextOverview(image: "", title: "", text: "")
     }
 }
 
@@ -52,7 +51,7 @@ extension ServiceCategoryPresenter: ServiceCategoryModulePresenter {
     }
     
     func goToNextController (index: Int) {
-        self.router.goToNextController(model: self.modCollection.project[index])
+        return self.router.goToNextController(model: self.modCollection.project.filter({ $0.type == self.logo.logeTitle}))
     }
     
     func fetch() {
@@ -66,12 +65,5 @@ extension ServiceCategoryPresenter: ServiceCategoryModulePresenter {
                 }
             }
         }
-            
-//            self.modCollection = [ServiceCategotiEntity(title: "Portfolio", icon: "leftIcon"), ServiceCategotiEntity(title: "More", icon: "rightIcon")]
-//
-//            self.model = TextOverview(image: self.logo.logoImage, title: self.logo.logeTitle, text: "Ipsum labore veniam dolor ea eiusmod aliquip aute minim magna amet nisi nulla commodo mollit dolor aute elit in Lorem tempor eiusmod tempor excepteur sit")
-//            self.view?.updateView()
- //       }
-        
     }
 }

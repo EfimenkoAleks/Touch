@@ -157,8 +157,6 @@ extension MainViewController: UIScrollViewDelegate {
         let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
         segment.selectedSegmentIndex = Int(pageIndex)
     }
-    
-    
 }
 
 extension MainViewController: MainModuleViewProtocol {

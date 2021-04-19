@@ -17,7 +17,7 @@ protocol AboutModulePresenterProtocol {
 }
 
 protocol AboutModuleInteractorProtocol {
-    func getVideo(name: String, completion: @escaping(URL?) -> ())
+    func getVideo(name: String, completion: @escaping(AboutModel?) -> ())
 }
 
 protocol AboutModuleRouterProtocol {

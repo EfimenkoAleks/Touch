@@ -39,14 +39,14 @@ extension ServicesPresenter {
         let logo2 = Logo(logoImage: "image2", logeTitle: "Android")
         logs.append(logo2)
         
-        let logo3 = Logo(logoImage: "image3", logeTitle: "DESIGN")
+        let logo3 = Logo(logoImage: "image3", logeTitle: "Design")
         logs.append(logo3)
         
-        let logo4 = Logo(logoImage: "image4", logeTitle: "TEACHNICAL SUPPORT")
+        let logo4 = Logo(logoImage: "image4", logeTitle: "Support")
         logs.append(logo4)
-        let logo5 = Logo(logoImage: "image5", logeTitle: "REMOTE DEVEVOPMENT TEAM")
+        let logo5 = Logo(logoImage: "image5", logeTitle: "Remote")
         logs.append(logo5)
-        let logo6 = Logo(logoImage: "image6", logeTitle: "TEAM EXTENTION")
+        let logo6 = Logo(logoImage: "image6", logeTitle: "Team")
         logs.append(logo6)
         
         return logs

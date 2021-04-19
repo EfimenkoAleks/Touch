@@ -11,7 +11,8 @@ import AVKit
 class AboutViewController: UIViewController {
     
     var presenter: AboutModulePresenterProtocol!
-    
+    private var player: AVPlayer!
+    private var playerStatusObserver: NSKeyValueObservation?
     static var reuseId: String = "AboutViewController"
    
     lazy var scrollView: UIScrollView = {
@@ -28,8 +29,6 @@ class AboutViewController: UIViewController {
         imView.backgroundColor = .orange
         imView.contentMode = .center
         imView.layer.masksToBounds = true
-        
-//        imView.layer.cornerRadius = 20
         imView.translatesAutoresizingMaskIntoConstraints = false
         return imView
     }()
@@ -42,7 +41,7 @@ class AboutViewController: UIViewController {
         sc.textColor = .white
         sc.isEditable = false
         sc.isSelectable = false
-        sc.font = UIFont.systemFont(ofSize: 25, weight: .thin)
+        sc.font = UIFont.systemFont(ofSize: 20, weight: .thin)
         
         sc.translatesAutoresizingMaskIntoConstraints = false
         return sc
@@ -60,35 +59,23 @@ class AboutViewController: UIViewController {
         return lb
     }()
     
-    var contentView: UIView = {
-        let view1 = UIView()
-        view1.backgroundColor = .clear
-        view1.translatesAutoresizingMaskIntoConstraints = false
-        return view1
+    var contentView: UIStackView = {
+        let stackV   = UIStackView()
+        stackV.axis  = NSLayoutConstraint.Axis.vertical
+        stackV.distribution  = UIStackView.Distribution.equalSpacing
+        stackV.alignment = UIStackView.Alignment.center
+        stackV.backgroundColor = .clear
+        stackV.translatesAutoresizingMaskIntoConstraints = false
+        stackV.spacing = 5.0
+        return stackV
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.setupConstraints()
-//        self.textLabel.delegate = self
         self.presenter.fechVideo()
     }
-    
-   
-    
-//    override func prepareForReuse() {
-//        super.prepareForReuse()
-//        contentView.subviews.forEach({
-//            $0.removeFromSuperview()
-//        })
-//    }
-    
-//    func fill(with content: UIView) {
-//        contentView.addSubview(content)
-//    }
-
-    
 }
 
 // MARK: - Setup Constraints
@@ -96,8 +83,21 @@ extension AboutViewController {
     
     // AVPlayer
     func loadVideo(_ fileName: URL) {
+        print("\(fileName)")
         
         let player = AVPlayer(url: fileName)
+        self.player = player
+        playerStatusObserver = self.player.observe(\.status, changeHandler: { player, _ in
+            switch player.status {
+            case .readyToPlay:
+                player.play()
+            case .failed:
+                debugPrint("Player setup failed!!!!")
+            default:
+                break
+            }
+        })
+        
         let playerLayer = AVPlayerLayer(player: player)
         
         videoView.layer.addSublayer(playerLayer)
@@ -107,15 +107,15 @@ extension AboutViewController {
         let shape = CAShapeLayer()
         shape.path = path.cgPath
         self.videoView.layer.mask = shape
-        self.videoView.layer.insertSublayer(playerLayer, at: 0)
+        self.videoView.layer.addSublayer(playerLayer)
         playerLayer.layoutIfNeeded()
-        player.play()
     }
     
     private func setupConstraints() {
 
         self.view.addSubview(scrollView)
         scrollView.addSubview(contentView)
+        scrollView.delegate = self
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
@@ -128,12 +128,13 @@ extension AboutViewController {
         contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10),
         contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -10),
         contentView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 70),
-        contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+        contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+        contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor)
         ])
 
-        contentView.addSubview(videoView)
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(textView)
+        contentView.addArrangedSubview(videoView)
+        contentView.addArrangedSubview(titleLabel)
+        contentView.addArrangedSubview(textView)
 
         NSLayoutConstraint.activate([
             videoView.heightAnchor.constraint(equalToConstant: self.view.frame.height / 3.5),
@@ -150,16 +151,13 @@ extension AboutViewController {
         ])
         
         NSLayoutConstraint.activate([
-            textView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+            textView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 14),
  //           textView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             textView.widthAnchor.constraint(equalToConstant: self.view.frame.width),
             textView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 8),
 //            textView.heightAnchor.constraint(equalToConstant: self.view.frame.height / 2)
         ])
         textView.delegate = self
-
-//        let rectangle = CGRect(x: 0, y: 0, width: 100, height: 100)
-//        let path = UIBezierPath(roundedRect: videoView.layer.visibleRect, byRoundingCorners: [.topLeft, .bottomRight], cornerRadii: CGSize(width: 35, height: 35))
     }
 
     private func configure(_ model: AboutModel) {
@@ -186,5 +184,11 @@ extension AboutViewController: AboutModuleViewProtocol {
             self.configure(self.presenter.aboutMod)
 //            self.view.layoutIfNeeded()
         }
+    }
+}
+
+extension AboutViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+  
     }
 }

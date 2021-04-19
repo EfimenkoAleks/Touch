@@ -16,12 +16,12 @@ final class ServiceCategory2Presenter {
     private weak var view: ServiceCategory2ModuleView?
     private let interactor: ServiceCategory2ModuleInteractor
     private let router: ServiceCategory2ModuleRouter
-    private var model: ProjectModWithImage
+    private var model: [ProjectModWithImage]
     private var image: URL?
 
     // MARK: - Lifecycle -
 
-    init(model: ProjectModWithImage, view: ServiceCategory2ModuleView, interactor: ServiceCategory2ModuleInteractor, router: ServiceCategory2ModuleRouter) {
+    init(model: [ProjectModWithImage], view: ServiceCategory2ModuleView, interactor: ServiceCategory2ModuleInteractor, router: ServiceCategory2ModuleRouter) {
         self.view = view
         self.interactor = interactor
         self.router = router
@@ -35,11 +35,11 @@ final class ServiceCategory2Presenter {
 extension ServiceCategory2Presenter: ServiceCategory2ModulePresenter {
     
     var countItems: Int {
-        return 10
+        return self.model.count
     }
     
     func curentItem(index: Int) -> UIImage? {
-        self.model.mainImageUrl ?? nil
+        return self.model[index].mainImageUrl
     }
     
     func getPhoto() {

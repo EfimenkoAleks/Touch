@@ -15,16 +15,21 @@ class ServiceCategory2CollectionViewCell: UICollectionViewCell {
             let imageView = UIImageView()
             imageView.backgroundColor = .clear
             imageView.translatesAutoresizingMaskIntoConstraints = false
-            imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleToFill
+        
             return imageView
         }()
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        contentImageView.layer.cornerRadius = 14
+        contentImageView.clipsToBounds = true
+    }
     
     override init(frame: CGRect) {
             super.init(frame: frame)
             self.setupConstraints()
-        
-        self.layer.cornerRadius = 12
-        self.backgroundColor = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
         }
         
         func configure(_ imageUrl: UIImage?) {
@@ -42,10 +47,10 @@ extension ServiceCategory2CollectionViewCell {
         self.contentView.addSubview(contentImageView)
         
         NSLayoutConstraint.activate([
-            contentImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            contentImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            contentImageView.widthAnchor.constraint(equalToConstant: 80),
-            contentImageView.heightAnchor.constraint(equalTo: contentImageView.widthAnchor)
+            contentImageView.topAnchor.constraint(equalTo: self.topAnchor),
+            contentImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            contentImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            contentImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
 }

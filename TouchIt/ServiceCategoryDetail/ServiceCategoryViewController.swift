@@ -64,6 +64,7 @@ final class ServiceCategoryViewController: UIViewController {
     var textView: UITextView = {
         let sc = UITextView()
         sc.backgroundColor = .clear
+        sc.font = UIFont.systemFont(ofSize: 17, weight: .thin)
         sc.alwaysBounceVertical = true
         sc.isScrollEnabled = false
         sc.textColor = .white
@@ -107,8 +108,8 @@ extension ServiceCategoryViewController {
             contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
         contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
         contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-        contentView.topAnchor.constraint(equalTo: scrollView.topAnchor,constant: 25),
-            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+        contentView.topAnchor.constraint(equalTo: scrollView.topAnchor,constant: 25)
+//            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
 
         contentView.addSubview(imageContentView)

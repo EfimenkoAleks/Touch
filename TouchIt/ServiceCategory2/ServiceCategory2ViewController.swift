@@ -35,7 +35,9 @@ extension ServiceCategory2ViewController {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.itemSize = CGSize(width: (self.view.frame.width / 2) - 6, height: self.view.frame.height / 6)
+        layout.itemSize = CGSize(width: (self.view.frame.width / 2) - 2, height: self.view.frame.height / 6)
+        layout.minimumLineSpacing = 5
+        layout.minimumInteritemSpacing = 2
         
         self.collection = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         self.collection.register(ServiceCategory2CollectionViewCell.self, forCellWithReuseIdentifier: ServiceCategory2CollectionViewCell.reuseId)
