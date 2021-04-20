@@ -13,6 +13,7 @@ class ProjectsPresenter {
     weak var view: ProjectsModuleViewProtocol?
     var router: ProjectsModuleRouterProtocol
     private var items: [ProjectModel]
+    private var filterItems: [ProjectModel] = []
     
     init(
         view: ProjectsModuleViewProtocol? = nil,
@@ -61,5 +62,14 @@ extension ProjectsPresenter: ProjectsModulePresenterProtocol {
     var itemsForFilter: [ProjectModel] {
         return self.items
     }
+    
+    func filterContentForSearchText(_ searchText: String) {
+        
+        self.filterItems = self.items.filter({ (item: ProjectModel) -> Bool in
+            return item.icon.lowercased().contains(searchText.lowercased())
+        })
+        self.view?.updateView()
+    }
+
 }
 

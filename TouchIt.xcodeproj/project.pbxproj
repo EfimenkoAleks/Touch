@@ -10,6 +10,8 @@
 		3B4DD3AD261C89450022812F /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4DD3AC261C89450022812F /* DIContainer.swift */; };
 		3B60066626298FA7007D8C42 /* APIServiceContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60066526298FA7007D8C42 /* APIServiceContacts.swift */; };
 		3B61812E261C3FB000E79DE2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B61812D261C3FB000E79DE2 /* GoogleService-Info.plist */; };
+		3B624D77262ECCE300C8EDD3 /* ExtensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B624D76262ECCE300C8EDD3 /* ExtensionView.swift */; };
+		3B624D7A262ED5E800C8EDD3 /* ServiceCategoryHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B624D79262ED5E800C8EDD3 /* ServiceCategoryHeaderCell.swift */; };
 		3B6456D5261AFE450004B721 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6456D4261AFE450004B721 /* AppDelegate.swift */; };
 		3B6456DE261AFE460004B721 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B6456DD261AFE460004B721 /* Assets.xcassets */; };
 		3B6456E1261AFE460004B721 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B6456DF261AFE460004B721 /* LaunchScreen.storyboard */; };
@@ -77,6 +79,8 @@
 		3B4DD3AC261C89450022812F /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		3B60066526298FA7007D8C42 /* APIServiceContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceContacts.swift; sourceTree = "<group>"; };
 		3B61812D261C3FB000E79DE2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3B624D76262ECCE300C8EDD3 /* ExtensionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionView.swift; sourceTree = "<group>"; };
+		3B624D79262ED5E800C8EDD3 /* ServiceCategoryHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryHeaderCell.swift; sourceTree = "<group>"; };
 		3B6456D1261AFE450004B721 /* TouchIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B6456D4261AFE450004B721 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B6456DD261AFE460004B721 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -208,6 +212,7 @@
 				3B6456DF261AFE460004B721 /* LaunchScreen.storyboard */,
 				3B61812D261C3FB000E79DE2 /* GoogleService-Info.plist */,
 				3B6456E2261AFE460004B721 /* Info.plist */,
+				3B624D76262ECCE300C8EDD3 /* ExtensionView.swift */,
 			);
 			path = TouchIt;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 				3B6E47C9262474530061EA81 /* ServiceCategoryWireframe.swift */,
 				3B6E47D3262486E20061EA81 /* ServiceCategoryCollectionViewCell.swift */,
 				3B652E282625761900861BE3 /* ServiceCategoryEntity.swift */,
+				3B624D79262ED5E800C8EDD3 /* ServiceCategoryHeaderCell.swift */,
 			);
 			path = ServiceCategoryDetail;
 			sourceTree = "<group>";
@@ -455,6 +461,7 @@
 				3B7108CF261F4DC60054BBF3 /* ServicesEntity.swift in Sources */,
 				CE347AD7261E322A00D87EA9 /* ContactsWireframe.swift in Sources */,
 				3B763CFA2628275F00E7F249 /* APIServiceServices.swift in Sources */,
+				3B624D7A262ED5E800C8EDD3 /* ServiceCategoryHeaderCell.swift in Sources */,
 				CE347AA2261E2CF500D87EA9 /* ServicesModuleInterface.swift in Sources */,
 				3B763CFD262827B300E7F249 /* APIServiceAbout.swift in Sources */,
 				CE347AD1261E31FD00D87EA9 /* ContactsInteractor.swift in Sources */,
@@ -483,6 +490,7 @@
 				3B6632D32626CC1000313894 /* ServiceCategory2Router.swift in Sources */,
 				3B6456F3261B005B0004B721 /* MainInteractor.swift in Sources */,
 				3BDF81512620632A00FDB202 /* ProjectCollectionViewCell.swift in Sources */,
+				3B624D77262ECCE300C8EDD3 /* ExtensionView.swift in Sources */,
 				CE347ABB261E302200D87EA9 /* ProjectsPresenter.swift in Sources */,
 				3B6E47D4262486E20061EA81 /* ServiceCategoryCollectionViewCell.swift in Sources */,
 				3B6E47CE262474530061EA81 /* ServiceCategoryViewController.swift in Sources */,
@@ -636,6 +644,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 364PACBHLP;
 				INFOPLIST_FILE = TouchIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -655,6 +664,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 364PACBHLP;
 				INFOPLIST_FILE = TouchIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

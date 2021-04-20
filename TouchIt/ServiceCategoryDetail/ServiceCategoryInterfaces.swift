@@ -22,6 +22,7 @@ protocol ServiceCategoryModuleView: class {
 protocol ServiceCategoryModulePresenter: class {
     var curentModel: ServiceCategory { get }
     var countItem: Int { get }
+    var titleForHeder: String { get }
     var logoForMainImage: String { get }
     func fetch()
     func goToNextController (index: Int)

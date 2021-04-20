@@ -17,6 +17,7 @@ final class ServiceCategoryPresenter {
     private let router: ServiceCategoryModuleRouter
     private var modCollection: ModelForServiceCat
     private var logo: Logo
+    private var title = "Portfolio"
  //   private var model: TextOverview
 
     // MARK: - Lifecycle -
@@ -38,12 +39,20 @@ extension ServiceCategoryPresenter: ServiceCategoryModulePresenter {
         return self.modCollection.service.first(where: { $0.type == self.logo.logeTitle })!
     }
     
+    var titleForHeder: String {
+        return self.title
+    }
+    
     var logoForMainImage: String {
         self.logo.logoImage
     }
     
     var countItem: Int {
-        return self.modCollection.project.count
+        if self.logo.logeTitle == "iOS" || self.logo.logeTitle == "Android" {
+            return self.modCollection.project.count
+        } else {
+            return 0
+        }
     }
     
     func iconForIndex(index: Int) -> ProjectModWithImage {

@@ -94,13 +94,14 @@ extension APIServiceImplementation: APIServiceProtocol {
         let fileName = URL(string: resource)?.lastPathComponent ?? resource
         if self.loadImageFromDiskWith(fileName: fileName) != nil {
             result(self.loadImageFromDiskWith(fileName: fileName))
+            return
         }
         
         let url = URL(string: resource)
         let request = URLRequest(url: url!)
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if error != nil {
-                print("\(error?.localizedDescription)")
+                print("\(String(describing: error?.localizedDescription))")
             } else {
                 guard let data = data else {
                     result(nil)

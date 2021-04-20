@@ -11,7 +11,6 @@ class ProjectsViewController: UIViewController {
     
     var presenter: ProjectsModulePresenterProtocol!
     private var collection: UICollectionView!
-    private var filterItems: [ProjectModel] = []
     
     private var searchBarIsEmpty: Bool {
             guard let text = searchController.searchBar.text else { return false }
@@ -95,21 +94,14 @@ extension ProjectsViewController: UICollectionViewDataSource {
 
 extension ProjectsViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        self.filterContentForSearchText(searchController.searchBar.text!)
+        self.presenter.filterContentForSearchText(searchController.searchBar.text!)
     }
     
-    private func filterContentForSearchText(_ searchText: String) {
-        
-        self.filterItems = self.presenter.itemsForFilter.filter({ (item: ProjectModel) -> Bool in
-            return item.icon.lowercased().contains(searchText.lowercased())
-        })
-    //    collectionView?.reloadData()
-    }
 }
 
 extension ProjectsViewController: ProjectsModuleViewProtocol {
     func updateView() {
-        
+        collection?.reloadData()
     }
     
     

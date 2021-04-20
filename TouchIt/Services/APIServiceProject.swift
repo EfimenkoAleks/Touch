@@ -56,6 +56,7 @@ extension APIProjectImplementation: APIProjectProtocol {
         let fileName = URL(string: resource)?.lastPathComponent ?? resource
         if self.loadImageFromDiskWith(fileName: fileName) != nil {
             result(self.loadImageFromDiskWith(fileName: fileName)!)
+            return
         }
         
         let url = URL(string: resource)

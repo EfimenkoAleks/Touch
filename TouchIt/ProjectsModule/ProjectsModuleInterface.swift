@@ -13,8 +13,9 @@ protocol ProjectsModuleViewProtocol: class {
 
 protocol ProjectsModulePresenterProtocol {
     var countItem: Int { get }
-    func itemForindex(index: Int) -> ProjectModel
     var itemsForFilter: [ProjectModel] { get }
+    func itemForindex(index: Int) -> ProjectModel
+    func filterContentForSearchText(_ searchText: String)
 }
 
 protocol ProjectsModuleInteractorProtocol {
