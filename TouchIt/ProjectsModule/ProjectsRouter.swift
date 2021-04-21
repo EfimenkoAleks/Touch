@@ -18,7 +18,8 @@ class ProjectsRouter {
 
 extension ProjectsRouter: ProjectsModuleRouterProtocol{
     
-    func goToSecondScreen() {
-        
+    func goToNextScreen(model: ProjectModWithImage) {
+        let nextVC = ProjectDetailWireframe.create(model: model)
+    
     }
 }

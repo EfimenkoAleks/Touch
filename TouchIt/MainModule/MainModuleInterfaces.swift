@@ -23,6 +23,10 @@ protocol MainModuleRouterProtocol {
    
 }
 
-protocol TransitionToNextDelegate: class {
+protocol TransitionServiceToNextDelegate: class {
     func goToNext(logo: Logo)
+}
+
+protocol TransitionProjectToNextDelegate: class {
+    func goToNext(model: ProjectModWithImage)
 }

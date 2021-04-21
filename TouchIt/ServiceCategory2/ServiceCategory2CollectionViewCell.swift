@@ -30,11 +30,12 @@ class ServiceCategory2CollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
             super.init(frame: frame)
             self.setupConstraints()
+        self.backgroundColor = .clear
         }
         
-        func configure(_ imageUrl: UIImage?) {
-            guard let image = imageUrl else { return }
-            contentImageView.image = image
+        func configure(_ imageData: Data?) {
+            guard let image = imageData else { return }
+            contentImageView.image = UIImage(data: image)
         }
         
         required init?(coder: NSCoder) {

@@ -27,7 +27,6 @@ extension ServiceCategoryRouter: ServiceCategoryModuleRouter {
     func goToNextController(model: [ProjectModWithImage]) {
         
         let view = ServiceCategory2Wireframe.create(model: model)
-        
         transitionContext?.navigationController?.pushViewController(view, animated: true)
     }
 }

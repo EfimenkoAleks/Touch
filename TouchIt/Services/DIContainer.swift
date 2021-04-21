@@ -12,8 +12,10 @@ class DIConteiner {
     
     lazy var apiServiceAbout: APIServiceProtocol = APIServiceImplementation()
     lazy var apiService: APIServiceServicesProtocol = APIServiceServicesImplementation()
-    lazy var apiProject: APIProjectProtocol = APIProjectImplementation()
+    lazy var apiServiceProj: APIServiceServiceProjectProtocol = APIServiceServiceProjectImplementation()
+    lazy var apiProject: APIServiceProjectProtocol = APIServiceProjectImplementation()
     lazy var apiContacts: APIServiceContactsProtocol = APIServiceContactsImplementation()
+    lazy var apiProjectDetail: APIServiceProjectDetailProtocol = APIServiceProjectDetailImplementation()
 }
 
 enum Result<T> {

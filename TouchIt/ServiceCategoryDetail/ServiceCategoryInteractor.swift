@@ -11,9 +11,9 @@ import Foundation
 final class ServiceCategoryInteractor {
     
     private let apiService: APIServiceServicesProtocol
-    private let apiProject: APIProjectProtocol
+    private let apiProject: APIServiceServiceProjectProtocol
     
-    init(apiProject: APIProjectProtocol, apiService: APIServiceServicesProtocol) {
+    init(apiProject: APIServiceServiceProjectProtocol, apiService: APIServiceServicesProtocol) {
         self.apiService = apiService
         self.apiProject = apiProject
     }
@@ -38,8 +38,12 @@ extension ServiceCategoryInteractor: ServiceCategoryModuleInteractor {
         
         dispathGroup.enter()
         self.apiProject.fechProject { (rezult) in
-            if let rezult = rezult {
-                proj = rezult
+            switch rezult {
+            case .success(let task):
+                guard let task = task else { return }
+                proj = task
+            case .failure( _):
+                proj = []
             }
             dispathGroup.leave()
         }

@@ -20,7 +20,7 @@ protocol ServiceCategory2ModuleView: class {
 
 protocol ServiceCategory2ModulePresenter: class {
     var countItems: Int { get }
-    func curentItem(index: Int) -> UIImage?
+    func curentItem(index: Int) -> Data?
     func getPhoto()
 }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3B4DD3AD261C89450022812F /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4DD3AC261C89450022812F /* DIContainer.swift */; };
+		3B59E63E263060050050C575 /* ProjectDetailModuleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B59E63D263060050050C575 /* ProjectDetailModuleRouter.swift */; };
 		3B60066626298FA7007D8C42 /* APIServiceContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B60066526298FA7007D8C42 /* APIServiceContacts.swift */; };
 		3B61812E261C3FB000E79DE2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B61812D261C3FB000E79DE2 /* GoogleService-Info.plist */; };
 		3B624D77262ECCE300C8EDD3 /* ExtensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B624D76262ECCE300C8EDD3 /* ExtensionView.swift */; };
@@ -30,6 +31,14 @@
 		3B6632D52626CC1000313894 /* ServiceCategory2Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6632CE2626CC1000313894 /* ServiceCategory2Interactor.swift */; };
 		3B6632D62626CC1000313894 /* ServiceCategory2Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6632CF2626CC1000313894 /* ServiceCategory2Wireframe.swift */; };
 		3B6632DB2626E1C800313894 /* ServiceCategory2CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6632DA2626E1C800313894 /* ServiceCategory2CollectionViewCell.swift */; };
+		3B672BC126301C7E006A7B52 /* APIServiceProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B672BC026301C7E006A7B52 /* APIServiceProject.swift */; };
+		3B672BC726304D81006A7B52 /* ProjectDetailModuleModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B672BC626304D81006A7B52 /* ProjectDetailModuleModuleInterface.swift */; };
+		3B672BCA26304DEB006A7B52 /* ProjectDetailModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B672BC926304DEB006A7B52 /* ProjectDetailModuleViewController.swift */; };
+		3B672BCE26304E1A006A7B52 /* ProjectDetailModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B672BCD26304E1A006A7B52 /* ProjectDetailModulePresenter.swift */; };
+		3B672BD126304E33006A7B52 /* ProjectDetailModuleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B672BD026304E33006A7B52 /* ProjectDetailModuleInteractor.swift */; };
+		3B672BD426304E49006A7B52 /* ProjectDetailModuleWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B672BD326304E49006A7B52 /* ProjectDetailModuleWireframe.swift */; };
+		3B672BD726304E63006A7B52 /* ProjectDetailModuleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B672BD626304E63006A7B52 /* ProjectDetailModuleEntity.swift */; };
+		3B672BDA26305141006A7B52 /* APIServiceProjectDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B672BD926305141006A7B52 /* APIServiceProjectDetail.swift */; };
 		3B6E47CB262474530061EA81 /* ServiceCategoryInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E47C4262474530061EA81 /* ServiceCategoryInterfaces.swift */; };
 		3B6E47CC262474530061EA81 /* ServiceCategoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E47C5262474530061EA81 /* ServiceCategoryPresenter.swift */; };
 		3B6E47CD262474530061EA81 /* ServiceCategoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6E47C6262474530061EA81 /* ServiceCategoryRouter.swift */; };
@@ -41,7 +50,7 @@
 		3B7108CF261F4DC60054BBF3 /* ServicesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7108CE261F4DC60054BBF3 /* ServicesEntity.swift */; };
 		3B763CFA2628275F00E7F249 /* APIServiceServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B763CF92628275F00E7F249 /* APIServiceServices.swift */; };
 		3B763CFD262827B300E7F249 /* APIServiceAbout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B763CFC262827B300E7F249 /* APIServiceAbout.swift */; };
-		3B763D0126286CB200E7F249 /* APIServiceProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B763D0026286CB100E7F249 /* APIServiceProject.swift */; };
+		3B763D0126286CB200E7F249 /* APIServiceServiceProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B763D0026286CB100E7F249 /* APIServiceServiceProject.swift */; };
 		3B8DABA4261DD295001EB336 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8DABA3261DD295001EB336 /* AboutViewController.swift */; };
 		3B8DABA7261DD2C2001EB336 /* AboutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8DABA6261DD2C2001EB336 /* AboutPresenter.swift */; };
 		3B8DABAA261DD2F6001EB336 /* AboutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8DABA9261DD2F6001EB336 /* AboutInteractor.swift */; };
@@ -77,6 +86,7 @@
 /* Begin PBXFileReference section */
 		239694A8277FA60FC7A220F8 /* Pods-TouchIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TouchIt.release.xcconfig"; path = "Target Support Files/Pods-TouchIt/Pods-TouchIt.release.xcconfig"; sourceTree = "<group>"; };
 		3B4DD3AC261C89450022812F /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		3B59E63D263060050050C575 /* ProjectDetailModuleRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailModuleRouter.swift; sourceTree = "<group>"; };
 		3B60066526298FA7007D8C42 /* APIServiceContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceContacts.swift; sourceTree = "<group>"; };
 		3B61812D261C3FB000E79DE2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3B624D76262ECCE300C8EDD3 /* ExtensionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionView.swift; sourceTree = "<group>"; };
@@ -101,6 +111,14 @@
 		3B6632CE2626CC1000313894 /* ServiceCategory2Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategory2Interactor.swift; sourceTree = "<group>"; };
 		3B6632CF2626CC1000313894 /* ServiceCategory2Wireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategory2Wireframe.swift; sourceTree = "<group>"; };
 		3B6632DA2626E1C800313894 /* ServiceCategory2CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategory2CollectionViewCell.swift; sourceTree = "<group>"; };
+		3B672BC026301C7E006A7B52 /* APIServiceProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceProject.swift; sourceTree = "<group>"; };
+		3B672BC626304D81006A7B52 /* ProjectDetailModuleModuleInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailModuleModuleInterface.swift; sourceTree = "<group>"; };
+		3B672BC926304DEB006A7B52 /* ProjectDetailModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailModuleViewController.swift; sourceTree = "<group>"; };
+		3B672BCD26304E1A006A7B52 /* ProjectDetailModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailModulePresenter.swift; sourceTree = "<group>"; };
+		3B672BD026304E33006A7B52 /* ProjectDetailModuleInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailModuleInteractor.swift; sourceTree = "<group>"; };
+		3B672BD326304E49006A7B52 /* ProjectDetailModuleWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailModuleWireframe.swift; sourceTree = "<group>"; };
+		3B672BD626304E63006A7B52 /* ProjectDetailModuleEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailModuleEntity.swift; sourceTree = "<group>"; };
+		3B672BD926305141006A7B52 /* APIServiceProjectDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceProjectDetail.swift; sourceTree = "<group>"; };
 		3B6E47C4262474530061EA81 /* ServiceCategoryInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryInterfaces.swift; sourceTree = "<group>"; };
 		3B6E47C5262474530061EA81 /* ServiceCategoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryPresenter.swift; sourceTree = "<group>"; };
 		3B6E47C6262474530061EA81 /* ServiceCategoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryRouter.swift; sourceTree = "<group>"; };
@@ -112,7 +130,7 @@
 		3B7108CE261F4DC60054BBF3 /* ServicesEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesEntity.swift; sourceTree = "<group>"; };
 		3B763CF92628275F00E7F249 /* APIServiceServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceServices.swift; sourceTree = "<group>"; };
 		3B763CFC262827B300E7F249 /* APIServiceAbout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceAbout.swift; sourceTree = "<group>"; };
-		3B763D0026286CB100E7F249 /* APIServiceProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceProject.swift; sourceTree = "<group>"; };
+		3B763D0026286CB100E7F249 /* APIServiceServiceProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceServiceProject.swift; sourceTree = "<group>"; };
 		3B8DABA3261DD295001EB336 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		3B8DABA6261DD2C2001EB336 /* AboutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPresenter.swift; sourceTree = "<group>"; };
 		3B8DABA9261DD2F6001EB336 /* AboutInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutInteractor.swift; sourceTree = "<group>"; };
@@ -171,8 +189,10 @@
 			children = (
 				3B763CFC262827B300E7F249 /* APIServiceAbout.swift */,
 				3B763CF92628275F00E7F249 /* APIServiceServices.swift */,
-				3B763D0026286CB100E7F249 /* APIServiceProject.swift */,
+				3B763D0026286CB100E7F249 /* APIServiceServiceProject.swift */,
 				3B60066526298FA7007D8C42 /* APIServiceContacts.swift */,
+				3B672BC026301C7E006A7B52 /* APIServiceProject.swift */,
+				3B672BD926305141006A7B52 /* APIServiceProjectDetail.swift */,
 				3B4DD3AC261C89450022812F /* DIContainer.swift */,
 			);
 			path = Services;
@@ -199,6 +219,7 @@
 		3B6456D3261AFE450004B721 /* TouchIt */ = {
 			isa = PBXGroup;
 			children = (
+				3B672BC426304B53006A7B52 /* ProjectDetail */,
 				3B6632C82626CB7A00313894 /* ServiceCategory2 */,
 				3B6E47C2262472B50061EA81 /* ServiceCategoryDetail */,
 				CE347AC6261E317600D87EA9 /* ContactsModule */,
@@ -243,6 +264,20 @@
 				3B6632DA2626E1C800313894 /* ServiceCategory2CollectionViewCell.swift */,
 			);
 			path = ServiceCategory2;
+			sourceTree = "<group>";
+		};
+		3B672BC426304B53006A7B52 /* ProjectDetail */ = {
+			isa = PBXGroup;
+			children = (
+				3B672BC626304D81006A7B52 /* ProjectDetailModuleModuleInterface.swift */,
+				3B672BC926304DEB006A7B52 /* ProjectDetailModuleViewController.swift */,
+				3B672BCD26304E1A006A7B52 /* ProjectDetailModulePresenter.swift */,
+				3B672BD026304E33006A7B52 /* ProjectDetailModuleInteractor.swift */,
+				3B672BD326304E49006A7B52 /* ProjectDetailModuleWireframe.swift */,
+				3B59E63D263060050050C575 /* ProjectDetailModuleRouter.swift */,
+				3B672BD626304E63006A7B52 /* ProjectDetailModuleEntity.swift */,
+			);
+			path = ProjectDetail;
 			sourceTree = "<group>";
 		};
 		3B6E47C2262472B50061EA81 /* ServiceCategoryDetail */ = {
@@ -452,14 +487,19 @@
 				CE347AB8261E300A00D87EA9 /* ProjectsViewController.swift in Sources */,
 				3B6632D22626CC1000313894 /* ServiceCategory2Presenter.swift in Sources */,
 				CE347AAE261E2D6C00D87EA9 /* ServicesRouter.swift in Sources */,
+				3B672BCE26304E1A006A7B52 /* ProjectDetailModulePresenter.swift in Sources */,
 				3B6456FD261B06F70004B721 /* MainRouter.swift in Sources */,
 				CE347ACE261E31DF00D87EA9 /* ContactsPresenter.swift in Sources */,
 				3BDF8155262065AB00FDB202 /* ProjectEntity.swift in Sources */,
 				CE347AC4261E306400D87EA9 /* ProjectsWireframe.swift in Sources */,
 				3B6456D5261AFE450004B721 /* AppDelegate.swift in Sources */,
+				3B672BDA26305141006A7B52 /* APIServiceProjectDetail.swift in Sources */,
 				3B645701261B412F0004B721 /* ContentMainView.swift in Sources */,
+				3B59E63E263060050050C575 /* ProjectDetailModuleRouter.swift in Sources */,
 				3B7108CF261F4DC60054BBF3 /* ServicesEntity.swift in Sources */,
 				CE347AD7261E322A00D87EA9 /* ContactsWireframe.swift in Sources */,
+				3B672BCA26304DEB006A7B52 /* ProjectDetailModuleViewController.swift in Sources */,
+				3B672BD726304E63006A7B52 /* ProjectDetailModuleEntity.swift in Sources */,
 				3B763CFA2628275F00E7F249 /* APIServiceServices.swift in Sources */,
 				3B624D7A262ED5E800C8EDD3 /* ServiceCategoryHeaderCell.swift in Sources */,
 				CE347AA2261E2CF500D87EA9 /* ServicesModuleInterface.swift in Sources */,
@@ -468,6 +508,9 @@
 				3B8DABB0261DD341001EB336 /* AboutModuleInterface.swift in Sources */,
 				CE230A7C2623739C005507C0 /* ContactsEntity.swift in Sources */,
 				3B8DABA4261DD295001EB336 /* AboutViewController.swift in Sources */,
+				3B672BD426304E49006A7B52 /* ProjectDetailModuleWireframe.swift in Sources */,
+				3B672BD126304E33006A7B52 /* ProjectDetailModuleInteractor.swift in Sources */,
+				3B672BC726304D81006A7B52 /* ProjectDetailModuleModuleInterface.swift in Sources */,
 				3B6632DB2626E1C800313894 /* ServiceCategory2CollectionViewCell.swift in Sources */,
 				3B652E292625761900861BE3 /* ServiceCategoryEntity.swift in Sources */,
 				3B6E47D0262474530061EA81 /* ServiceCategoryWireframe.swift in Sources */,
@@ -491,10 +534,11 @@
 				3B6456F3261B005B0004B721 /* MainInteractor.swift in Sources */,
 				3BDF81512620632A00FDB202 /* ProjectCollectionViewCell.swift in Sources */,
 				3B624D77262ECCE300C8EDD3 /* ExtensionView.swift in Sources */,
+				3B672BC126301C7E006A7B52 /* APIServiceProject.swift in Sources */,
 				CE347ABB261E302200D87EA9 /* ProjectsPresenter.swift in Sources */,
 				3B6E47D4262486E20061EA81 /* ServiceCategoryCollectionViewCell.swift in Sources */,
 				3B6E47CE262474530061EA81 /* ServiceCategoryViewController.swift in Sources */,
-				3B763D0126286CB200E7F249 /* APIServiceProject.swift in Sources */,
+				3B763D0126286CB200E7F249 /* APIServiceServiceProject.swift in Sources */,
 				3B6632D52626CC1000313894 /* ServiceCategory2Interactor.swift in Sources */,
 				3B6632D12626CC1000313894 /* ServiceCategory2Interfaces.swift in Sources */,
 				CE347AD4261E320F00D87EA9 /* ContactsRouter.swift in Sources */,

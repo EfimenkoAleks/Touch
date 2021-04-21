@@ -54,11 +54,11 @@ extension ServicesPresenter {
 }
 
 extension ServicesPresenter: ServicesModulePresenterProtocol {
-    var countIcons: Int {
-        return self.logos.count
-    }
-    
     func curentLogo(index: Int) -> Logo {
         return self.logos[index]
+    }
+    
+    var countIcons: Int {
+        return self.logos.count
     }
 }

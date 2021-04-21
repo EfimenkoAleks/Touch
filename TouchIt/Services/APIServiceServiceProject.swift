@@ -1,8 +1,8 @@
 //
-//  APIServiceProject.swift
+//  APIServiceServiceProject.swift
 //  TouchIt
 //
-//  Created by Trainee Alex on 21.04.2021.
+//  Created by Trainee Alex on 15.04.2021.
 //
 
 import Foundation
@@ -10,18 +10,20 @@ import UIKit
 import FirebaseStorage
 import FirebaseFirestore
 
-protocol APIServiceProjectProtocol {
-    func fechProject(completion: @escaping (Result<[ProjectModWithImage]>) -> ())
+protocol APIServiceServiceProjectProtocol {
+    func fechProject(completion: @escaping (Result<[ProjectModWithImage]?>) -> ())
 }
 
-class APIServiceProjectImplementation {
+class APIServiceServiceProjectImplementation {
     let db = Firestore.firestore()
 }
 
-extension APIServiceProjectImplementation: APIServiceProjectProtocol {
+extension APIServiceServiceProjectImplementation: APIServiceServiceProjectProtocol {
     
-    func fechProject(completion: @escaping (Result<[ProjectModWithImage]>) -> ()) {
-   
+    func fechProject(completion: @escaping (Result<[ProjectModWithImage]?>) -> ()) {
+        
+//        let group = DispatchGroup()
+        
         var tasks = [ProjectModWithImage]()
         db.collection("Projects").getDocuments() { (querySnapshot, err) in
                if let err = err {
@@ -32,7 +34,7 @@ extension APIServiceProjectImplementation: APIServiceProjectProtocol {
                     for document in querySnapshot!.documents {
 
                   let item = ProjectMod(snapshot: document)
-                        self.load(item.mainImageUrl) { (image) in
+                        self.load(item.photoLibaryUrl.first ?? "") { (image) in
                             
                             let itemWithImage = ProjectModWithImage(description: item.description, mainImageUrl: image, name: item.name, type: item.type)
                             tasks.append(itemWithImage)
@@ -41,6 +43,10 @@ extension APIServiceProjectImplementation: APIServiceProjectProtocol {
                             }
                         }
                    }
+                
+//                group.notify(queue: DispatchQueue.global()) {
+//                    completion(tasks)
+//                  }
                }
            }
     }

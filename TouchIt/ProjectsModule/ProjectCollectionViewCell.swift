@@ -27,8 +27,8 @@ class ProjectCollectionViewCell: UICollectionViewCell {
         self.backgroundColor = #colorLiteral(red: 0.1298420429, green: 0.1298461258, blue: 0.1298439503, alpha: 1)
         }
         
-        func configure(_ logo: ProjectModel) {
-            itemImageView.image = UIImage(named: logo.icon)
+        func configure(_ logo: ProjectModWithImage) {
+            itemImageView.image = UIImage(data: logo.mainImageUrl!)
             itemImageView.layer.cornerRadius = 16
         }
         

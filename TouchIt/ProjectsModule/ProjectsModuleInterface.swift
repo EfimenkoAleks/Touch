@@ -5,7 +5,7 @@
 //  Created by user on 07.04.2021.
 //
 
-import UIKit
+import Foundation
 
 protocol ProjectsModuleViewProtocol: class {
     func updateView()
@@ -13,16 +13,19 @@ protocol ProjectsModuleViewProtocol: class {
 
 protocol ProjectsModulePresenterProtocol {
     var countItem: Int { get }
-    var itemsForFilter: [ProjectModel] { get }
-    func itemForindex(index: Int) -> ProjectModel
+    var countItemFiltred: Int { get }
+    var itemsForFilter: [ProjectModWithImage] { get }
+    func itemForIndexFiltring(index: Int) -> ProjectModWithImage
+    func itemForindex(index: Int) -> ProjectModWithImage
     func filterContentForSearchText(_ searchText: String)
+    func fetchProject()
 }
 
 protocol ProjectsModuleInteractorProtocol {
-    
+    func fetchProjectModel(completion: @escaping ([ProjectModWithImage]?) -> ())
 }
 
 protocol ProjectsModuleRouterProtocol {
-    func goToSecondScreen()
+    func goToNextScreen(model: ProjectModWithImage)
 }
 

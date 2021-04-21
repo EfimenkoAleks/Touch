@@ -11,34 +11,35 @@ class ProjectsViewController: UIViewController {
     
     var presenter: ProjectsModulePresenterProtocol!
     private var collection: UICollectionView!
+    weak var delegateMain: TransitionProjectToNextDelegate?
     
+    private let searchController = UISearchController(searchResultsController: nil)
     private var searchBarIsEmpty: Bool {
             guard let text = searchController.searchBar.text else { return false }
             return text.isEmpty
         }
-    
-        private var isFiltering: Bool {
+    private var isFiltering: Bool {
             return searchController.isActive && !searchBarIsEmpty
         }
-        
-        private let searchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .black
-
+        
         self.createCollection()
         
         // Setup the Seatch Controller
-                   searchController.searchResultsUpdater = self
-                   searchController.obscuresBackgroundDuringPresentation = false
-                   searchController.searchBar.placeholder = "Search"
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
         
-        searchController.searchBar.tintColor = .systemBlue
+        searchController.searchBar.tintColor = .white
         searchController.searchBar.backgroundColor = .black
         searchController.searchBar.barTintColor = .white
-                   navigationItem.searchController = searchController
-                   definesPresentationContext = true
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
+        self.presenter.fetchProject()
     }
     
     
@@ -52,12 +53,14 @@ extension ProjectsViewController {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.itemSize = CGSize(width: (self.view.frame.width / 2) - 6, height: self.view.frame.height / 6)
+        layout.itemSize = CGSize(width: (self.view.frame.width / 2) - 2, height: self.view.frame.height / 6)
+        layout.minimumLineSpacing = 5
+        layout.minimumInteritemSpacing = 2
         
         self.collection = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         self.collection.register(ProjectCollectionViewCell.self, forCellWithReuseIdentifier: ProjectCollectionViewCell.reuseId)
         self.collection.showsHorizontalScrollIndicator = false
-        self.collection.isScrollEnabled = false
+        self.collection.isScrollEnabled = true
         self.collection.isUserInteractionEnabled = true
         self.collection.backgroundColor = .black
         self.collection.translatesAutoresizingMaskIntoConstraints = false
@@ -73,11 +76,29 @@ extension ProjectsViewController {
         ])
         
         self.collection.dataSource = self
+        self.collection.delegate = self
+    }
+}
+
+extension ProjectsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        var project: ProjectModWithImage
+        
+        if isFiltering {
+            project = self.presenter.itemForIndexFiltring(index: indexPath.item)
+        } else {
+            project = self.presenter.itemForindex(index: indexPath.item)
+        }
+        self.delegateMain?.goToNext(model: project)
     }
 }
 
 extension ProjectsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if isFiltering {
+            return self.presenter.countItemFiltred
+            }
         return self.presenter.countItem
     }
     
@@ -85,7 +106,15 @@ extension ProjectsViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProjectCollectionViewCell.reuseId, for: indexPath) as! ProjectCollectionViewCell
         
-        cell.configure(self.presenter.itemForindex(index: indexPath.item))
+        var project: ProjectModWithImage
+        
+        if isFiltering {
+            project = self.presenter.itemForIndexFiltring(index: indexPath.item)
+            cell.configure(project)
+        } else {
+            project = self.presenter.itemForindex(index: indexPath.item)
+            cell.configure(project)
+        }
         return cell
     }
     
@@ -101,8 +130,9 @@ extension ProjectsViewController: UISearchResultsUpdating {
 
 extension ProjectsViewController: ProjectsModuleViewProtocol {
     func updateView() {
-        collection?.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.collection?.reloadData()
+        }
     }
-    
-    
 }

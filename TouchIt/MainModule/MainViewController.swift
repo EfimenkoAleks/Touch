@@ -75,7 +75,7 @@ extension MainViewController {
         let vcSer = ServicesWireframe.create(mainDelegate: self)
         arrayVC.append(vcSer)
         
-        let vcPro = ProjectsWireframe.create()
+        let vcPro = ProjectsWireframe.create(mainDelegate: self)
         arrayVC.append(vcPro)
         
         let vcCon = ContactsWireframe.create()
@@ -143,11 +143,17 @@ extension MainViewController {
     }
 }
 
-extension MainViewController: TransitionToNextDelegate {
+extension MainViewController: TransitionServiceToNextDelegate {
    
     func goToNext(logo: Logo) {
 
         self.navigationController?.pushViewController( ServiceCategoryWireframe.create(logo: logo), animated: true)
+    }
+}
+
+extension MainViewController: TransitionProjectToNextDelegate {
+    func goToNext(model: ProjectModWithImage) {
+        self.navigationController?.pushViewController(ProjectDetailWireframe.create(model: model), animated: true)
     }
 }
 

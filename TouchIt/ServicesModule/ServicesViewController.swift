@@ -11,7 +11,7 @@ class ServicesViewController: UIViewController {
     
     var presenter: ServicesModulePresenterProtocol!
     var collection: UICollectionView!
-    weak var delegateMain: TransitionToNextDelegate?
+    weak var delegateMain: TransitionServiceToNextDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()

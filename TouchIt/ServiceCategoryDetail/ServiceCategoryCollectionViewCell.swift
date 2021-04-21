@@ -59,7 +59,7 @@ class ServiceCategoryCollectionViewCell: UICollectionViewCell {
         
     func configure(_ logo: ProjectModWithImage, title: String) {
             titleLabel.text = title
-            categoryImageView.image = logo.mainImageUrl
+        categoryImageView.image = UIImage(data: logo.mainImageUrl!)
         }
         
         required init?(coder: NSCoder) {

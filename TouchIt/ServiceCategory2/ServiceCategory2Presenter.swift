@@ -38,7 +38,7 @@ extension ServiceCategory2Presenter: ServiceCategory2ModulePresenter {
         return self.model.count
     }
     
-    func curentItem(index: Int) -> UIImage? {
+    func curentItem(index: Int) -> Data? {
         return self.model[index].mainImageUrl
     }
     

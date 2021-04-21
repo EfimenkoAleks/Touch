@@ -10,9 +10,9 @@ import UIKit
 
 final class ServiceCategory2Interactor {
     
-    private let apiService: APIProjectProtocol
+    private let apiService: APIServiceProjectProtocol
     
-    init(apiService: APIProjectProtocol) {
+    init(apiService: APIServiceProjectProtocol) {
         self.apiService = apiService
     }
 }
