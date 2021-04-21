@@ -81,6 +81,11 @@
 		CE347AD1261E31FD00D87EA9 /* ContactsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE347AD0261E31FD00D87EA9 /* ContactsInteractor.swift */; };
 		CE347AD4261E320F00D87EA9 /* ContactsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE347AD3261E320F00D87EA9 /* ContactsRouter.swift */; };
 		CE347AD7261E322A00D87EA9 /* ContactsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE347AD6261E322A00D87EA9 /* ContactsWireframe.swift */; };
+		CEFBC1222630A25B009226F8 /* MainImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC1212630A25B009226F8 /* MainImageTableViewCell.swift */; };
+		CEFBC1262630A683009226F8 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC1252630A683009226F8 /* TitleTableViewCell.swift */; };
+		CEFBC1292630A860009226F8 /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC1282630A860009226F8 /* DescriptionTableViewCell.swift */; };
+		CEFBC12C2630B3B2009226F8 /* MoreImagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC12B2630B3B2009226F8 /* MoreImagesTableViewCell.swift */; };
+		CEFBC1332630BC90009226F8 /* LastImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFBC1322630BC90009226F8 /* LastImageTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -161,6 +166,11 @@
 		CE347AD0261E31FD00D87EA9 /* ContactsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsInteractor.swift; sourceTree = "<group>"; };
 		CE347AD3261E320F00D87EA9 /* ContactsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsRouter.swift; sourceTree = "<group>"; };
 		CE347AD6261E322A00D87EA9 /* ContactsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsWireframe.swift; sourceTree = "<group>"; };
+		CEFBC1212630A25B009226F8 /* MainImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainImageTableViewCell.swift; sourceTree = "<group>"; };
+		CEFBC1252630A683009226F8 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
+		CEFBC1282630A860009226F8 /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		CEFBC12B2630B3B2009226F8 /* MoreImagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreImagesTableViewCell.swift; sourceTree = "<group>"; };
+		CEFBC1322630BC90009226F8 /* LastImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastImageTableViewCell.swift; sourceTree = "<group>"; };
 		E88B7A14A013238A49EA77EC /* Pods_TouchIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TouchIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -269,6 +279,7 @@
 		3B672BC426304B53006A7B52 /* ProjectDetail */ = {
 			isa = PBXGroup;
 			children = (
+				CEFBC1202630A21C009226F8 /* Cell */,
 				3B672BC626304D81006A7B52 /* ProjectDetailModuleModuleInterface.swift */,
 				3B672BC926304DEB006A7B52 /* ProjectDetailModuleViewController.swift */,
 				3B672BCD26304E1A006A7B52 /* ProjectDetailModulePresenter.swift */,
@@ -362,6 +373,18 @@
 				CE230A7B2623739C005507C0 /* ContactsEntity.swift */,
 			);
 			path = ContactsModule;
+			sourceTree = "<group>";
+		};
+		CEFBC1202630A21C009226F8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CEFBC1212630A25B009226F8 /* MainImageTableViewCell.swift */,
+				CEFBC1252630A683009226F8 /* TitleTableViewCell.swift */,
+				CEFBC1282630A860009226F8 /* DescriptionTableViewCell.swift */,
+				CEFBC12B2630B3B2009226F8 /* MoreImagesTableViewCell.swift */,
+				CEFBC1322630BC90009226F8 /* LastImageTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,7 +504,9 @@
 				3B8DABAD261DD31D001EB336 /* AboutRouter.swift in Sources */,
 				3B6E47CF262474530061EA81 /* ServiceCategoryInteractor.swift in Sources */,
 				CE347AAB261E2D5800D87EA9 /* ServicesInteractor.swift in Sources */,
+				CEFBC1332630BC90009226F8 /* LastImageTableViewCell.swift in Sources */,
 				CE347AA5261E2D0E00D87EA9 /* ServicesViewController.swift in Sources */,
+				CEFBC1222630A25B009226F8 /* MainImageTableViewCell.swift in Sources */,
 				3B4DD3AD261C89450022812F /* DIContainer.swift in Sources */,
 				3B6456F6261B008B0004B721 /* MainWireframe.swift in Sources */,
 				CE347AB8261E300A00D87EA9 /* ProjectsViewController.swift in Sources */,
@@ -493,6 +518,7 @@
 				3BDF8155262065AB00FDB202 /* ProjectEntity.swift in Sources */,
 				CE347AC4261E306400D87EA9 /* ProjectsWireframe.swift in Sources */,
 				3B6456D5261AFE450004B721 /* AppDelegate.swift in Sources */,
+				CEFBC1262630A683009226F8 /* TitleTableViewCell.swift in Sources */,
 				3B672BDA26305141006A7B52 /* APIServiceProjectDetail.swift in Sources */,
 				3B645701261B412F0004B721 /* ContentMainView.swift in Sources */,
 				3B59E63E263060050050C575 /* ProjectDetailModuleRouter.swift in Sources */,
@@ -520,6 +546,7 @@
 				3B7108CC261F27FC0054BBF3 /* ServiceCollectionViewCell.swift in Sources */,
 				3B8DABAA261DD2F6001EB336 /* AboutInteractor.swift in Sources */,
 				3B6456F9261B00CA0004B721 /* MainModuleInterfaces.swift in Sources */,
+				CEFBC1292630A860009226F8 /* DescriptionTableViewCell.swift in Sources */,
 				3B6E47CB262474530061EA81 /* ServiceCategoryInterfaces.swift in Sources */,
 				3BDF814E2620414C00FDB202 /* AboutEntity.swift in Sources */,
 				CE347ABE261E303B00D87EA9 /* ProjectsInteractor.swift in Sources */,
@@ -529,6 +556,7 @@
 				3B6E47CC262474530061EA81 /* ServiceCategoryPresenter.swift in Sources */,
 				3B6456ED261AFF4B0004B721 /* MainViewController.swift in Sources */,
 				3B6E47CD262474530061EA81 /* ServiceCategoryRouter.swift in Sources */,
+				CEFBC12C2630B3B2009226F8 /* MoreImagesTableViewCell.swift in Sources */,
 				3B60066626298FA7007D8C42 /* APIServiceContacts.swift in Sources */,
 				3B6632D32626CC1000313894 /* ServiceCategory2Router.swift in Sources */,
 				3B6456F3261B005B0004B721 /* MainInteractor.swift in Sources */,
