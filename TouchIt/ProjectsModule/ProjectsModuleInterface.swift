@@ -15,6 +15,8 @@ protocol ProjectsModulePresenterProtocol {
     var countItem: Int { get }
     var countItemFiltred: Int { get }
     var itemsForFilter: [ProjectModWithImage] { get }
+    func itemFiltring() -> [ProjectModWithImage]
+    func itemNoFiltring() -> [ProjectModWithImage]
     func itemForIndexFiltring(index: Int) -> ProjectModWithImage
     func itemForindex(index: Int) -> ProjectModWithImage
     func filterContentForSearchText(_ searchText: String)
@@ -26,6 +28,6 @@ protocol ProjectsModuleInteractorProtocol {
 }
 
 protocol ProjectsModuleRouterProtocol {
-    func goToNextScreen(model: ProjectModWithImage)
+ //   func goToNextScreen(model: ProjectModWithImage)
 }
 

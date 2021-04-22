@@ -8,16 +8,16 @@
 import UIKit
 
 struct ProjectDetailWireframe {
-    static func create(model: ProjectModWithImage) -> UIViewController {
+    static func create(model: [ProjectModWithImage], index: Int) -> UIViewController {
         let view = ProjectDetailViewController()
         let apiServis = DIConteiner.shared.apiProjectDetail
         let interactor = ProjectDetailInteractor(apiService: apiServis)
         let router = ProjectDetailRouter(transitionContext: view)
-        let presenter = ProjectDetailPresenter(model: model, view: view, interactor: interactor, router: router)
+        let presenter = ProjectDetailPresenter(model: model, index: index, view: view, interactor: interactor, router: router)
         view.presenter = presenter
         
-        let navigation = UINavigationController(rootViewController: view)
+//        let navigation = UINavigationController(rootViewController: view)
         
-        return navigation
+        return view
     }
 }

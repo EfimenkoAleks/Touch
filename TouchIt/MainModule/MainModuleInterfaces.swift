@@ -28,5 +28,5 @@ protocol TransitionServiceToNextDelegate: class {
 }
 
 protocol TransitionProjectToNextDelegate: class {
-    func goToNext(model: ProjectModWithImage)
+    func goToNext(model: [ProjectModWithImage], index: Int)
 }

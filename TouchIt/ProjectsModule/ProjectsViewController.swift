@@ -33,6 +33,12 @@ class ProjectsViewController: UIViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
         
+//        if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+//            textField.attributedPlaceholder = NSAttributedString(string: textField.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.red])
+//
+//            textField.attributedText = NSAttributedString(string: "textColor", attributes: [NSAttributedString.Key.foregroundColor: UIColor.yellow])
+//
+//        }
         searchController.searchBar.tintColor = .white
         searchController.searchBar.backgroundColor = .black
         searchController.searchBar.barTintColor = .white
@@ -83,14 +89,16 @@ extension ProjectsViewController {
 extension ProjectsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        var project: ProjectModWithImage
+        var project: [ProjectModWithImage]
         
         if isFiltering {
-            project = self.presenter.itemForIndexFiltring(index: indexPath.item)
+//            project = self.presenter.itemForIndexFiltring(index: indexPath.item)
+            project = self.presenter.itemFiltring()
         } else {
-            project = self.presenter.itemForindex(index: indexPath.item)
+//            project = self.presenter.itemForindex(index: indexPath.item)
+            project = self.presenter.itemNoFiltring()
         }
-        self.delegateMain?.goToNext(model: project)
+        self.delegateMain?.goToNext(model: project, index: indexPath.item)
     }
 }
 

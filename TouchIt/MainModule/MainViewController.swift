@@ -152,8 +152,10 @@ extension MainViewController: TransitionServiceToNextDelegate {
 }
 
 extension MainViewController: TransitionProjectToNextDelegate {
-    func goToNext(model: ProjectModWithImage) {
-        self.navigationController?.pushViewController(ProjectDetailWireframe.create(model: model), animated: true)
+    
+    func goToNext(model: [ProjectModWithImage], index: Int) {
+        
+        self.navigationController?.pushViewController(ProjectDetailWireframe.create(model: model, index: index), animated: true)
     }
 }
 

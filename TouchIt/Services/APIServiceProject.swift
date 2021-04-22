@@ -80,9 +80,6 @@ extension APIServiceProjectImplementation: APIServiceProjectProtocol {
         task.resume()
     }
     
-    
-    
-    
     private func loadImageFromDiskWith(fileName: String) -> Data? {
 
       let documentDirectory = FileManager.SearchPathDirectory.documentDirectory

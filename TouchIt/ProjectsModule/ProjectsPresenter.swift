@@ -40,12 +40,20 @@ extension ProjectsPresenter: ProjectsModulePresenterProtocol {
         return self.filterItems.count
     }
     
-    func itemForindex(index: Int) -> ProjectModWithImage {
-        return self.items[index]
+    func itemNoFiltring() -> [ProjectModWithImage] {
+        return self.items
+    }
+    
+    func itemFiltring() -> [ProjectModWithImage] {
+        return self.filterItems
     }
     
     func itemForIndexFiltring(index: Int) -> ProjectModWithImage {
         return self.filterItems[index]
+    }
+    
+    func itemForindex(index: Int) -> ProjectModWithImage {
+        return self.items[index]
     }
     
     var itemsForFilter: [ProjectModWithImage] {

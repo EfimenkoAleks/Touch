@@ -9,7 +9,9 @@ import UIKit
 
 class LastImageTableViewCell: UITableViewCell {
     
-    static var reuseId: String = "MainImageTableViewCell"
+    static var reuseId: String = "LastImageTableViewCell"
+ //   private var heightContraint: NSLayoutConstraint?
+    private var height: CGFloat = 200
     
     private var lastImage: UIImageView = {
         let im = UIImageView()
@@ -22,8 +24,10 @@ class LastImageTableViewCell: UITableViewCell {
     private var titleLabel: UILabel = {
         let lb = UILabel()
         lb.textAlignment = .center
-        lb.font = UIFont.systemFont(ofSize: 30, weight: .medium)
+        lb.font = UIFont.systemFont(ofSize: 40, weight: .light)
         lb.backgroundColor = .clear
+        lb.text = "NEXT PROJECT"
+        lb.textColor = .white
         lb.numberOfLines = 1
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
@@ -31,7 +35,7 @@ class LastImageTableViewCell: UITableViewCell {
     
     var darkView: UIView = {
         let imView = UIView()
-        imView.backgroundColor = .orange
+        imView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.8)
         imView.contentMode = .center
         imView.layer.masksToBounds = true
         imView.translatesAutoresizingMaskIntoConstraints = false
@@ -40,7 +44,7 @@ class LastImageTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
            super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-           self.contentView.backgroundColor = .clear
+           self.contentView.backgroundColor = .red
            self.createConstraint()
        }
      
@@ -60,27 +64,33 @@ extension LastImageTableViewCell {
         self.contentView.addSubview(lastImage)
         
         NSLayoutConstraint.activate([
-            lastImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            lastImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            lastImage.topAnchor.constraint(equalTo: self.topAnchor),
-            lastImage.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            lastImage.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            lastImage.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            lastImage.heightAnchor.constraint(equalToConstant: height)
         ])
+//
+//        heightContraint = lastImage.heightAnchor.constraint(equalToConstant: 0)
+//        self.addConstraint(heightContraint!)
         
+        NSLayoutConstraint.activate([
+            self.contentView.topAnchor.constraint(equalTo: lastImage.topAnchor),
+            self.contentView.bottomAnchor.constraint(equalTo: lastImage.bottomAnchor)
+        ])
+
         lastImage.addSubview(darkView)
-        
+
         NSLayoutConstraint.activate([
             darkView.trailingAnchor.constraint(equalTo: lastImage.trailingAnchor),
             darkView.leadingAnchor.constraint(equalTo: lastImage.leadingAnchor),
             darkView.topAnchor.constraint(equalTo: lastImage.topAnchor),
             darkView.bottomAnchor.constraint(equalTo: lastImage.bottomAnchor)
         ])
-        
+
         darkView.addSubview(titleLabel)
-        
+
         NSLayoutConstraint.activate([
             titleLabel.centerYAnchor.constraint(equalTo: darkView.centerYAnchor),
             titleLabel.centerXAnchor.constraint(equalTo: darkView.centerXAnchor)
-            
         ])
     }
 }

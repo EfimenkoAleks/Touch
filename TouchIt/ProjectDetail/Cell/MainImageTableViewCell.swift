@@ -10,6 +10,9 @@ import UIKit
 class MainImageTableViewCell: UITableViewCell {
     
     static var reuseId: String = "MainImageTableViewCell"
+ //   private var heightContraint: NSLayoutConstraint?
+    private var curHeight: CGFloat = 230
+    
     
     private var mainImage: UIImageView = {
         let im = UIImageView()
@@ -29,8 +32,16 @@ class MainImageTableViewCell: UITableViewCell {
            fatalError("init(coder:) has not been implemented")
        }
     
-    func configure(_ image: Data) {
+    func configure(_ image: Data, _ height: CGFloat) {
+      
         self.mainImage.image = UIImage(data: image)
+        self.curHeight = height
+        
+//            let imWidth = imag?.size.width
+//            let imHeight = imag?.size.height
+//            let ratio = imHeight! / imWidth!
+//        self.heightContraint?.constant = width * ratio
+//            self.layoutIfNeeded()
     }
 
 }
@@ -41,10 +52,14 @@ extension MainImageTableViewCell {
         self.contentView.addSubview(mainImage)
         
         NSLayoutConstraint.activate([
-            mainImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            mainImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            mainImage.topAnchor.constraint(equalTo: self.topAnchor),
-            mainImage.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            mainImage.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            mainImage.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            mainImage.heightAnchor.constraint(equalToConstant: curHeight)
+        ])
+        
+        NSLayoutConstraint.activate([
+            self.contentView.topAnchor.constraint(equalTo: mainImage.topAnchor),
+            self.contentView.bottomAnchor.constraint(equalTo: mainImage.bottomAnchor)
         ])
     }
 }

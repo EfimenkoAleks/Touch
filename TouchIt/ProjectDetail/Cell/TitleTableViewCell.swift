@@ -9,13 +9,14 @@ import UIKit
 
 class TitleTableViewCell: UITableViewCell {
     
-    static var reuseId: String = "MainImageTableViewCell"
+    static var reuseId: String = "TitleTableViewCell"
     
     private var titleLabel: UILabel = {
         let lb = UILabel()
         lb.textAlignment = .left
-        lb.font = UIFont.systemFont(ofSize: 30, weight: .medium)
+        lb.font = UIFont.systemFont(ofSize: 35, weight: .light)
         lb.backgroundColor = .clear
+        lb.textColor = .white
         lb.numberOfLines = 1
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
@@ -23,7 +24,7 @@ class TitleTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-           self.contentView.backgroundColor = .clear
+           self.contentView.backgroundColor = .black
            self.createConstraint()
        }
      
@@ -43,9 +44,13 @@ extension TitleTableViewCell {
         self.contentView.addSubview(titleLabel)
         
         NSLayoutConstraint.activate([
-            titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            self.topAnchor.constraint(equalTo: titleLabel.topAnchor),
+            self.bottomAnchor.constraint(equalTo: titleLabel.bottomAnchor)
         ])
     }
 }

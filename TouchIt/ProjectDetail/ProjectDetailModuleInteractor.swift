@@ -17,8 +17,15 @@ class ProjectDetailInteractor {
 }
 
 extension ProjectDetailInteractor: ProjectDetailModuleInteractorProtocol {
-    func fetchProjectModel(completion: @escaping ([ProjectModWithImage]?) -> ()) {
-        
+    func fetchPhotos(completion: @escaping ([Data]) -> ()) {
+        self.apiService.fechPhotos { (data) in
+            switch data {
+            case .success(let data):
+                completion(data)
+            case .failure(_ ):
+                return
+            }
+        }
     }
     
    

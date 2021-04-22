@@ -9,21 +9,22 @@ import UIKit
 
 class DescriptionTableViewCell: UITableViewCell {
     
-    static var reuseId: String = "MainImageTableViewCell"
+    static var reuseId: String = "DescriptionTableViewCell"
     
     private var descriptLabel: UILabel = {
         let lb = UILabel()
         lb.textAlignment = .left
-        lb.font = UIFont.systemFont(ofSize: 17, weight: .thin)
+        lb.font = UIFont.systemFont(ofSize: 18, weight: .thin)
         lb.backgroundColor = .clear
         lb.numberOfLines = 0
+        lb.textColor = .white
         lb.translatesAutoresizingMaskIntoConstraints = false
         return lb
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-           self.contentView.backgroundColor = .clear
+           self.contentView.backgroundColor = .black
            self.createConstraint()
        }
      
@@ -43,13 +44,13 @@ extension DescriptionTableViewCell {
         self.contentView.addSubview(descriptLabel)
         
         NSLayoutConstraint.activate([
-            descriptLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            descriptLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+            descriptLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            descriptLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            self.topAnchor.constraint(equalTo: descriptLabel.topAnchor),
-            self.bottomAnchor.constraint(equalTo: descriptLabel.bottomAnchor)
+            self.contentView.topAnchor.constraint(equalTo: descriptLabel.topAnchor),
+            self.contentView.bottomAnchor.constraint(equalTo: descriptLabel.bottomAnchor)
         ])
     }
 }
