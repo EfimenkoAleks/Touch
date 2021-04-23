@@ -47,14 +47,44 @@ extension ProjectDetailPresenter: ProjectDetailModulePresenterProtocol {
             } else {
                 indexNext = self.indexModel + 1
             }
+            self.projectModel.removeAll()
+            
             self.projectModel.append(.mainImage(self.model[self.indexModel].mainImageUrl!))
             self.projectModel.append(.title(self.model[self.indexModel].name))
             self.projectModel.append(.description(self.model[self.indexModel].description))
             self.projectModel.append(.moreImage(data))
             self.projectModel.append(.lastImage(self.model[indexNext].mainImageUrl!))
             
-            self.view?.updateView()
+            DispatchQueue.main.async {
+                self.view?.updateView()
+            }
         }
+    }
+    
+    func goTonextController(items: [Data], initialItem: Int) {
+        self.router.goTonextController(items: items, initialItem: initialItem)
+    }
+    
+    func didSelectItemAt(index: IndexPath) {
+        let item = projectModel[index.section]
+        switch item {
+        case let .moreImage(imagesData):
+            goTonextController(items: imagesData, initialItem: index.item)
+            
+        case .lastImage:
+            view?.restoreContentOffset()
+            nextProject()
+        default: break
+        }
+    }
+    
+    func nextProject() {
+        if self.indexModel == self.model.count - 1 {
+            self.indexModel = 0
+        } else {
+           self.indexModel += 1
+        }
+        self.fetchProject()
     }
     
     func curentModel(by: Int) -> ContentImage {

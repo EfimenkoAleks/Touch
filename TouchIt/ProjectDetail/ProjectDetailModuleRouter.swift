@@ -17,7 +17,7 @@ class ProjectDetailRouter {
 
 extension ProjectDetailRouter: ProjectDetailModuleRouterProtocol{
     
-    func goToNextScreen(model: ProjectModWithImage) {
-        
+    func goTonextController(items: [Data], initialItem: Int) {
+        self.transitionContext?.navigationController?.pushViewController(ProjectPageWireframe.create(model: items, initialItem: initialItem), animated: true)
     }
 }

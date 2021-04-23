@@ -32,13 +32,6 @@ class ProjectsViewController: UIViewController {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
-        
-//        if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
-//            textField.attributedPlaceholder = NSAttributedString(string: textField.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor : UIColor.red])
-//
-//            textField.attributedText = NSAttributedString(string: "textColor", attributes: [NSAttributedString.Key.foregroundColor: UIColor.yellow])
-//
-//        }
         searchController.searchBar.tintColor = .white
         searchController.searchBar.backgroundColor = .black
         searchController.searchBar.barTintColor = .white
@@ -47,10 +40,6 @@ class ProjectsViewController: UIViewController {
         
         self.presenter.fetchProject()
     }
-    
-    
-   
-
 }
 
 extension ProjectsViewController {
@@ -131,6 +120,7 @@ extension ProjectsViewController: UICollectionViewDataSource {
 
 extension ProjectsViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
+        searchController.whiteColorText()
         self.presenter.filterContentForSearchText(searchController.searchBar.text!)
     }
     
@@ -142,5 +132,11 @@ extension ProjectsViewController: ProjectsModuleViewProtocol {
             guard let self = self else { return }
             self.collection?.reloadData()
         }
+    }
+}
+
+extension UISearchController {
+    func whiteColorText() {
+        self.searchBar.searchTextField.attributedText = NSAttributedString(string: searchBar.text!, attributes: [.foregroundColor: UIColor.white])
     }
 }

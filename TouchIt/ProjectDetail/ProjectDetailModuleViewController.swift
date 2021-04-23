@@ -35,6 +35,7 @@ extension ProjectDetailViewController {
         tableView.register(DescriptionTableViewCell.self, forCellReuseIdentifier: DescriptionTableViewCell.reuseId)
         tableView.register(MoreImagesTableViewCell.self, forCellReuseIdentifier: MoreImagesTableViewCell.reuseId)
         tableView.register(LastImageTableViewCell.self, forCellReuseIdentifier: LastImageTableViewCell.reuseId)
+        tableView.register(ImagesTableViewCell.self, forCellReuseIdentifier: ImagesTableViewCell.reuseId)
             tableView.isScrollEnabled = true
    //         tableView.rowHeight = UITableView.automaticDimension
   //          tableView.estimatedRowHeight = 300.0
@@ -85,8 +86,9 @@ extension ProjectDetailViewController: UITableViewDataSource {
             cell.configure(descr)
             return cell
         case .moreImage(let data):
-            let cell = tableView.dequeueReusableCell(withIdentifier: MoreImagesTableViewCell.reuseId, for: indexPath) as! MoreImagesTableViewCell
-            cell.configure(data)
+            let cell = tableView.dequeueReusableCell(withIdentifier: ImagesTableViewCell.reuseId, for: indexPath) as! ImagesTableViewCell
+            cell.delegate = self
+            cell.configure(with: data)
             return cell
         case .lastImage(let data):
             let cell = tableView.dequeueReusableCell(withIdentifier: LastImageTableViewCell.reuseId, for: indexPath) as! LastImageTableViewCell
@@ -97,6 +99,12 @@ extension ProjectDetailViewController: UITableViewDataSource {
 }
 
 extension ProjectDetailViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didSelectItemAt(index: indexPath)
+        print("\(indexPath)")
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
@@ -114,10 +122,19 @@ extension ProjectDetailViewController: UITableViewDelegate {
        }
 }
 
+extension ProjectDetailViewController: ImagesTableViewCellDelegate {
+    func imagesTableViewCell(_ cell: UITableViewCell, didSelectImageAt index: Int) {
+        guard let section = tableView.indexPath(for: cell)?.section else { return }
+        presenter.didSelectItemAt(index: IndexPath(item: index, section: section))
+    }
+}
+
 extension ProjectDetailViewController: ProjectDetailModuleViewProtocol {
     func updateView() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
+        self.tableView.reloadData()
+    }
+    
+    func restoreContentOffset() {
+        tableView.setContentOffset(.zero, animated: true)
     }
 }
