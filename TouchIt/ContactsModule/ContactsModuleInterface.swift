@@ -14,6 +14,7 @@ protocol ContactsModuleViewProtocol: class {
 protocol ContactsModulePresenterProtocol {
     var countSectin: Int { get }
     func contacts() -> [Contact]
+    func curentContact(index: Int) -> Contact
     func countRowInSection(section: Int) -> Int
 }
 

@@ -40,6 +40,9 @@ extension ContactsPresenter: ContactsModulePresenterProtocol {
     func contacts() -> [Contact] {
         return self.contactss
     }
+    func curentContact(index: Int) -> Contact {
+        return self.contactss[index]
+    }
     func countRowInSection(section: Int) -> Int {
         return 3
     }

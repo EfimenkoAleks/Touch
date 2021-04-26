@@ -46,6 +46,20 @@ extension ContactsViewController {
         self.table.dataSource = self
         self.table.delegate = self
     }
+    
+//    func phoneTapped(by index: Int) {
+//        let model = self.presenter.curentContact(index: index)
+//        switch model[index] {
+//        case
+//            <#code#>
+//        default:
+//            <#code#>
+//        }
+//
+//        guard let phoneNumber = model.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+//            guard let url = URL(string: "tel://\(phoneNumber)") else { return }
+//            UIApplication.shared.open(url)
+//        }
 }
 
 extension ContactsViewController: UITableViewDelegate {
@@ -77,6 +91,10 @@ extension ContactsViewController: UITableViewDelegate {
         view1.backgroundColor = #colorLiteral(red: 0.2605174184, green: 0.2605243921, blue: 0.260520637, alpha: 1)
         return view1
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+ //       self.phoneTapped(by: indexPath.section)
+    }
 }
 
 extension ContactsViewController: UITableViewDataSource {
@@ -103,10 +121,12 @@ extension ContactsViewController: UITableViewDataSource {
         switch item.contact[indexPath.row] {
         case .place( let place):
             cell.configure(text: place, icon: UIImage(named: "place")!)
+            cell.buttonPhone.isHidden = true
         case .phone( let phone):
             cell.configure(text: phone, icon: UIImage(named: "phone")!)
         case .mail( let mail):
             cell.configure(text: mail, icon: UIImage(named: "mail")!)
+            cell.buttonPhone.isHidden = true
         }
         
         return cell

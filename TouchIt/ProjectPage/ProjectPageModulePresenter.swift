@@ -31,4 +31,13 @@ class ProjectPagePresenter {
 
 extension ProjectPagePresenter: ProjectPageModulePresenterProtocol {
     
+    var countPhoto: Int {
+        return self.model.count
+    }
+    func curentPhoto(index: Int) -> Data {
+        return self.model[index]
+    }
+    var curentIndex: Int {
+        return self.index
+    }
 }

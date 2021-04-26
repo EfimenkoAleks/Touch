@@ -44,6 +44,16 @@ class ContactTableViewCell: UITableViewCell {
         return stackV
     }()
     
+    var buttonPhone: UIButton = {
+        let butt = UIButton()
+        butt.setImage(UIImage(systemName: "phone"), for: .normal)
+        butt.tintColor = .white
+        butt.backgroundColor = .systemBlue
+        butt.layer.cornerRadius = 14
+        butt.translatesAutoresizingMaskIntoConstraints = false
+        return butt
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         self.contentView.backgroundColor = .black
@@ -64,7 +74,6 @@ class ContactTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }
 
 extension ContactTableViewCell {
@@ -73,6 +82,7 @@ extension ContactTableViewCell {
         contentView.addSubview(stacView)
         stacView.addArrangedSubview(iconImageView)
         stacView.addArrangedSubview(texttLabel)
+        stacView.addArrangedSubview(buttonPhone)
         
         NSLayoutConstraint.activate([
         stacView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
@@ -82,7 +92,10 @@ extension ContactTableViewCell {
         iconImageView.centerYAnchor.constraint(equalTo: stacView.centerYAnchor)
         ])
         
-
+        NSLayoutConstraint.activate([
+            buttonPhone.heightAnchor.constraint(equalToConstant: 40),
+            buttonPhone.widthAnchor.constraint(equalTo: buttonPhone.heightAnchor)
+        ])
     }
 }
 

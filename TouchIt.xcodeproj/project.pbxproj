@@ -23,6 +23,7 @@
 		3B6456F9261B00CA0004B721 /* MainModuleInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6456F8261B00CA0004B721 /* MainModuleInterfaces.swift */; };
 		3B6456FD261B06F70004B721 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6456FC261B06F70004B721 /* MainRouter.swift */; };
 		3B645701261B412F0004B721 /* ContentMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B645700261B412F0004B721 /* ContentMainView.swift */; };
+		3B652CB02636A80E001DFFB5 /* ContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B652CAF2636A80E001DFFB5 /* ContentVC.swift */; };
 		3B652E292625761900861BE3 /* ServiceCategoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B652E282625761900861BE3 /* ServiceCategoryEntity.swift */; };
 		3B6632D12626CC1000313894 /* ServiceCategory2Interfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6632CA2626CC1000313894 /* ServiceCategory2Interfaces.swift */; };
 		3B6632D22626CC1000313894 /* ServiceCategory2Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6632CB2626CC1000313894 /* ServiceCategory2Presenter.swift */; };
@@ -115,6 +116,7 @@
 		3B6456F8261B00CA0004B721 /* MainModuleInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleInterfaces.swift; sourceTree = "<group>"; };
 		3B6456FC261B06F70004B721 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		3B645700261B412F0004B721 /* ContentMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentMainView.swift; sourceTree = "<group>"; };
+		3B652CAF2636A80E001DFFB5 /* ContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentVC.swift; sourceTree = "<group>"; };
 		3B652E282625761900861BE3 /* ServiceCategoryEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryEntity.swift; sourceTree = "<group>"; };
 		3B6632CA2626CC1000313894 /* ServiceCategory2Interfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategory2Interfaces.swift; sourceTree = "<group>"; };
 		3B6632CB2626CC1000313894 /* ServiceCategory2Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategory2Presenter.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				3B74AD182632D20E0099E991 /* ProjectPageModuleInteractor.swift */,
 				3B74AD1B2632D21F0099E991 /* ProjectPageModuleRouter.swift */,
 				3B74AD1E2632D2380099E991 /* ProjectPageModuleWireframe.swift */,
+				3B652CAF2636A80E001DFFB5 /* ContentVC.swift */,
 			);
 			path = ProjectPage;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				CE347AA2261E2CF500D87EA9 /* ServicesModuleInterface.swift in Sources */,
 				3B763CFD262827B300E7F249 /* APIServiceAbout.swift in Sources */,
 				CE347AD1261E31FD00D87EA9 /* ContactsInteractor.swift in Sources */,
+				3B652CB02636A80E001DFFB5 /* ContentVC.swift in Sources */,
 				3B8DABB0261DD341001EB336 /* AboutModuleInterface.swift in Sources */,
 				CE230A7C2623739C005507C0 /* ContactsEntity.swift in Sources */,
 				3B8DABA4261DD295001EB336 /* AboutViewController.swift in Sources */,

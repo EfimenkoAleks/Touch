@@ -12,7 +12,9 @@ protocol ProjectPageModuleViewProtocol: class {
 }
 
 protocol ProjectPageModulePresenterProtocol {
-    
+    var countPhoto: Int { get }
+    var curentIndex: Int { get }
+    func curentPhoto(index: Int) -> Data
 }
 
 protocol ProjectPageModuleInteractorProtocol {
