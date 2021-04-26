@@ -102,6 +102,10 @@ class ImagesCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupUI() {
+        imageView.layer.cornerRadius = 10
+        imageView.layer.masksToBounds = true
+        imageView.backgroundColor = .white
+        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(imageView)
         NSLayoutConstraint.activate([
@@ -115,6 +119,7 @@ class ImagesCollectionViewCell: UICollectionViewCell {
     func configure(with data: Data) {
         let image = UIImage(data: data)
         imageView.image = image
+        
     }
 }
 

@@ -27,3 +27,7 @@ protocol ContactsModuleRouterProtocol {
 }
 
 
+protocol PressButtonPhoneDelegate {
+    func pressPhone(phone: String)
+}
+

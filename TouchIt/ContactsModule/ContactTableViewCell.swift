@@ -10,6 +10,7 @@ import UIKit
 class ContactTableViewCell: UITableViewCell {
     
     static var reuseId: String = "ContactTableViewCell"
+    var delegate: PressButtonPhoneDelegate?
     
     var texttLabel: UILabel = {
         let lb = UILabel()
@@ -44,13 +45,14 @@ class ContactTableViewCell: UITableViewCell {
         return stackV
     }()
     
-    var buttonPhone: UIButton = {
+    lazy var buttonPhone: UIButton = {
         let butt = UIButton()
         butt.setImage(UIImage(systemName: "phone"), for: .normal)
         butt.tintColor = .white
         butt.backgroundColor = .systemBlue
         butt.layer.cornerRadius = 14
         butt.translatesAutoresizingMaskIntoConstraints = false
+        butt.addTarget(self, action: #selector(ContactTableViewCell.tapButton), for: .touchUpInside)
         return butt
     }()
     
@@ -62,6 +64,10 @@ class ContactTableViewCell: UITableViewCell {
   
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func tapButton() {
+        self.delegate?.pressPhone(phone: texttLabel.text!)
     }
     
     func configure(text: String, icon: UIImage) {
