@@ -159,7 +159,7 @@ class ImagesCollectionLayout: UICollectionViewLayout {
         let side: CGFloat = 110
         
         while currentIndex < count {
-            var segmentFrame = CGRect(x: 0, y: lastFrame.maxY + 1.0, width: cvWidth, height: side)
+            var segmentFrame = CGRect(x: 0, y: lastFrame.maxY + 4.0, width: cvWidth, height: side)      // chenge height
             
             var segmentRects = [CGRect]()
             switch segment {
@@ -171,10 +171,10 @@ class ImagesCollectionLayout: UICollectionViewLayout {
             
             case .oneThird:
                 for index in (0..<3) {
-                    let sliceWidth = (segmentFrame.width / 3)
-                    let rect = CGRect(x: sliceWidth * CGFloat(index),
+                    let sliceWidth = segmentFrame.width / 3
+                    let rect = CGRect(x: (sliceWidth * CGFloat(index)) + 2,    // chenged x
                                       y: segmentFrame.origin.y,
-                                      width: sliceWidth,
+                                      width: sliceWidth - 4,        // chenged with
                                       height: segmentFrame.height)
                     segmentRects.append(rect)
                 }
@@ -268,11 +268,11 @@ extension CGRect {
         
         switch fromEdge {
         case .minXEdge, .maxXEdge:
-            slices.remainder.origin.x += 1
-            slices.remainder.size.width -= 1
+            slices.remainder.origin.x += 4      // chenged
+            slices.remainder.size.width -= 4    // chenged
         case .minYEdge, .maxYEdge:
-            slices.remainder.origin.y += 1
-            slices.remainder.size.height -= 1
+            slices.remainder.origin.y += 4       // chenged
+            slices.remainder.size.height -= 4     // chenged
         }
         
         return (first: slices.slice, second: slices.remainder)

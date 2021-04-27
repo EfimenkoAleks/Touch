@@ -47,7 +47,6 @@ class ServiceCategoryCollectionViewCell: UICollectionViewCell {
             self.setupConstraints()
         
         self.backgroundColor = .clear
- //       self.layer.cornerRadius = 20
         }
     
     override func layoutSubviews() {
@@ -77,14 +76,11 @@ extension ServiceCategoryCollectionViewCell {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
             titleLabel.heightAnchor.constraint(equalToConstant: 20),
-//            titleLabel.widthAnchor.constraint(equalToConstant: 100)
         ])
        
         NSLayoutConstraint.activate([
- //           categoryImageView.topAnchor.constraint(equalTo: self.topAnchor),
             categoryImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             categoryImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
- //           categoryImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             categoryImageView.heightAnchor.constraint(equalToConstant: self.bounds.height / 5 * 3.8)
         ])
     }

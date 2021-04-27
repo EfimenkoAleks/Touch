@@ -39,7 +39,7 @@ extension AboutPresenter: AboutModulePresenterProtocol {
         self.interactor.getVideo(name: self.video) { (rezult) in
             if rezult != nil {
               
-                self.aboutModel.video = nil // rezult?.video
+                self.aboutModel.video = rezult?.video
                 self.aboutModel.title = rezult?.title ?? "No Title"
                 self.aboutModel.text = rezult?.text ?? "No text"
             } else {

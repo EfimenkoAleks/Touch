@@ -25,8 +25,8 @@ class ContactsPresenter {
         
         self.contactss = [
             Contact(titl: "Touch IT", contact: [.place("6887 Sunset St undefined South 71890"), .phone("(219) 555-0114"), .mail("isaac.gibson@example.com")] ),
-            Contact(titl: "Shane Murphy", contact: [.place("6887 Sunset St undefined South 71890"), .phone("(480) 555-0103"), .mail("wesley.white@example.com")] ),
-            Contact(titl: "Gloria Steward", contact: [.place("6887 Sunset St undefined South 71890"), .phone("(671) 555-0110"), .mail("brandy.franklin@example.com")] )
+            Contact(titl: "Shane Murphy", contact: [.place("6887 Sunset St undefined South 71890"), .phone("(480) 555 0103"), .mail("wesley.white@example.com")] ),
+            Contact(titl: "Gloria Steward", contact: [.place("6887 Sunset St undefined South 71890"), .phone("(671)555-0110"), .mail("brandy.franklin@example.com")] )
         ]
     }
     

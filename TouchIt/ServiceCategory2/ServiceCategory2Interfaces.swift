@@ -25,5 +25,4 @@ protocol ServiceCategory2ModulePresenter: class {
 }
 
 protocol ServiceCategory2ModuleInteractor: class {
- //   func gethoto(completion: @escaping (URL?) -> ())
 }

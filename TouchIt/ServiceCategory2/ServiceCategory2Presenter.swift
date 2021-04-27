@@ -43,11 +43,6 @@ extension ServiceCategory2Presenter: ServiceCategory2ModulePresenter {
     }
     
     func getPhoto() {
-//        self.interactor.gethoto { (url) in
-//            if url != nil {
-//                self.image = url!
-//                self.view?.updateView()
-//            }
-//        }
+
     }
 }

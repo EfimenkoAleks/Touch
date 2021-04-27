@@ -7,6 +7,7 @@
 
 import UIKit
 import AVKit
+import AVFoundation
 
 class AboutViewController: UIViewController {
     
@@ -14,6 +15,7 @@ class AboutViewController: UIViewController {
     private var player: AVPlayer!
     private var playerStatusObserver: NSKeyValueObservation?
     static var reuseId: String = "AboutViewController"
+    var playPauseButton: PlayPauseButton!
    
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -26,7 +28,7 @@ class AboutViewController: UIViewController {
     
     var videoView: UIView = {
         let imView = UIView()
-        imView.backgroundColor = .orange
+        imView.backgroundColor = .clear
         imView.contentMode = .center
         imView.layer.masksToBounds = true
         imView.translatesAutoresizingMaskIntoConstraints = false
@@ -87,19 +89,34 @@ extension AboutViewController {
         
         let player = AVPlayer(url: fileName)
         self.player = player
-        playerStatusObserver = self.player.observe(\.status, changeHandler: { player, _ in
-            switch player.status {
-            case .readyToPlay:
-                player.play()
-            case .failed:
-                debugPrint("Player setup failed!!!!")
-            default:
-                break
-            }
-        })
+//        playerStatusObserver = self.player.observe(\.status, changeHandler: { player, _ in
+//            switch player.status {
+//            case .readyToPlay:
+//                player.play()
+//            case .failed:
+//                debugPrint("Player setup failed!!!!")
+//            default:
+//                break
+//            }
+//        })
+        player.rate = 1 //auto play
+        let playerFrame = self.videoView.frame
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        playerViewController.view.frame = playerFrame
+        playerViewController.showsPlaybackControls = true
+
+        addChild(playerViewController)
+        self.videoView.addSubview(playerViewController.view)
+        playerViewController.didMove(toParent: self)
+       
+        playPauseButton = PlayPauseButton()
+        playPauseButton.avPlayer = player
+        self.videoView.addSubview(playPauseButton)
+        playPauseButton.setup(in: self)
         
         let playerLayer = AVPlayerLayer(player: player)
-        
+
         videoView.layer.addSublayer(playerLayer)
         playerLayer.videoGravity = AVLayerVideoGravity.resize
         playerLayer.frame = self.videoView.bounds

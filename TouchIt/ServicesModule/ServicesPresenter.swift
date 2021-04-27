@@ -12,7 +12,7 @@ class ServicesPresenter {
     var interactor: ServicesModuleInteractorProtocol
     weak var view: ServicesModuleViewProtocol?
     var router: ServicesModuleRouterProtocol
-    private var logos = [Logo]() //["image1", "image2", "image3", "image4", "image5", "image6"]
+    private var logos = [Logo]()
    
     
     init(

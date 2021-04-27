@@ -185,10 +185,7 @@ extension ServiceCategoryViewController: UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.presenter.goToNextController(index: indexPath.item)
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//        return CGSize(width: 20, height: 20)
-//    }
+   
 }
 
 extension ServiceCategoryViewController: UICollectionViewDataSource {

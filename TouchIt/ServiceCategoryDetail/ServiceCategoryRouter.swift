@@ -16,10 +16,6 @@ class ServiceCategoryRouter {
     init(transitionContext: ServiceCategoryViewController?) {
         self.transitionContext = transitionContext
     }
-        
-//    func dismissPresented(animated: Bool, completion: (() -> Void)?) {
-//        transitionContext?.dismiss(animated: animated, completion: completion)
-//    }
 }
 
 extension ServiceCategoryRouter: ServiceCategoryModuleRouter {

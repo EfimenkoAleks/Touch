@@ -65,6 +65,7 @@
 		3B8DABAD261DD31D001EB336 /* AboutRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8DABAC261DD31D001EB336 /* AboutRouter.swift */; };
 		3B8DABB0261DD341001EB336 /* AboutModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8DABAF261DD341001EB336 /* AboutModuleInterface.swift */; };
 		3B8DABB3261DD36D001EB336 /* AboutWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8DABB2261DD36D001EB336 /* AboutWireframe.swift */; };
+		3BC7A7C326382867007CB5CA /* PlayPauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC7A7C226382867007CB5CA /* PlayPauseButton.swift */; };
 		3BDF814E2620414C00FDB202 /* AboutEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDF814D2620414C00FDB202 /* AboutEntity.swift */; };
 		3BDF81512620632A00FDB202 /* ProjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDF81502620632A00FDB202 /* ProjectCollectionViewCell.swift */; };
 		3BDF8155262065AB00FDB202 /* ProjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BDF8154262065AB00FDB202 /* ProjectEntity.swift */; };
@@ -158,6 +159,7 @@
 		3B8DABAC261DD31D001EB336 /* AboutRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutRouter.swift; sourceTree = "<group>"; };
 		3B8DABAF261DD341001EB336 /* AboutModuleInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutModuleInterface.swift; sourceTree = "<group>"; };
 		3B8DABB2261DD36D001EB336 /* AboutWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutWireframe.swift; sourceTree = "<group>"; };
+		3BC7A7C226382867007CB5CA /* PlayPauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayPauseButton.swift; sourceTree = "<group>"; };
 		3BDF814D2620414C00FDB202 /* AboutEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutEntity.swift; sourceTree = "<group>"; };
 		3BDF81502620632A00FDB202 /* ProjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCollectionViewCell.swift; sourceTree = "<group>"; };
 		3BDF8154262065AB00FDB202 /* ProjectEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectEntity.swift; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				3B8DABAC261DD31D001EB336 /* AboutRouter.swift */,
 				3B8DABB2261DD36D001EB336 /* AboutWireframe.swift */,
 				3BDF814D2620414C00FDB202 /* AboutEntity.swift */,
+				3BC7A7C226382867007CB5CA /* PlayPauseButton.swift */,
 			);
 			path = AboutModule;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				CE347ACE261E31DF00D87EA9 /* ContactsPresenter.swift in Sources */,
 				3BDF8155262065AB00FDB202 /* ProjectEntity.swift in Sources */,
 				CE347AC4261E306400D87EA9 /* ProjectsWireframe.swift in Sources */,
+				3BC7A7C326382867007CB5CA /* PlayPauseButton.swift in Sources */,
 				3B6456D5261AFE450004B721 /* AppDelegate.swift in Sources */,
 				CEFBC1262630A683009226F8 /* TitleTableViewCell.swift in Sources */,
 				3B672BDA26305141006A7B52 /* APIServiceProjectDetail.swift in Sources */,
