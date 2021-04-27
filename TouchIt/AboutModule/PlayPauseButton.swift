@@ -11,6 +11,8 @@ import AVKit
 class PlayPauseButton: UIView {
     var kvoRateContext = 0
     var avPlayer: AVPlayer?
+    var timer: Timer?
+    var isVisible: Bool = true
     var isPlaying: Bool {
         return avPlayer?.rate != 0 && avPlayer?.error == nil
     }
@@ -30,8 +32,27 @@ class PlayPauseButton: UIView {
     }
 
     @objc func tapped(_ sender: UITapGestureRecognizer) {
+       
         updateStatus()
         updateUI()
+        updateTimer()
+    }
+    
+    @objc func clearBackground() {
+ //       UIView.animate(withDuration: 1) {
+            self.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1).withAlphaComponent(0)
+//        }
+    }
+    
+    private func updateTimer() {
+
+        timer = nil
+        timer = Timer.scheduledTimer(timeInterval: 1.0,
+                                         target: self,
+                                         selector: #selector(clearBackground),
+                                         userInfo: nil,
+                                         repeats: false)
+        timer?.tolerance = 0.1
     }
 
     private func updateStatus() {
@@ -44,9 +65,9 @@ class PlayPauseButton: UIView {
 
     func updateUI() {
         if isPlaying {
-            setBackgroundImage(name: "pause")
+            setBackgroundImage(name: "pause.circle")
         } else {
-            setBackgroundImage(name: "play")
+            setBackgroundImage(name: "play.circle")
         }
     }
     
@@ -64,7 +85,7 @@ class PlayPauseButton: UIView {
 
     private func setBackgroundImage(name: String) {
         UIGraphicsBeginImageContext(frame.size)
-        UIImage(named: name)?.draw(in: bounds)
+        UIImage(systemName: name)?.draw(in: bounds)
         guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return }
         UIGraphicsEndImageContext()
         backgroundColor = UIColor(patternImage: image)

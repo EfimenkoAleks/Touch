@@ -109,11 +109,7 @@ extension AboutViewController {
         addChild(playerViewController)
         self.videoView.addSubview(playerViewController.view)
         playerViewController.didMove(toParent: self)
-       
-        playPauseButton = PlayPauseButton()
-        playPauseButton.avPlayer = player
-        self.videoView.addSubview(playPauseButton)
-        playPauseButton.setup(in: self)
+  
         
         let playerLayer = AVPlayerLayer(player: player)
 
@@ -126,6 +122,11 @@ extension AboutViewController {
         self.videoView.layer.mask = shape
         self.videoView.layer.addSublayer(playerLayer)
         playerLayer.layoutIfNeeded()
+        
+        playPauseButton = PlayPauseButton()
+        playPauseButton.avPlayer = player
+        self.videoView.addSubview(playPauseButton)
+        playPauseButton.setup(in: self)
     }
     
     private func setupConstraints() {
