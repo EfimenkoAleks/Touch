@@ -32,6 +32,7 @@
 		3B6632D52626CC1000313894 /* ServiceCategory2Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6632CE2626CC1000313894 /* ServiceCategory2Interactor.swift */; };
 		3B6632D62626CC1000313894 /* ServiceCategory2Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6632CF2626CC1000313894 /* ServiceCategory2Wireframe.swift */; };
 		3B6632DB2626E1C800313894 /* ServiceCategory2CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6632DA2626E1C800313894 /* ServiceCategory2CollectionViewCell.swift */; };
+		3B6663442639A78C003B76D8 /* CustomFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6663432639A78B003B76D8 /* CustomFooterView.swift */; };
 		3B672BC126301C7E006A7B52 /* APIServiceProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B672BC026301C7E006A7B52 /* APIServiceProject.swift */; };
 		3B672BC726304D81006A7B52 /* ProjectDetailModuleModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B672BC626304D81006A7B52 /* ProjectDetailModuleModuleInterface.swift */; };
 		3B672BCA26304DEB006A7B52 /* ProjectDetailModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B672BC926304DEB006A7B52 /* ProjectDetailModuleViewController.swift */; };
@@ -126,6 +127,7 @@
 		3B6632CE2626CC1000313894 /* ServiceCategory2Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategory2Interactor.swift; sourceTree = "<group>"; };
 		3B6632CF2626CC1000313894 /* ServiceCategory2Wireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategory2Wireframe.swift; sourceTree = "<group>"; };
 		3B6632DA2626E1C800313894 /* ServiceCategory2CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategory2CollectionViewCell.swift; sourceTree = "<group>"; };
+		3B6663432639A78B003B76D8 /* CustomFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFooterView.swift; sourceTree = "<group>"; };
 		3B672BC026301C7E006A7B52 /* APIServiceProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceProject.swift; sourceTree = "<group>"; };
 		3B672BC626304D81006A7B52 /* ProjectDetailModuleModuleInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailModuleModuleInterface.swift; sourceTree = "<group>"; };
 		3B672BC926304DEB006A7B52 /* ProjectDetailModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailModuleViewController.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				3B61812D261C3FB000E79DE2 /* GoogleService-Info.plist */,
 				3B6456E2261AFE460004B721 /* Info.plist */,
 				3B624D76262ECCE300C8EDD3 /* ExtensionView.swift */,
+				3B6663432639A78B003B76D8 /* CustomFooterView.swift */,
 			);
 			path = TouchIt;
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 				3B672BCE26304E1A006A7B52 /* ProjectDetailModulePresenter.swift in Sources */,
 				3B6456FD261B06F70004B721 /* MainRouter.swift in Sources */,
 				CE347ACE261E31DF00D87EA9 /* ContactsPresenter.swift in Sources */,
+				3B6663442639A78C003B76D8 /* CustomFooterView.swift in Sources */,
 				3BDF8155262065AB00FDB202 /* ProjectEntity.swift in Sources */,
 				CE347AC4261E306400D87EA9 /* ProjectsWireframe.swift in Sources */,
 				3BC7A7C326382867007CB5CA /* PlayPauseButton.swift in Sources */,

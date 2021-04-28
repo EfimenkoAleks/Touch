@@ -23,3 +23,7 @@ protocol AboutModuleInteractorProtocol {
 protocol AboutModuleRouterProtocol {
     func goToSecondScreen()
 }
+
+protocol TouchButtonDelegate {
+    func touch(touch: Bool)
+}

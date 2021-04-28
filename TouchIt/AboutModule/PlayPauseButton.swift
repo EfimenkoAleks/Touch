@@ -8,101 +8,73 @@
 import UIKit
 import AVKit
 
-class PlayPauseButton: UIView {
-    var kvoRateContext = 0
-    var avPlayer: AVPlayer?
+class PlayPauseButton: UIButton, TouchButtonDelegate {
+
     var timer: Timer?
-    var isVisible: Bool = true
-    var isPlaying: Bool {
-        return avPlayer?.rate != 0 && avPlayer?.error == nil
-    }
+ 
+    func setup(in container: AboutViewController) {
 
-    func addObservers() {
-        avPlayer?.addObserver(self, forKeyPath: "rate", options: .new, context: &kvoRateContext)
-    }
-
-    func setup(in container: UIViewController) {
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.tapped(_:)))
-        addGestureRecognizer(gesture)
         self.backgroundColor = .clear
-
-        updatePosition()
-        updateUI()
-        addObservers()
-    }
-
-    @objc func tapped(_ sender: UITapGestureRecognizer) {
-       
-        updateStatus()
-        updateUI()
-        updateTimer()
+        container.delegate = self
+        tintColor = .black
+        
+        setPauseImage()
+        UIView.animate(withDuration: 1.0) {
+            self.updateAppearance()
+        }
     }
     
-    @objc func clearBackground() {
- //       UIView.animate(withDuration: 1) {
-            self.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1).withAlphaComponent(0)
-//        }
+//    @objc func clearBackground() {
+// //       UIView.animate(withDuration: 1) {
+////            self.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1).withAlphaComponent(0)
+//  //          self.alpha = 0
+//  //      }
+//        updateAppearance()
+//    }
+//
+//    private func updateTimer() {
+//
+//        timer = nil
+//        timer = Timer.scheduledTimer(timeInterval: 1.0,
+//                                         target: self,
+//                                         selector: #selector(clearBackground),
+//                                         userInfo: nil,
+//                                         repeats: false)
+//        timer?.tolerance = 0.1
+//    }
+
+    func updateAppearance() {
+        let newAlpha: CGFloat = alpha == 0 ? 1 : 0
+        alpha = newAlpha
     }
     
-    private func updateTimer() {
-
-        timer = nil
-        timer = Timer.scheduledTimer(timeInterval: 1.0,
-                                         target: self,
-                                         selector: #selector(clearBackground),
-                                         userInfo: nil,
-                                         repeats: false)
-        timer?.tolerance = 0.1
-    }
-
-    private func updateStatus() {
+    func updateImageForState(isPlaying: Bool) {
         if isPlaying {
-            avPlayer?.pause()
+            setPauseImage()
         } else {
-            avPlayer?.play()
+            setPlayImage()
         }
-    }
-
-    func updateUI() {
-        if isPlaying {
-            setBackgroundImage(name: "pause.circle")
-        } else {
-            setBackgroundImage(name: "play.circle")
+        UIView.animate(withDuration: 1.0) {
+            self.updateAppearance()
         }
     }
     
-    func updatePosition() {
-        guard let superview = superview else { return }
-        translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            widthAnchor.constraint(equalToConstant: 100),
-            heightAnchor.constraint(equalToConstant: 100),
-            centerXAnchor.constraint(equalTo: superview.centerXAnchor),
-            centerYAnchor.constraint(equalTo: superview.centerYAnchor)
-            ])
+    func setPauseImage() {
+        let image = UIImage(systemName: "pause.circle")
+        setBackgroundImage(image, for: .normal)
     }
-
-    private func setBackgroundImage(name: String) {
-        UIGraphicsBeginImageContext(frame.size)
-        UIImage(systemName: name)?.draw(in: bounds)
-        guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return }
-        UIGraphicsEndImageContext()
-        backgroundColor = UIColor(patternImage: image)
+    
+    func setPlayImage() {
+        let image = UIImage(systemName: "play.circle")
+        setBackgroundImage(image, for: .normal)
     }
-
-    private func handleRateChanged() {
-        updateUI()
+    
+    func touch(touch: Bool) {
+        updateImageForState(isPlaying: touch)
     }
-
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        guard let context = context else { return }
-
-        switch context {
-        case &kvoRateContext:
-            handleRateChanged()
-        default:
-            break
-        }
-    }
+    
+//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+//
+//    }
 }
+

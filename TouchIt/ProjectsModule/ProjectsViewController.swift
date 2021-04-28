@@ -48,7 +48,12 @@ extension ProjectsViewController {
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.itemSize = CGSize(width: (self.view.frame.width / 2) - 2, height: self.view.frame.height / 6)
+        var height = self.view.frame.height / 6
+        let width = (self.view.frame.width / 2) - 2
+        let aspectRatio: CGFloat = 0.75 //9 / 12
+        height = width * aspectRatio
+        
+        layout.itemSize = CGSize(width: width, height: height)
         layout.minimumLineSpacing = 5
         layout.minimumInteritemSpacing = 2
         
@@ -63,11 +68,11 @@ extension ProjectsViewController {
         self.view.addSubview(self.collection)
         
         NSLayoutConstraint.activate([
-  //          self.collection.topAnchor.constraint(equalTo: self.view.topAnchor),
+            self.collection.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10),
             self.collection.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             self.collection.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             self.collection.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            self.collection.heightAnchor.constraint(equalToConstant: self.view.frame.height / 4 * 2.9)
+//            self.collection.heightAnchor.constraint(equalToConstant: self.view.frame.height / 4 * 3)
         ])
         
         self.collection.dataSource = self

@@ -13,9 +13,10 @@ class AboutViewController: UIViewController {
     
     var presenter: AboutModulePresenterProtocol!
     private var player: AVPlayer!
-    private var playerStatusObserver: NSKeyValueObservation?
+//    private var playerStatusObserver: NSKeyValueObservation?
     static var reuseId: String = "AboutViewController"
-    var playPauseButton: PlayPauseButton!
+    let playPauseButton = PlayPauseButton()
+    var delegate: TouchButtonDelegate?
    
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -27,6 +28,15 @@ class AboutViewController: UIViewController {
     }()
     
     var videoView: UIView = {
+        let imView = UIView()
+        imView.backgroundColor = .clear
+        imView.contentMode = .center
+        imView.layer.masksToBounds = true
+        imView.translatesAutoresizingMaskIntoConstraints = false
+        return imView
+    }()
+    
+    var videoContainer: UIView = {
         let imView = UIView()
         imView.backgroundColor = .clear
         imView.contentMode = .center
@@ -74,9 +84,30 @@ class AboutViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
         self.setupConstraints()
         self.presenter.fechVideo()
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.updatePlayButtonAppearance))
+        videoView.addGestureRecognizer(gesture)
+        playPauseButton.setup(in: self)
+        playPauseButton.addTarget(self, action: #selector(AboutViewController.updatePlayerStatus(sender:)), for: .touchUpInside)
+    }
+    
+    @objc func updatePlayButtonAppearance() {
+        UIView.animate(withDuration: 1, animations: {
+            self.playPauseButton.updateAppearance()
+        })
+    }
+    
+    @objc func updatePlayerStatus(sender: UIButton) {
+        if player.isPLaying {
+            player.pause()
+            self.delegate?.touch(touch: player.isPLaying)
+        } else {
+            player.play()
+            self.delegate?.touch(touch: player.isPLaying)
+        }
     }
 }
 
@@ -100,34 +131,33 @@ extension AboutViewController {
 //            }
 //        })
         player.rate = 1 //auto play
-        let playerFrame = self.videoView.frame
-        let playerViewController = AVPlayerViewController()
-        playerViewController.player = player
-        playerViewController.view.frame = playerFrame
-        playerViewController.showsPlaybackControls = true
-
-        addChild(playerViewController)
-        self.videoView.addSubview(playerViewController.view)
-        playerViewController.didMove(toParent: self)
+//        let playerFrame = self.videoView.frame
+//        let playerViewController = AVPlayerViewController()
+//        playerViewController.player = player
+//        playerViewController.view.frame = playerFrame
+//        playerViewController.showsPlaybackControls = false
+//
+//        addChild(playerViewController)
+//        self.videoView.addSubview(playerViewController.view)
+//        playerViewController.didMove(toParent: self)
   
         
         let playerLayer = AVPlayerLayer(player: player)
 
-        videoView.layer.addSublayer(playerLayer)
         playerLayer.videoGravity = AVLayerVideoGravity.resize
-        playerLayer.frame = self.videoView.bounds
-        let path = UIBezierPath(roundedRect:  self.videoView.bounds, byRoundingCorners: [.topLeft, .bottomLeft], cornerRadii: CGSize(width: 20, height: 20))
+        playerLayer.frame = self.videoContainer.bounds
+        let path = UIBezierPath(roundedRect:  self.videoContainer.bounds, byRoundingCorners: [.topLeft, .bottomLeft], cornerRadii: CGSize(width: 20, height: 20))
         let shape = CAShapeLayer()
         shape.path = path.cgPath
-        self.videoView.layer.mask = shape
-        self.videoView.layer.addSublayer(playerLayer)
+        self.videoContainer.layer.mask = shape
+        self.videoContainer.layer.addSublayer(playerLayer)
         playerLayer.layoutIfNeeded()
-        
-        playPauseButton = PlayPauseButton()
-        playPauseButton.avPlayer = player
-        self.videoView.addSubview(playPauseButton)
-        playPauseButton.setup(in: self)
+    
     }
+    
+//    func playerStatusDidChange(player: AVPlayer) {
+//        playPauseButton.updateImageForState(isPlaying: player.isPLaying)
+//    }
     
     private func setupConstraints() {
 
@@ -176,6 +206,35 @@ extension AboutViewController {
 //            textView.heightAnchor.constraint(equalToConstant: self.view.frame.height / 2)
         ])
         textView.delegate = self
+        
+        videoView.addSubview(videoContainer)
+        NSLayoutConstraint.activate([
+            videoContainer.topAnchor.constraint(equalTo: videoView.topAnchor),
+            videoContainer.bottomAnchor.constraint(equalTo: videoView.bottomAnchor),
+            videoContainer.leadingAnchor.constraint(equalTo: videoView.leadingAnchor),
+            videoContainer.trailingAnchor.constraint(equalTo: videoView.trailingAnchor)
+        ])
+        
+        videoView.addSubview(playPauseButton)
+        playPauseButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            playPauseButton.heightAnchor.constraint(equalToConstant: 100),
+            playPauseButton.widthAnchor.constraint(equalToConstant: 100),
+            playPauseButton.centerXAnchor.constraint(equalTo: videoView.centerXAnchor),
+            playPauseButton.centerYAnchor.constraint(equalTo: videoView.centerYAnchor)
+        ])
+        
+        let fooretView = CustomFooterView()
+        fooretView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(fooretView)
+        
+        NSLayoutConstraint.activate([
+            fooretView.heightAnchor.constraint(equalToConstant: 200),
+            fooretView.widthAnchor.constraint(equalToConstant: self.view.frame.width),
+            fooretView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            fooretView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            fooretView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+        ])
     }
 
     private func configure(_ model: AboutModel) {
@@ -211,3 +270,8 @@ extension AboutViewController: UIScrollViewDelegate {
     }
 }
 
+extension AVPlayer {
+    var isPLaying: Bool {
+        return rate == 1
+    }
+}
