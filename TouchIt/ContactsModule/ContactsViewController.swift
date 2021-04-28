@@ -43,6 +43,17 @@ extension ContactsViewController {
         table.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         ])
         
+        let fooretView = CustomFooterView(height: 200, width: self.view.frame.width)
+        fooretView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(fooretView)
+        
+        NSLayoutConstraint.activate([
+            fooretView.heightAnchor.constraint(equalToConstant: 100),
+            fooretView.widthAnchor.constraint(equalToConstant: self.view.frame.width),
+            fooretView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            fooretView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+        ])
+        
         self.table.dataSource = self
         self.table.delegate = self
     }

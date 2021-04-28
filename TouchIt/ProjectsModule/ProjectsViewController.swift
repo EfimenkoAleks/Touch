@@ -75,6 +75,17 @@ extension ProjectsViewController {
 //            self.collection.heightAnchor.constraint(equalToConstant: self.view.frame.height / 4 * 3)
         ])
         
+        let fooretView = CustomFooterView(height: 200, width: self.view.frame.width)
+        fooretView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(fooretView)
+        
+        NSLayoutConstraint.activate([
+            fooretView.heightAnchor.constraint(equalToConstant: 100),
+            fooretView.widthAnchor.constraint(equalToConstant: self.view.frame.width),
+            fooretView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            fooretView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+        ])
+        
         self.collection.dataSource = self
         self.collection.delegate = self
     }

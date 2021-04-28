@@ -9,8 +9,19 @@ import UIKit
 
 class CustomFooterView: UIView {
     
+    private var height: CGFloat
+    private var  width: CGFloat
+    
     override init(frame: CGRect) {
+        self.height = 0
+        self.width = 0
         super.init(frame: frame)
+    }
+    
+    convenience init(height: CGFloat, width: CGFloat) {
+        self.init()
+        self.height = height
+        self.width = width
         
         self.setupGtadient()
     }
@@ -21,22 +32,15 @@ class CustomFooterView: UIView {
     
     func setupGtadient() {
         
-        let maskedView = UIView()
-        maskedView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-          
-            maskedView.topAnchor.constraint(equalTo: topAnchor),
-            maskedView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            maskedView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            maskedView.trailingAnchor.constraint(equalTo: trailingAnchor)
-        ])
-        maskedView.backgroundColor = .blue
+        let maskedView = UIView(frame: CGRect(x: 0, y: 0, width: self.width, height: self.height))
+       
+        maskedView.backgroundColor = .black
         
         let gradientMaskLayer = CAGradientLayer()
         gradientMaskLayer.frame = maskedView.bounds
         
-        gradientMaskLayer.colors = [UIColor.clear.cgColor, UIColor.white.cgColor, UIColor.white.cgColor, UIColor.clear.cgColor]
-        gradientMaskLayer.locations = [0, 0.1, 0.9, 1]
+        gradientMaskLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor, UIColor.black.cgColor]
+        gradientMaskLayer.locations = [0, 0.7, 1]
         
         maskedView.layer.mask = gradientMaskLayer
         addSubview(maskedView)

@@ -142,6 +142,18 @@ extension ServiceCategoryViewController {
             textView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             textView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4)
         ])
+        
+        let fooretView = CustomFooterView(height: 200, width: self.view.frame.width)
+        fooretView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(fooretView)
+        
+        NSLayoutConstraint.activate([
+            fooretView.heightAnchor.constraint(equalToConstant: 100),
+            fooretView.widthAnchor.constraint(equalToConstant: self.view.frame.width),
+            fooretView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            fooretView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+        ])
+        
         textView.delegate = self
     }
     

@@ -224,16 +224,15 @@ extension AboutViewController {
             playPauseButton.centerYAnchor.constraint(equalTo: videoView.centerYAnchor)
         ])
         
-        let fooretView = CustomFooterView()
+        let fooretView = CustomFooterView(height: 200, width: self.view.frame.width)
         fooretView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(fooretView)
         
         NSLayoutConstraint.activate([
-            fooretView.heightAnchor.constraint(equalToConstant: 200),
+            fooretView.heightAnchor.constraint(equalToConstant: 100),
             fooretView.widthAnchor.constraint(equalToConstant: self.view.frame.width),
             fooretView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-            fooretView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            fooretView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+            fooretView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
         ])
     }
 
