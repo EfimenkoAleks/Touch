@@ -22,6 +22,7 @@ class CustomFooterView: UIView {
         self.init()
         self.height = height
         self.width = width
+        isUserInteractionEnabled = false
         
         self.setupGtadient()
     }

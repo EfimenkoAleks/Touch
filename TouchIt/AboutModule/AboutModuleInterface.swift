@@ -24,6 +24,6 @@ protocol AboutModuleRouterProtocol {
     func goToSecondScreen()
 }
 
-protocol TouchButtonDelegate {
+protocol TouchButtonDelegate: class {
     func touch(touch: Bool)
 }

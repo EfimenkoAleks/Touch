@@ -27,7 +27,15 @@ class ProjectsViewController: UIViewController {
         self.view.backgroundColor = .black
         
         self.createCollection()
-        
+        self.createNavigation()
+        self.createSearchController()
+        self.presenter.fetchProject()
+    }
+}
+
+extension ProjectsViewController {
+    
+    private func createSearchController() {
         // Setup the Seatch Controller
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -37,12 +45,14 @@ class ProjectsViewController: UIViewController {
         searchController.searchBar.barTintColor = .white
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        
-        self.presenter.fetchProject()
     }
-}
+    
+    private func createNavigation() {
+        let navigationBarAppearance = self.navigationController!.navigationBar
+        navigationBarAppearance.setBackgroundImage(UIImage(), for: .default)
+        navigationBarAppearance.setBackgroundImage(UIImage(), for: .compact)
 
-extension ProjectsViewController {
+    }
     
     private func createCollection() {
         

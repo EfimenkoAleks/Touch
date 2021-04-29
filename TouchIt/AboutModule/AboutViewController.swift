@@ -16,7 +16,7 @@ class AboutViewController: UIViewController {
 //    private var playerStatusObserver: NSKeyValueObservation?
     static var reuseId: String = "AboutViewController"
     let playPauseButton = PlayPauseButton()
-    var delegate: TouchButtonDelegate?
+    weak var delegate: TouchButtonDelegate?
    
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -200,8 +200,8 @@ extension AboutViewController {
         
         NSLayoutConstraint.activate([
             textView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 14),
- //           textView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            textView.widthAnchor.constraint(equalToConstant: self.view.frame.width),
+            textView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+//            textView.widthAnchor.constraint(equalToConstant: self.view.frame.width),
             textView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 8),
 //            textView.heightAnchor.constraint(equalToConstant: self.view.frame.height / 2)
         ])

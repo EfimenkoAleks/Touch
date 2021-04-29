@@ -51,7 +51,7 @@ class ProjectPageViewController: UIPageViewController {
             let imageTemp2 = imageSend.withRenderingMode(.alwaysTemplate)
             let send = UIBarButtonItem(image: imageTemp2, style: .plain, target: self, action: #selector(ProjectPageViewController.sendPhoto))
         send.tintColor = .white
-            
+
             self.navigationItem.rightBarButtonItem = send
         }
     
